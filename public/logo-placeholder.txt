@@ -1,0 +1,15 @@
+DYRATEK LOGO PLACEHOLDER
+========================
+
+The original DYRATEK logo asset was not found in the project.
+
+Per the directive: "If the logo is unavailable, request it before implementing the final branded header."
+
+The current implementation uses a text-based logotype as a temporary placeholder:
+- Font: Outfit (Extra Bold)
+- Color: Dark Forest Green (#123D32)
+- Accompanied by a red accent pip
+
+TO COMPLETE: Replace this placeholder with the original DYRATEK logo SVG/PNG file.
+Place the original logo file at: public/dyratek-logo.svg (or .png)
+

@@ -1,0 +1,1451 @@
+<!DOCTYPE html><html lang="en"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>DYRATEK — Digital Technology, AI &amp; Business Solutions</title>
+<!-- Fonts: Outfit (Headings), Inter (Body), JetBrains Mono (Technical Labels/States) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with form & container query plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#F4F1E9",                /* Dominant Pearl White (75-80%) */
+            "surface-dim": "#ECE8DF",
+            "surface-container-low": "#F4F1E9",
+            "surface-container": "#ECE8DF",
+            "surface-container-high": "#E5E2DA",
+            "surface-container-highest": "#DDD9D0",
+            primary: "#123D32",                /* Dark Forest Green */
+            "primary-dark": "#0A261F",
+            "primary-container": "#1E5245",
+            "on-primary": "#F4F1E9",
+            "on-primary-container": "#A5D6C6",
+            secondary: "#C83B35",              /* Accent Red (<5%) */
+            "secondary-light": "#E0534C",
+            "on-secondary": "#FFFFFF",
+            "on-surface": "#2A2A2A",            /* Charcoal for supporting copy & dark tones */
+            "on-surface-variant": "#4A4D4A",
+            outline: "#76807B",
+            "outline-variant": "#E5E2DA",
+            hairline: "#E5E2DA",               /* Ash hairline borders */
+            charcoal: "#2A2A2A",
+            pearl: "#F4F1E9",
+            ash: "#E5E2DA"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            heading: ["Outfit", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+            body: ["Inter", "sans-serif"]
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "gutter-desktop": "2.5rem",
+            "margin": "1.25rem",
+            "margin-desktop": "4rem"
+          },
+          animation: {
+            'float-slow': 'float 8s ease-in-out infinite',
+            'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
+            'marquee': 'marquee 28s linear infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-10px) rotate(0.8deg)' }
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.85' }
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #F4F1E9;
+        color: #2A2A2A;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+    ::selection {
+      background-color: #123D32;
+      color: #F4F1E9;
+    }
+    /* Architectural Hairline Grids */
+    .grid-lines {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(229, 226, 218, 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 226, 218, 0.6) 1px, transparent 1px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 4px;
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #E5E2DA;
+    }
+    /* Service card hover micro-transition */
+    .service-card {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #123D32;
+    }
+    .service-card:hover .service-arrow {
+      transform: translateX(4px);
+    }
+    .service-card:hover .service-icon {
+      transform: rotate(6deg) scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-[#F4F1E9] text-charcoal antialiased overflow-x-hidden">
+<!-- =========================================================================
+       NAVIGATION BAR
+       Minimal, Swiss structured header with precision red status pip
+       ========================================================================= -->
+<header class="fixed top-0 left-0 right-0 w-full z-40 bg-[#F4F1E9]/90 backdrop-blur-md border-b border-[#E5E2DA]">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop h-20 flex items-center justify-between">
+<!-- Brand Logotype -->
+<a class="flex items-center gap-3 group" href="#">
+<span class="font-heading font-extrabold text-2xl tracking-tight text-primary transition-colors group-hover:text-primary-dark">DYRATEK</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
+<span class="font-mono text-[10px] tracking-widest uppercase text-outline hidden sm:inline-block">DIGITAL • AI • SOLUTIONS</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden lg:flex items-center gap-8">
+<a class="font-mono text-xs uppercase tracking-wider text-charcoal hover:text-primary transition-colors flex items-center gap-1.5" href="#services">
+<span class="">Services</span>
+<span class="text-[10px] px-1.5 py-0.5 bg-[#E5E2DA] text-primary font-mono font-semibold">14</span>
+</a>
+<a class="font-mono text-xs uppercase tracking-wider text-charcoal hover:text-primary transition-colors" href="#capabilities">Capabilities</a>
+<a class="font-mono text-xs uppercase tracking-wider text-charcoal hover:text-primary transition-colors" href="#methodology">Methodology</a>
+<a class="font-mono text-xs uppercase tracking-wider text-charcoal hover:text-primary transition-colors" href="#engagements">Work</a>
+<a class="font-mono text-xs uppercase tracking-wider text-charcoal hover:text-primary transition-colors" href="#insights">Insights</a>
+</nav>
+<!-- Action Area -->
+<div class="flex items-center gap-3">
+<!-- Motion Spec Drawer Trigger Button -->
+<button class="inline-flex items-center gap-1.5 text-xs font-mono border border-[#E5E2DA] bg-[#F4F1E9] px-3 py-2 text-charcoal hover:text-primary hover:border-primary/40 transition-colors" id="motion-spec-btn" title="View Motion Architecture &amp; Interaction Specification" type="button">
+<span class="material-symbols-outlined text-[15px] text-secondary">motion_photos_auto</span>
+<span class="uppercase tracking-wider text-[11px] font-medium hidden sm:inline">Motion Spec</span>
+</button>
+<a class="inline-flex items-center gap-2 bg-primary text-[#F4F1E9] font-mono text-xs uppercase tracking-wider px-5 py-2.5 hover:bg-primary-dark transition-all duration-200" href="#contact-briefing">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">Start a Project</span>
+</a>
+</div>
+</div>
+</header>
+<!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+<main class="w-full pt-20">
+<!-- =========================================================================
+         HERO SECTION
+         Headline: "Technology that moves business forward."
+         Geometric Intersecting Architectural Composition with 4 Nodes
+         ========================================================================= -->
+<section class="relative w-full overflow-hidden bg-[#F4F1E9] py-16 lg:py-24 border-b border-[#E5E2DA]">
+<!-- Section Index Meta Line -->
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop mb-8 lg:mb-12">
+<div class="flex flex-wrap items-center justify-between pb-4 border-b border-[#E5E2DA] font-mono text-xs text-outline">
+<div class="flex items-center gap-2.5">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="text-primary font-semibold tracking-wider uppercase">01 // DIGITAL TRANSFORMATION PARTNER</span>
+<span class="text-[#E5E2DA]">|</span>
+<span class="tracking-widest uppercase hidden sm:inline">END-TO-END PRODUCT FOUNDRY</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>4 CORE PILLARS</span>
+<span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>14 FULL-STACK SERVICES</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<!-- Column Left: Editorial Typography & Dual CTAs -->
+<div class="lg:col-span-7 flex flex-col justify-center">
+<div class="inline-flex items-center gap-2 mb-4">
+<span class="px-2.5 py-1 bg-[#ECE8DF] font-mono text-[11px] uppercase tracking-widest text-primary font-semibold border border-[#E5E2DA]">
+              AI • ENGINEERING • STRATEGY • GROWTH
+            </span>
+</div>
+<h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-[68px] leading-[1.04] tracking-[-0.03em] text-primary uppercase mb-6">
+            Technology<br>
+            that moves<br>
+<span class="text-primary/75">business</span> forward.
+          </h1>
+<p class="font-body text-base lg:text-lg text-charcoal max-w-xl mb-10 leading-relaxed">
+            We design and engineer digital products, intelligent systems, and connected business solutions that help organisations innovate, automate, and grow.
+          </p>
+<!-- Dual CTAs -->
+<div class="flex flex-wrap items-center gap-4">
+<a class="inline-flex items-center justify-center gap-2.5 bg-primary text-[#F4F1E9] font-mono text-xs uppercase tracking-wider px-7 py-4 hover:bg-primary-dark transition-all duration-200 shadow-sm group" href="#services">
+<span class="">Explore Services</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2.5 bg-[#ECE8DF] text-primary border border-[#E5E2DA] font-mono text-xs uppercase tracking-wider px-7 py-4 hover:bg-[#E5E2DA] transition-colors" href="#contact-briefing">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="">Start a Project</span>
+</a>
+</div>
+<!-- Value Proposition Metric Strip -->
+<div class="grid grid-cols-3 gap-4 lg:gap-6 mt-12 pt-6 border-t border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl lg:text-3xl text-primary">Full-Stack</div>
+<div class="font-mono text-[11px] uppercase text-outline tracking-wider mt-0.5">End-to-End Delivery</div>
+</div>
+<div>
+<div class="font-heading font-bold text-2xl lg:text-3xl text-primary">Autonomous</div>
+<div class="font-mono text-[11px] uppercase text-outline tracking-wider mt-0.5">Connected Workflows</div>
+</div>
+<div>
+<div class="font-heading font-bold text-2xl lg:text-3xl text-primary">Unified</div>
+<div class="font-mono text-[11px] uppercase text-outline tracking-wider mt-0.5">Brand &amp; Tech Systems</div>
+</div>
+</div>
+</div>
+<!-- Column Right: Abstract Geometric Composition (Convergence Visual) -->
+<div class="lg:col-span-5 relative mt-8 lg:mt-0">
+<div class="relative w-full aspect-square bg-[#ECE8DF] border border-[#E5E2DA] p-6 flex flex-col justify-between overflow-hidden shadow-sm">
+<div class="absolute inset-0 grid-lines opacity-60 pointer-events-none"></div>
+<!-- Top composition meta tag -->
+<div class="relative z-10 flex justify-between items-center text-outline font-mono text-[10px] uppercase tracking-widest pb-3 border-b border-[#E5E2DA]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-primary font-bold">NEXUS // CONVERGENCE FRAME</span>
+</div>
+<span class="">4-DIMENSIONAL MATRIX</span>
+</div>
+<!-- Centered Vector Synthesis Visual -->
+<div class="relative z-10 my-auto w-full aspect-[4/3] flex items-center justify-center">
+<svg class="w-full h-full max-h-72" fill="none" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="gradPrimary" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#123D32" stop-opacity="0.14"></stop>
+<stop offset="100%" stop-color="#123D32" stop-opacity="0.02"></stop>
+</linearGradient>
+</defs>
+<!-- Architectural Plane 1: Build (Top Isometric Polygon) -->
+<polygon class="animate-pulse-subtle" fill="url(#gradPrimary)" points="120,60 340,60 380,120 160,120" stroke="#123D32" stroke-dasharray="2 2" stroke-width="1.2"></polygon>
+<!-- Architectural Plane 2: Center Plane -->
+<polygon fill="#F4F1E9" fill-opacity="0.85" points="90,140 280,110 370,180 180,210" stroke="#123D32" stroke-width="1.5"></polygon>
+<!-- Dynamic Vector Bezier Curve A: Engineering to AI Flow -->
+<path d="M 60,250 C 130,280 170,100 280,110 S 390,200 420,130" fill="none" stroke="#123D32" stroke-width="2"></path>
+<!-- Dynamic Vector Bezier Curve B: Creative to Automation -->
+<path d="M 70,100 C 140,40 220,240 330,220 S 380,80 410,240" fill="none" stroke="#C83B35" stroke-dasharray="4 3" stroke-width="1.5"></path>
+<!-- Layered Geometric Precision Rings -->
+<circle cx="230" cy="170" r="75" stroke="#E5E2DA" stroke-width="1.5"></circle>
+<circle cx="230" cy="170" r="115" stroke="#123D32" stroke-opacity="0.25" stroke-width="1"></circle>
+<!-- Active Connected Nodes (4 Pillars) -->
+<g>
+<circle cx="120" cy="90" fill="#123D32" r="7"></circle>
+<circle cx="120" cy="90" r="14" stroke="#123D32" stroke-opacity="0.4" stroke-width="1"></circle>
+<text fill="#123D32" font-family="'JetBrains Mono'" font-size="9" font-weight="700" x="100" y="75">01.BUILD</text>
+</g>
+<g>
+<circle cx="280" cy="110" fill="#C83B35" r="7"></circle>
+<circle cx="280" cy="110" r="14" stroke="#C83B35" stroke-opacity="0.4" stroke-width="1"></circle>
+<text fill="#C83B35" font-family="'JetBrains Mono'" font-size="9" font-weight="700" x="295" y="105">02.INTELLIGENCE</text>
+</g>
+<g>
+<circle cx="180" cy="210" fill="#123D32" r="7"></circle>
+<circle cx="180" cy="210" r="14" stroke="#123D32" stroke-opacity="0.4" stroke-width="1"></circle>
+<text fill="#123D32" font-family="'JetBrains Mono'" font-size="9" font-weight="700" x="125" y="235">03.AUTOMATE</text>
+</g>
+<g>
+<circle cx="340" cy="220" fill="#123D32" r="7"></circle>
+<circle cx="340" cy="220" r="14" stroke="#123D32" stroke-opacity="0.4" stroke-width="1"></circle>
+<text fill="#123D32" font-family="'JetBrains Mono'" font-size="9" font-weight="700" x="320" y="248">04.CREATE &amp; GROW</text>
+</g>
+<!-- Central Synthesis Vector Intersect -->
+<circle cx="230" cy="170" fill="#C83B35" r="4"></circle>
+<line stroke="#123D32" stroke-opacity="0.25" stroke-width="0.75" x1="120" x2="280" y1="90" y2="110"></line>
+<line stroke="#123D32" stroke-opacity="0.25" stroke-width="0.75" x1="280" x2="340" y1="110" y2="220"></line>
+<line stroke="#123D32" stroke-opacity="0.25" stroke-width="0.75" x1="340" x2="180" y1="220" y2="210"></line>
+<line stroke="#123D32" stroke-opacity="0.25" stroke-width="0.75" x1="180" x2="120" y1="210" y2="90"></line>
+</svg>
+</div>
+<!-- Bottom Readout Bar -->
+<div class="relative z-10 pt-3 border-t border-[#E5E2DA] flex items-center justify-between text-charcoal font-mono text-[10px]">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+                SYNTHESIS ENGINE: ACTIVE
+              </span>
+<span class="text-outline">SYSTEM MATRIX: COMPLETE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         TECH ECOSYSTEM MARQUEE
+         ========================================================================= -->
+<div class="w-full bg-[#ECE8DF] border-b border-[#E5E2DA] overflow-hidden py-3">
+<div class="flex items-center whitespace-nowrap animate-marquee">
+<div class="flex items-center gap-8 font-mono text-xs text-charcoal font-medium tracking-wider uppercase mx-4">
+<span class="text-primary font-bold">NEXT.JS 15</span>
+<span class="text-secondary">•</span>
+<span class="">REACT NATIVE</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">PYTHON</span>
+<span class="text-secondary">•</span>
+<span class="">PYTORCH</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">LANGCHAIN &amp; LLMS</span>
+<span class="text-secondary">•</span>
+<span class="">TAILWIND CSS</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">SUPABASE &amp; POSTGRES</span>
+<span class="text-secondary">•</span>
+<span class="">FIGMA DESIGN SYSTEMS</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">SHOPIFY HEADLESS</span>
+<span class="text-secondary">•</span>
+<span class="">NODE.JS &amp; GO</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">AUTOMATED WEBHOOKS</span>
+<span class="text-secondary">•</span>
+</div>
+<div class="flex items-center gap-8 font-mono text-xs text-charcoal font-medium tracking-wider uppercase mx-4">
+<span class="text-primary font-bold">NEXT.JS 15</span>
+<span class="text-secondary">•</span>
+<span class="">REACT NATIVE</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">PYTHON</span>
+<span class="text-secondary">•</span>
+<span class="">PYTORCH</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">LANGCHAIN &amp; LLMS</span>
+<span class="text-secondary">•</span>
+<span class="">TAILWIND CSS</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">SUPABASE &amp; POSTGRES</span>
+<span class="text-secondary">•</span>
+<span class="">FIGMA DESIGN SYSTEMS</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">SHOPIFY HEADLESS</span>
+<span class="text-secondary">•</span>
+<span class="">NODE.JS &amp; GO</span>
+<span class="text-secondary">•</span>
+<span class="text-primary font-bold">AUTOMATED WEBHOOKS</span>
+<span class="text-secondary">•</span>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+         SECTION 02: BRAND THESIS (CORE PHILOSOPHY)
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Column Left: Positioning Label -->
+<div class="lg:col-span-3">
+<div class="sticky top-28 space-y-4">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-primary font-bold">02 / CORE PHILOSOPHY</span>
+</div>
+<h3 class="font-heading font-bold text-xl uppercase text-primary">The Modern Delivery Model</h3>
+<p class="font-body text-xs text-charcoal leading-relaxed">
+              Transforming complex challenges into scalable digital systems through strict engineering discipline, applied artificial intelligence, and strategic design.
+            </p>
+<div class="p-3 bg-[#ECE8DF] border-l-2 border-secondary font-mono text-[10px] text-outline space-y-1">
+<div class="">DELIVERY PARADIGM: INTEGRATED</div>
+<div class="">METHOD: MULTI-DISCIPLINARY SQUADS</div>
+<div class="">OUTCOME: SUSTAINED BUSINESS IMPACT</div>
+</div>
+</div>
+</div>
+<!-- Column Right: Editorial Manifesto -->
+<div class="lg:col-span-9 flex flex-col justify-between">
+<blockquote class="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl text-primary tracking-tight leading-snug">
+            “Where <span class="bg-primary text-[#F4F1E9] px-2.5 py-0.5 inline-block">product engineering</span> meets artificial intelligence and measurable business growth. We partner with ambitious companies to replace fragmented workflows with <span class="text-secondary font-bold underline decoration-secondary underline-offset-8">cohesive digital ecosystems</span> designed for long-term scale.”
+          </blockquote>
+<div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-[#E5E2DA]">
+<div>
+<div class="font-mono text-xs uppercase tracking-wider text-primary font-bold mb-1.5">01. FULL SPECTRUM CAPABILITY</div>
+<p class="font-body text-xs text-charcoal leading-relaxed">From cloud-native web architectures and mobile native apps to bespoke AI models and lead generation funnels.</p>
+</div>
+<div>
+<div class="font-mono text-xs uppercase tracking-wider text-primary font-bold mb-1.5">02. APPLIED AI &amp; AUTOMATION</div>
+<p class="font-body text-xs text-charcoal leading-relaxed">Pragmatic, high-utility intelligence—connecting enterprise CRMs, WhatsApp pipelines, and autonomous agent loops.</p>
+</div>
+<div>
+<div class="font-mono text-xs uppercase tracking-wider text-primary font-bold mb-1.5">03. COMMERCIALLY ALIGNED</div>
+<p class="font-body text-xs text-charcoal leading-relaxed">Every sprint, interface component, and campaign pipeline is engineered to convert demand and unlock operational margin.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 03: SERVICES TAXONOMY (CORRECT 14 SERVICES: 4-3-2-5 STRUCTURE)
+         1. BUILD (4): Web Dev, App Dev, E-commerce Solutions, Digital Solutions
+         2. INTELLIGENCE (3): AI Solutions, AI & ML, Data & Analytics
+         3. AUTOMATE (2): Business Automation, Email & WhatsApp Marketing
+         4. CREATE & GROW (5): UI/UX Design, Creative & Video, Digital Marketing, Performance Marketing, Content & Copywriting
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="services">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<!-- Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-secondary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">03 / SERVICE TAXONOMY (14 SERVICES)</span>
+</div>
+<h2 class="font-heading font-bold text-3xl lg:text-4xl text-primary uppercase tracking-tight">
+            Four Pillars. Fourteen Services.
+          </h2>
+</div>
+<p class="font-body text-sm text-charcoal max-w-md mt-4 md:mt-0 leading-relaxed">
+          Accurate service taxonomy across four integrated domains: engineering, machine intelligence, business automation, and growth marketing.
+        </p>
+</div>
+<!-- 4 Pillars Grid (4-3-2-5 Architecture) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- PILLAR 01: BUILD (4 SERVICES) -->
+<div class="service-card flex flex-col justify-between bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] group">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-outline uppercase font-semibold">PILLAR // 01</span>
+<span class="material-symbols-outlined text-primary text-xl service-icon transition-transform">layers</span>
+</div>
+<h3 class="font-heading font-bold text-xl uppercase text-primary mb-2">01. Build</h3>
+<p class="font-body text-xs text-charcoal mb-6 leading-relaxed">
+              Foundational digital products engineered with modern frameworks, high performance, and responsive precision.
+            </p>
+<div class="space-y-3.5 border-t border-[#E5E2DA] pt-4">
+<!-- Service 01 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Web Development</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">01</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Websites • Web Apps • E-commerce</p>
+</div>
+<!-- Service 02 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">App Development</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">02</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">iOS • Android • Cross-platform</p>
+</div>
+<!-- Service 03 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">E-commerce Solutions</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">03</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Shopify • WooCommerce • Custom Stores</p>
+</div>
+<!-- Service 04 -->
+<div class="pb-1">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Digital Solutions</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">04</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Custom Software • End-to-End Solutions</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-primary uppercase">
+<span class="font-semibold">4 Services</span>
+<span class="service-arrow transition-transform">→</span>
+</div>
+</div>
+<!-- PILLAR 02: INTELLIGENCE (3 SERVICES) -->
+<div class="service-card flex flex-col justify-between bg-[#F4F1E9] p-6 border-t-2 border-secondary border border-[#E5E2DA] group">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-secondary uppercase font-bold">PILLAR // 02</span>
+<span class="material-symbols-outlined text-secondary text-xl service-icon transition-transform">psychology</span>
+</div>
+<h3 class="font-heading font-bold text-xl uppercase text-primary mb-2">02. Intelligence</h3>
+<p class="font-body text-xs text-charcoal mb-6 leading-relaxed">
+              Applied artificial intelligence, tailored machine learning models, and deep data analytics pipelines.
+            </p>
+<div class="space-y-3.5 border-t border-[#E5E2DA] pt-4">
+<!-- Service 05 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">AI Solutions</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">05</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">AI Agents • Chatbots • Automation • AI Models</p>
+</div>
+<!-- Service 06 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">AI &amp; Machine Learning</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">06</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Custom Models • Computer Vision • NLP • Gen AI</p>
+</div>
+<!-- Service 07 -->
+<div class="pb-1">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Data &amp; Analytics</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">07</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Dashboards • BI • Data Eng • Predictive</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-secondary uppercase font-bold">
+<span class="">3 Services</span>
+<span class="service-arrow transition-transform">→</span>
+</div>
+</div>
+<!-- PILLAR 03: AUTOMATE (2 SERVICES) -->
+<div class="service-card flex flex-col justify-between bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] group">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-outline uppercase font-semibold">PILLAR // 03</span>
+<span class="material-symbols-outlined text-primary text-xl service-icon transition-transform">sync_alt</span>
+</div>
+<h3 class="font-heading font-bold text-xl uppercase text-primary mb-2">03. Automate</h3>
+<p class="font-body text-xs text-charcoal mb-6 leading-relaxed">
+              Operational automation and synchronized conversational communication loops that streamline business flow.
+            </p>
+<div class="space-y-3.5 border-t border-[#E5E2DA] pt-4">
+<!-- Service 08 -->
+<div class="pb-3 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Business Automation</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">08</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">CRM Integrations • Automated Workflows</p>
+</div>
+<!-- Service 09 (Correct taxonomy: Email & WhatsApp Marketing in Automate) -->
+<div class="pb-1">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Email &amp; WhatsApp Marketing</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">09</span>
+</div>
+<p class="font-mono text-[11px] text-outline mt-0.5">Campaigns • Automation • Lifecycle Messaging</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-primary uppercase">
+<span class="font-semibold">2 Services</span>
+<span class="service-arrow transition-transform">→</span>
+</div>
+</div>
+<!-- PILLAR 04: CREATE & GROW (5 SERVICES) -->
+<div class="service-card flex flex-col justify-between bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] group">
+<div>
+<div class="flex justify-between items-center mb-6">
+<span class="font-mono text-xs text-outline uppercase font-semibold">PILLAR // 04</span>
+<span class="material-symbols-outlined text-primary text-xl service-icon transition-transform">hub</span>
+</div>
+<h3 class="font-heading font-bold text-xl uppercase text-primary mb-2">04. Create &amp; Grow</h3>
+<p class="font-body text-xs text-charcoal mb-6 leading-relaxed">
+              High-fidelity user interface systems, multimedia production, and full-funnel digital marketing execution.
+            </p>
+<div class="space-y-3 border-t border-[#E5E2DA] pt-4">
+<!-- Service 10 -->
+<div class="pb-2.5 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">UI/UX Design</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">10</span>
+</div>
+<p class="font-mono text-[10px] text-outline">Figma • Prototypes • Product Systems</p>
+</div>
+<!-- Service 11 -->
+<div class="pb-2.5 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Creative &amp; Video</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">11</span>
+</div>
+<p class="font-mono text-[10px] text-outline">Video Editing • Reels • Motion • Ads</p>
+</div>
+<!-- Service 12 -->
+<div class="pb-2.5 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Digital Marketing</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">12</span>
+</div>
+<p class="font-mono text-[10px] text-outline">Meta Ads • Google Ads • SEO • Social</p>
+</div>
+<!-- Service 13 -->
+<div class="pb-2.5 border-b border-[#E5E2DA]/70">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Performance Marketing</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">13</span>
+</div>
+<p class="font-mono text-[10px] text-outline">Lead Gen • Retargeting • Paid Media</p>
+</div>
+<!-- Service 14 -->
+<div class="pb-1">
+<div class="flex items-center justify-between text-xs font-heading font-bold text-primary">
+<span class="">Content &amp; Copywriting</span>
+<span class="font-mono text-[10px] text-secondary font-semibold">14</span>
+</div>
+<p class="font-mono text-[10px] text-outline">Blogs • Web Copy • Ad Scripts</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-primary uppercase">
+<span class="font-semibold">5 Services</span>
+<span class="service-arrow transition-transform">→</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 04: CAPABILITIES & SYSTEM MODULES (ILLUSTRATIVE CONCEPTS)
+         Labelled with clear badge: "ILLUSTRATIVE INTERFACE CONCEPT — NON-PRODUCTION SIMULATION"
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="capabilities">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-6 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-primary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">04 / CAPABILITY ARCHITECTURE</span>
+</div>
+<h2 class="font-heading font-bold text-3xl lg:text-4xl text-primary uppercase tracking-tight">
+            System &amp; Interface Prototypes
+          </h2>
+</div>
+<div class="flex items-center gap-2 font-mono text-xs text-outline mt-4 md:mt-0">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-semibold text-secondary">ILLUSTRATIVE INTERFACE CONCEPT — NON-PRODUCTION SIMULATION</span>
+</div>
+</div>
+<!-- Bento Grid of Interactive Tangible Products -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- MODULE 1: Modern SaaS Web & Mobile Interface (7 Col) -->
+<div class="lg:col-span-7 bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
+<div>
+<span class="font-mono text-[10px] uppercase text-secondary font-bold">MODULE 01 // INTERFACE FRAMEWORK</span>
+<h3 class="font-heading font-bold text-lg text-primary mt-1">Multi-Platform SaaS Web &amp; Mobile Workspace</h3>
+</div>
+<span class="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-primary font-bold">CONCEPT SIMULATION</span>
+</div>
+<!-- Designed SaaS Preview Card -->
+<div class="bg-[#ECE8DF] border border-[#E5E2DA] p-4 space-y-3">
+<!-- Browser Chrome Header -->
+<div class="flex items-center justify-between pb-2 border-b border-[#E5E2DA] text-outline font-mono text-[10px]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E5E2DA]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E5E2DA]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E5E2DA]"></span>
+<span class="ml-2 text-charcoal font-medium">prototype.dyratek.internal/workspace</span>
+</div>
+<span class="text-primary font-bold">ARCHETYPE V1.0</span>
+</div>
+<!-- Internal UI Layout Mockup -->
+<div class="grid grid-cols-12 gap-3 pt-1">
+<div class="col-span-3 bg-[#F4F1E9] p-2.5 border border-[#E5E2DA] space-y-2 font-mono text-[10px]">
+<div class="font-bold text-primary pb-1 border-b border-[#E5E2DA]">PROJECTS</div>
+<div class="text-primary font-medium flex items-center justify-between bg-[#ECE8DF] px-1.5 py-1">
+<span class="">Commerce</span>
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+</div>
+<div class="text-charcoal px-1.5 py-0.5">Analytics</div>
+<div class="text-charcoal px-1.5 py-0.5">Automation</div>
+<div class="text-charcoal px-1.5 py-0.5">Settings</div>
+</div>
+<div class="col-span-9 bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-3">
+<div class="flex justify-between items-center">
+<div class="font-heading font-bold text-xs text-primary">Channel Activity Simulation</div>
+<span class="font-mono text-[9px] px-1.5 py-0.5 bg-primary text-[#F4F1E9]">NON-PRODUCTION SAMPLE DATA // ILLUSTRATIVE METRICS</span>
+</div>
+<div class="grid grid-cols-3 gap-2 font-mono">
+<div class="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
+<div class="text-[9px] text-outline">Simulated Orders</div>
+<div class="text-xs font-bold text-primary">1,482</div>
+</div>
+<div class="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
+<div class="text-[9px] text-outline">Conversion Band</div>
+<div class="text-xs font-bold text-primary">High</div>
+</div>
+<div class="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
+<div class="text-[9px] text-outline">API State</div>
+<div class="text-xs font-bold text-secondary">Synced</div>
+</div>
+</div>
+<!-- Vector Sparkline Graph -->
+<div class="h-14 w-full bg-[#ECE8DF] border border-[#E5E2DA] flex items-end p-1 gap-1">
+<div class="w-1/12 bg-primary/30 h-3"></div>
+<div class="w-1/12 bg-primary/40 h-5"></div>
+<div class="w-1/12 bg-primary/50 h-4"></div>
+<div class="w-1/12 bg-primary/60 h-8"></div>
+<div class="w-1/12 bg-primary/70 h-7"></div>
+<div class="w-1/12 bg-primary/80 h-10"></div>
+<div class="w-1/12 bg-primary/90 h-9"></div>
+<div class="w-1/12 bg-primary h-12"></div>
+<div class="w-1/12 bg-secondary h-11"></div>
+<div class="w-1/12 bg-primary h-10"></div>
+<div class="w-1/12 bg-primary h-13"></div>
+<div class="w-1/12 bg-primary h-12"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center font-mono text-[11px] text-outline pt-4 mt-4 border-t border-[#E5E2DA]">
+<span class="">ILLUSTRATIVE INTERFACE CONCEPT</span>
+<span class="text-primary font-medium">NON-PRODUCTION SIMULATION</span>
+</div>
+</div>
+<!-- MODULE 2: Enterprise AI Copilot / Conversational Workflow (5 Col) -->
+<div class="lg:col-span-5 bg-[#F4F1E9] p-6 border-t-2 border-secondary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
+<div>
+<span class="font-mono text-[10px] uppercase text-secondary font-bold">MODULE 02 // AGENT WORKFLOW</span>
+<h3 class="font-heading font-bold text-lg text-primary mt-1">Enterprise AI Copilot Prototype</h3>
+</div>
+<span class="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-secondary font-bold">PROTOTYPE ONLY</span>
+</div>
+<!-- Conversational Drawer Mockup -->
+<div class="bg-[#ECE8DF] border border-[#E5E2DA] p-3.5 space-y-3 font-mono text-xs">
+<div class="flex gap-2 items-start justify-end">
+<div class="bg-primary text-[#F4F1E9] p-2.5 max-w-[85%] text-[11px] leading-relaxed">
+                  "Synthesise sales queries from WhatsApp and generate a structured follow-up proposal in our CRM."
+                </div>
+</div>
+<div class="flex items-center gap-2 text-[10px] text-outline py-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="">Agent Loop: Querying Vector Knowledge Base • Parsing customer schema</span>
+</div>
+<div class="bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-2">
+<div class="flex items-center justify-between text-[10px] text-primary font-bold">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">smart_toy</span>
+                    DYRATEK AGENT FRAMEWORK
+                  </span>
+<span class="text-outline">SAMPLE EXECUTION</span>
+</div>
+<p class="font-body text-xs text-charcoal leading-normal">
+                  Extracted 28 sample inbound inquiries. WhatsApp dispatch schema validated with price tier attributes. CRM test payload updated to <em>Negotiation State</em>.
+                </p>
+<div class="pt-1.5 flex gap-2 font-mono text-[9px]">
+<span class="px-1.5 py-0.5 bg-[#ECE8DF] text-primary font-semibold border border-[#E5E2DA]">API: CRM UPDATED</span>
+<span class="px-1.5 py-0.5 bg-[#ECE8DF] text-secondary font-semibold border border-[#E5E2DA]">WHATSAPP: DISPATCHED</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between items-center font-mono text-[11px] text-outline pt-4 mt-4 border-t border-[#E5E2DA]">
+<span class="">STRICT RUNTIME GUARDRAILS</span>
+<span class="text-secondary font-bold">ILLUSTRATIVE INTERFACE CONCEPT</span>
+</div>
+</div>
+<!-- MODULE 3: BI & Analytics Dashboard (4 Col) -->
+<div class="lg:col-span-4 bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
+<div>
+<span class="font-mono text-[10px] uppercase text-outline font-semibold">MODULE 03 // DATA &amp; BI</span>
+<h3 class="font-heading font-bold text-lg text-primary mt-1">Real-Time BI Dashboard</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-lg">insights</span>
+</div>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Predictive telemetry framework turning cross-channel transactional events into actionable operational insights.
+            </p>
+<div class="space-y-3 p-3 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs">
+<div>
+<div class="flex justify-between text-[11px] mb-1">
+<span class="text-primary font-bold">PIPELINE VELOCITY</span>
+<span class="text-secondary font-bold">OPTIMIZED</span>
+</div>
+<div class="w-full bg-[#E5E2DA] h-1.5">
+<div class="bg-primary h-1.5 w-[76%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-1">
+<span class="text-primary font-bold">RETENTION COHORT</span>
+<span class="text-primary font-bold">STABLE</span>
+</div>
+<div class="w-full bg-[#E5E2DA] h-1.5">
+<div class="bg-primary-container h-1.5 w-[92%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] mb-1">
+<span class="text-primary font-bold">ATTRIBUTED ROAS</span>
+<span class="text-secondary font-bold">ELEVATED</span>
+</div>
+<div class="w-full bg-[#E5E2DA] h-1.5">
+<div class="bg-secondary h-1.5 w-[64%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="font-mono text-[10px] text-outline pt-4 mt-4 border-t border-[#E5E2DA]">DATA SOURCES: STRIPE • GA4 • CRM • META ADS // NON-PRODUCTION SAMPLE DATA</div>
+</div>
+<!-- MODULE 4: Automated Business Flow Diagram (5 Col) -->
+<div class="lg:col-span-5 bg-[#F4F1E9] p-6 border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
+<div>
+<span class="font-mono text-[10px] uppercase text-primary font-bold">MODULE 04 // AUTOMATION PIPELINE</span>
+<h3 class="font-heading font-bold text-lg text-primary mt-1">Automated Connected Business Flow</h3>
+</div>
+<span class="font-mono text-[10px] text-outline">AUTO DISPATCH</span>
+</div>
+<div class="grid grid-cols-3 gap-2 my-2 font-mono text-[10px]">
+<div class="p-2.5 bg-[#ECE8DF] border border-[#E5E2DA] flex flex-col justify-between">
+<span class="text-secondary font-bold">TRIGGER</span>
+<div class="font-bold text-primary mt-1">Lead Capture</div>
+<div class="text-outline text-[9px]">Web • Social</div>
+</div>
+<div class="p-2.5 bg-[#ECE8DF] border border-[#E5E2DA] flex flex-col justify-between">
+<span class="text-primary font-bold">STEP 02</span>
+<div class="font-bold text-primary mt-1">WhatsApp Hook</div>
+<div class="text-outline text-[9px]">Direct Notification</div>
+</div>
+<div class="p-2.5 bg-primary text-[#F4F1E9] flex flex-col justify-between">
+<span class="text-secondary-light font-bold">FULFILL</span>
+<div class="font-bold mt-1">ERP Commit</div>
+<div class="text-on-primary-container text-[9px]">Invoice Issued</div>
+</div>
+</div>
+<div class="p-2 bg-[#ECE8DF] text-charcoal font-mono text-[10px] border border-[#E5E2DA] mt-3">
+<span class="text-primary font-bold">PIPELINE DESIGN:</span> Eliminates manual administrative steps through deterministic API synchronization.
+            </div>
+</div>
+<div class="font-mono text-[10px] text-outline pt-4 mt-4 border-t border-[#E5E2DA] flex justify-between">
+<span class="">ZERO SCRIPT DRIFT</span>
+<span class="text-primary font-medium">REDUCES CYCLE FRICTION</span>
+</div>
+</div>
+<!-- MODULE 5: Creative Campaign & Motion Design (3 Col) -->
+<div class="lg:col-span-3 bg-[#F4F1E9] p-6 border-t-2 border-secondary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
+<div>
+<span class="font-mono text-[10px] uppercase text-secondary font-bold">MODULE 05 // CREATIVE</span>
+<h3 class="font-heading font-bold text-lg text-primary mt-1">Motion &amp; Video Creatives</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-lg">movie_filter</span>
+</div>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Conversion-focused short-form reels, 3D motion assets, and tailored dynamic campaigns for social distribution.
+            </p>
+<div class="aspect-video bg-primary flex flex-col justify-between p-3 relative overflow-hidden group">
+<div class="flex justify-between items-center text-[#F4F1E9] font-mono text-[9px]">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>PRORES MASTER</span>
+<span class="">9:16 &amp; 16:9</span>
+</div>
+<div class="text-center my-auto">
+<span class="material-symbols-outlined text-[#F4F1E9] text-2xl group-hover:scale-110 transition-transform">play_circle</span>
+<div class="text-[#F4F1E9] font-heading text-[11px] font-bold tracking-wider uppercase mt-1">Performance Reels</div>
+</div>
+<div class="w-full bg-white/20 h-1">
+<div class="bg-secondary h-1 w-2/3"></div>
+</div>
+</div>
+</div>
+<div class="font-mono text-[10px] text-outline pt-4 mt-4 border-t border-[#E5E2DA]">
+            DELIVERED: META, YOUTUBE &amp; TIKTOK ADS
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 05: METHODOLOGY (5-STAGE COLLABORATIVE BLUEPRINT)
+         Discover -> Design -> Build -> Launch -> Grow
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="methodology">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-secondary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">05 / COLLABORATIVE METHODOLOGY</span>
+</div>
+<h2 class="font-heading font-bold text-3xl lg:text-4xl text-primary uppercase tracking-tight">
+            The 5-Stage Blueprint
+          </h2>
+</div>
+<p class="font-body text-sm text-charcoal max-w-md mt-4 md:mt-0 leading-relaxed">
+          A transparent, phased delivery lifecycle ensuring predictability from initial architectural scoping to continuous scale.
+        </p>
+</div>
+<!-- 5-Stage Step Progression Grid -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-6">
+<!-- Stage 01: Discover -->
+<div class="bg-[#F4F1E9] p-5 flex flex-col justify-between border-t-2 border-primary border border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl text-primary mb-2">01</div>
+<h4 class="font-heading font-bold text-base uppercase text-primary mb-2">Discover</h4>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Audits of commercial objectives, user journeys, existing technical stack, and system dependencies.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline uppercase">
+            DELIVERABLE: STRATEGIC ROADMAP
+          </div>
+</div>
+<!-- Stage 02: Design -->
+<div class="bg-[#F4F1E9] p-5 flex flex-col justify-between border-t-2 border-primary border border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl text-primary mb-2">02</div>
+<h4 class="font-heading font-bold text-base uppercase text-primary mb-2">Design</h4>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Wireframes, Figma design systems, interactive click-through prototypes, and content architecture.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline uppercase">
+            DELIVERABLE: INTERACTIVE PROTOTYPE
+          </div>
+</div>
+<!-- Stage 03: Build -->
+<div class="bg-[#F4F1E9] p-5 flex flex-col justify-between border-t-2 border-secondary border border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl text-secondary mb-2">03</div>
+<h4 class="font-heading font-bold text-base uppercase text-primary mb-2">Build</h4>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Modular software engineering, AI model fine-tuning, workflow integration, and continuous code testing.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-secondary uppercase font-bold">
+            DELIVERABLE: PRODUCTION APPLICATION
+          </div>
+</div>
+<!-- Stage 04: Launch -->
+<div class="bg-[#F4F1E9] p-5 flex flex-col justify-between border-t-2 border-primary border border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl text-primary mb-2">04</div>
+<h4 class="font-heading font-bold text-base uppercase text-primary mb-2">Launch</h4>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Structured deployment, infrastructure configuration, team enablement, and real-time observability.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline uppercase">
+            DELIVERABLE: DEPLOYMENT STAGE 1.0
+          </div>
+</div>
+<!-- Stage 05: Grow -->
+<div class="bg-[#F4F1E9] p-5 flex flex-col justify-between border-t-2 border-primary border border-[#E5E2DA]">
+<div>
+<div class="font-heading font-bold text-2xl text-primary mb-2">05</div>
+<h4 class="font-heading font-bold text-base uppercase text-primary mb-2">Grow</h4>
+<p class="font-body text-xs text-charcoal mb-4 leading-relaxed">
+              Paid acquisition, conversion rate optimization (CRO), lifecycle messaging, and iterative sprint features.
+            </p>
+</div>
+<div class="pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline uppercase">
+            DELIVERABLE: GROWTH METRIC REPORTS
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 06: SELECTED ENGAGEMENTS & ARCHITECTURE PROTOTYPES
+         Marked: "CONCEPTUAL ARCHITECTURE PROTOTYPE" with realistic technical descriptions
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="engagements"><div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-secondary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">06 / DEMONSTRATED WORK</span>
+</div>
+<h2 class="font-heading font-bold text-3xl lg:text-4xl text-primary uppercase tracking-tight">
+            Selected Architecture Prototypes
+          </h2>
+</div>
+<div class="flex items-center gap-2 mt-4 md:mt-0 font-mono text-xs"><span class="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] text-secondary font-bold uppercase tracking-wider">Illustrative Concept — Demonstration of DYRATEK Capabilities</span><span class="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] text-outline font-semibold uppercase text-[10px]">Not a completed client project</span></div>
+</div>
+<div class="space-y-12">
+<!-- CASE 01: Omnichannel Commerce Platform -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center p-6 lg:p-8 bg-[#F4F1E9] border border-[#E5E2DA]">
+<div class="lg:col-span-6 space-y-4">
+<div class="flex flex-wrap items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="font-mono text-xs uppercase text-outline font-semibold">ARCHITECTURE 01 // MODERN COMMERCE &amp; LOGISTICS</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-primary border border-[#E5E2DA] uppercase">Sample Data // Non-Production Benchmark</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-secondary border border-[#E5E2DA] uppercase font-semibold">Not a completed client project</span></div>
+<h3 class="font-heading font-bold text-2xl lg:text-3xl text-primary uppercase tracking-tight">
+              Omnichannel Headless Commerce Platform
+            </h3>
+<p class="font-body text-sm text-charcoal leading-relaxed">
+              Architected a headless multi-store engine coupling Next.js with Shopify Plus and custom inventory synchronization. Includes instant client-side filtering, optimized checkout routing, and multi-currency localized catalogs.
+            </p>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-[#E5E2DA] font-mono">
+<div>
+<div class="font-heading font-bold text-2xl text-primary">Headless</div>
+<div class="text-[11px] text-outline uppercase">Decoupled Storefront Architecture</div>
+</div>
+<div>
+<div class="font-heading font-bold text-secondary text-2xl">Edge CDN</div>
+<div class="text-[11px] text-outline uppercase">Distributed Global Caching</div>
+</div>
+</div>
+<div>
+<a class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary hover:text-secondary transition-colors font-bold" href="#contact-briefing">
+<span class="">Explore Technical Dossier</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-6 relative overflow-hidden bg-[#ECE8DF] aspect-[16/10] border border-[#E5E2DA] group">
+<img alt="Modern minimalist ecommerce platform interface prototype" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYIxdJlM_92niw8PXPL7RPLk67aW0NrOJbz_c3MuSS4LNf0pxUOOJ1tHQXxfp9cjkTpFCJLYmxnVe1z57GAkjLN3rFELs1-Fv2a-YoIjOBMzHhYbkbugOuQy6g30OgS4pMFsvr85zjxFTWfxuM1BrLdYvQD8J95AKHepz4TvM1S-fJZTK5iH-npUW_HcxkHj-uAdOquwW5mQe8X1Fd9GQKCvmG0QzfbCf3XkkZRAaK">
+<div class="absolute top-3 right-3 bg-primary text-[#F4F1E9] font-mono text-[9px] px-2 py-1 uppercase tracking-wider font-bold">Illustrative Concept — Demonstration of DYRATEK Capabilities • Not a completed client project</div>
+</div>
+</div>
+<!-- CASE 02: Conversational AI Agent for Operations -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center p-6 lg:p-8 bg-[#F4F1E9] border border-[#E5E2DA]">
+<div class="lg:col-span-6 order-2 lg:order-1 relative overflow-hidden bg-[#ECE8DF] aspect-[16/10] border border-[#E5E2DA] group">
+<img alt="Conversational AI and business operational analytics workflow simulation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-O61g_J1f-i36k5ucicYVRXkRHFr1GZtBmu0ynq3CAfpRTOHegtZJogRGw48eqyouVS3NY3JlJv_f1YHLz50uFxFtAAx441kc_sF2AzyX5EQ21DkYtx_1oYIa9B39BEAkE_NuSxo6DYYg7iUAH5YYu_iWvzN3d21dERu4XYDa_UFr2mbc171v2g5IhyBFE6x40c9w8xH77LSjxpXnYeDHB2NOLmKQsM-IAg9Uwb0">
+<div class="absolute top-3 left-3 bg-secondary text-[#FFFFFF] font-mono text-[9px] px-2 py-1 uppercase tracking-wider font-bold">Illustrative Concept — Demonstration of DYRATEK Capabilities • Not a completed client project</div>
+</div>
+<div class="lg:col-span-6 order-1 lg:order-2 space-y-4">
+<div class="flex flex-wrap items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="font-mono text-xs uppercase text-outline font-semibold">ARCHITECTURE 02 // INTELLIGENT AUTOMATION</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-primary border border-[#E5E2DA] uppercase">Sample Data // Non-Production Benchmark</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-secondary border border-[#E5E2DA] uppercase font-semibold">Not a completed client project</span></div>
+<h3 class="font-heading font-bold text-2xl lg:text-3xl text-primary uppercase tracking-tight">
+              Conversational AI Operational Agent
+            </h3>
+<p class="font-body text-sm text-charcoal leading-relaxed">
+              Designed a customer interaction copilot architecture connecting with internal ERP and CRM data tables. Automates routine booking inquiries, order tracking, and support triaging across WhatsApp and Web Chat without manual handoffs.
+            </p>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-[#E5E2DA] font-mono">
+<div>
+<div class="font-heading font-bold text-primary text-2xl">Bespoke LLM</div>
+<div class="text-[11px] text-outline uppercase">Domain Vector Indexing</div>
+</div>
+<div>
+<div class="font-heading font-bold text-primary text-2xl">Deterministic</div>
+<div class="text-[11px] text-outline uppercase">Schema Validation Engine</div>
+</div>
+</div>
+<div>
+<a class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary hover:text-secondary transition-colors font-bold" href="#contact-briefing">
+<span class="">Explore Technical Dossier</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- CASE 03: Unified Brand & Design System -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center p-6 lg:p-8 bg-[#F4F1E9] border border-[#E5E2DA]">
+<div class="lg:col-span-6 space-y-4">
+<div class="flex flex-wrap items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="font-mono text-xs uppercase text-outline font-semibold">ARCHITECTURE 03 // DESIGN SYSTEM &amp; PERFORMANCE</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-primary border border-[#E5E2DA] uppercase">Sample Data // Non-Production Benchmark</span>
+<span class="font-mono text-[9px] px-2 py-0.5 bg-[#ECE8DF] text-secondary border border-[#E5E2DA] uppercase font-semibold">Not a completed client project</span></div>
+<h3 class="font-heading font-bold text-2xl lg:text-3xl text-primary uppercase tracking-tight">
+              Unified Brand &amp; Digital Design System
+            </h3>
+<p class="font-body text-sm text-charcoal leading-relaxed">
+              Constructed an end-to-end token library in Figma linked to reusable React and Tailwind component primitives. Enables teams to deploy conversion-optimized landing pages, client portals, and marketing collateral with strict visual parity.
+            </p>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-[#E5E2DA] font-mono">
+<div>
+<div class="font-heading font-bold text-primary text-2xl">Atomic Tokens</div>
+<div class="text-[11px] text-outline uppercase">Color, Spacing, Typography</div>
+</div>
+<div>
+<div class="font-heading font-bold text-primary text-2xl">Component Kit</div>
+<div class="text-[11px] text-outline uppercase">Accessible React UI Primitives</div>
+</div>
+</div>
+<div>
+<a class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary hover:text-secondary transition-colors font-bold" href="#contact-briefing">
+<span class="">Explore Technical Dossier</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-6 relative overflow-hidden bg-[#ECE8DF] aspect-[16/10] border border-[#E5E2DA] group">
+<img alt="Modular UI design system token structure blueprint" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdZ0lhPDo9ybNMnms_yqfZG-86EuXdPxuN4sGs-JnWi9G2nc21C_F2Ip_fZL9AS3fqF28U96iuZ56AgldArarssHONEqXlImEqygVauTt1bgQvDWMjuY-uUs3LpFcc-oV2-UH37QLdMWuOREE4-T8EQ11-CUUUjda09418XDfB8_EOhiPeXP_t_DfG-rdWBX8RdnhSwo3aJ-0ExEAAxhTbfTWW1NOys9KuNSGGdcMy">
+<div class="absolute top-3 right-3 bg-primary text-[#F4F1E9] font-mono text-[9px] px-2 py-1 uppercase tracking-wider font-bold">Illustrative Concept — Demonstration of DYRATEK Capabilities • Not a completed client project</div>
+</div>
+</div>
+</div>
+</div></section>
+<!-- =========================================================================
+         SECTION 07: WHY DYRATEK
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="flex items-center justify-between pb-6 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-primary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">07 / THE DYRATEK ADVANTAGE</span>
+</div>
+<h2 class="font-heading font-bold text-3xl text-primary uppercase tracking-tight">Why Growing Companies Choose Us</h2>
+</div>
+<div class="font-mono text-xs text-secondary font-bold uppercase hidden sm:block">FULL OWNERSHIP • NO LOCK-IN</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Item 1 -->
+<div class="p-6 bg-[#F4F1E9] border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="font-mono text-[11px] text-outline uppercase font-semibold mb-2">01 // DELIVERY</div>
+<h3 class="font-heading font-bold text-lg text-primary uppercase mb-2">Integrated Execution</h3>
+<p class="font-body text-xs text-charcoal leading-relaxed">
+              Designers, software engineers, and growth strategists work in single cross-functional pods to eliminate communication silos.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline">
+            CONTINUOUS ALIGNMENT
+          </div>
+</div>
+<!-- Item 2 -->
+<div class="p-6 bg-[#F4F1E9] border-t-2 border-secondary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="font-mono text-[11px] text-secondary uppercase font-bold mb-2">02 // SOVEREIGNTY</div>
+<h3 class="font-heading font-bold text-lg text-primary uppercase mb-2">100% Code Ownership</h3>
+<p class="font-body text-xs text-charcoal leading-relaxed">
+              You retain complete intellectual property and source code rights. No obscure licensing fees or proprietary runtime traps.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-secondary font-bold">
+            UNRESTRICTED IP REPOSITORY
+          </div>
+</div>
+<!-- Item 3 -->
+<div class="p-6 bg-[#F4F1E9] border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="font-mono text-[11px] text-outline uppercase font-semibold mb-2">03 // PRAGMATISM</div>
+<h3 class="font-heading font-bold text-lg text-primary uppercase mb-2">Applied Intelligence</h3>
+<p class="font-body text-xs text-charcoal leading-relaxed">
+              We implement AI where it creates quantifiable business leverage: workflow velocity, customer conversion, and overhead reduction.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline">
+            ROI-DRIVEN IMPLEMENTATION
+          </div>
+</div>
+<!-- Item 4 -->
+<div class="p-6 bg-[#F4F1E9] border-t-2 border-primary border border-[#E5E2DA] flex flex-col justify-between">
+<div>
+<div class="font-mono text-[11px] text-outline uppercase font-semibold mb-2">04 // LONGEVITY</div>
+<h3 class="font-heading font-bold text-lg text-primary uppercase mb-2">Engineered for Scale</h3>
+<p class="font-body text-xs text-charcoal leading-relaxed">
+              Architectures built on clean patterns and modern standards, allowing your systems to scale effortlessly as your company expands.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-[#E5E2DA] font-mono text-[10px] text-outline">
+            FUTURE-PROOF STACK
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 08: INSIGHTS / PERSPECTIVES
+         ========================================================================= -->
+<section class="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="insights">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="flex items-center justify-between pb-6 mb-12 border-b border-[#E5E2DA]">
+<div>
+<div class="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-secondary font-semibold">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span>
+<span class="">08 / PERSPECTIVES &amp; ARTICLES</span>
+</div>
+<h2 class="font-heading font-bold text-3xl text-primary uppercase tracking-tight">The Digital Journal</h2>
+</div>
+<a class="hidden sm:inline-flex items-center gap-1.5 font-mono text-xs uppercase text-primary hover:text-secondary transition-colors font-medium" href="#">
+<span class="">Read All Articles</span>
+<span class="">→</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-desktop">
+<!-- Article 01 -->
+<article class="p-6 lg:p-8 bg-[#F4F1E9] border border-[#E5E2DA] flex flex-col justify-between group hover:border-primary/40 transition-colors">
+<div>
+<div class="flex items-center justify-between font-mono text-[11px] text-outline uppercase mb-4">
+<span class="">ESSAY // 01</span>
+<span class="">6 MIN READ • PRODUCT STRATEGY</span>
+</div>
+<h3 class="font-heading font-bold text-xl lg:text-2xl text-primary uppercase tracking-tight mb-3 group-hover:text-secondary transition-colors">
+              Beyond Chatbots: Deploying Autonomous Workflow Agents in Real Enterprise Stacks
+            </h3>
+<p class="font-body text-sm text-charcoal leading-relaxed mb-6">
+              Why superficial conversational boxes are being superseded by headless AI agents that observe database mutations, trigger API payloads, and settle operational workflows deterministically.
+            </p>
+</div>
+<div class="pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-primary uppercase font-bold">
+<span class="">Engineering &amp; AI Practice</span>
+<span class="group-hover:translate-x-1 transition-transform">Read Essay →</span>
+</div>
+</article>
+<!-- Article 02 -->
+<article class="p-6 lg:p-8 bg-[#F4F1E9] border border-[#E5E2DA] flex flex-col justify-between group hover:border-primary/40 transition-colors">
+<div>
+<div class="flex items-center justify-between font-mono text-[11px] text-outline uppercase mb-4">
+<span class="">ESSAY // 02</span>
+<span class="">8 MIN READ • ARCHITECTURE</span>
+</div>
+<h3 class="font-heading font-bold text-xl lg:text-2xl text-primary uppercase tracking-tight mb-3 group-hover:text-secondary transition-colors">
+              The Compound Return of Unified Design Systems &amp; Token Architecture
+            </h3>
+<p class="font-body text-sm text-charcoal leading-relaxed mb-6">
+              How synchronizing Figma design tokens with Next.js and Tailwind components cuts product iteration friction in half while ensuring consistent brand integrity across every web touchpoint.
+            </p>
+</div>
+<div class="pt-4 border-t border-[#E5E2DA] flex items-center justify-between font-mono text-xs text-primary uppercase font-bold">
+<span class="">Design Systems Squad</span>
+<span class="group-hover:translate-x-1 transition-transform">Read Essay →</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+         SECTION 09: FOREST GREEN FINAL CONVERSION BLOCK
+         "HAVE AN AMBITIOUS IDEA? LET'S BUILD IT." with dual executive inquiry buttons
+         ========================================================================= -->
+<section class="w-full bg-primary py-20 lg:py-28 text-[#F4F1E9]" id="contact-briefing">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-center">
+<!-- Column Left: Headline & Primary Actions -->
+<div class="lg:col-span-8 space-y-6">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-on-primary-container font-semibold">INITIATE COLLABORATION</span>
+</div>
+<h2 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight leading-tight">
+            Have an ambitious idea?<br>
+<span class="text-on-primary-container">Let’s build it.</span>
+</h2>
+<p class="font-body text-base lg:text-lg text-on-primary-container max-w-xl leading-relaxed">
+            Whether you are engineering a flagship web or mobile application, deploying bespoke AI automations, or seeking end-to-end commercial growth, our senior team is ready to collaborate.
+          </p>
+<!-- Dual Executive Inquiry Buttons -->
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<a class="inline-flex items-center justify-center gap-2.5 bg-[#F4F1E9] text-primary font-mono text-xs uppercase tracking-wider px-8 py-4 hover:bg-[#ECE8DF] transition-all shadow-md font-bold" href="mailto:hello@dyratek.com?subject=Project%20Inquiry%20%E2%80%94%20DYRATEK">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+<span class="">Start a Project</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 border border-[#F4F1E9]/30 text-[#F4F1E9] font-mono text-xs uppercase tracking-wider px-6 py-4 hover:border-[#F4F1E9] transition-colors font-semibold" href="mailto:hello@dyratek.com?subject=Schedule%20Discovery%20Session">
+<span class="">Schedule Discovery Session</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</a>
+</div>
+</div>
+<!-- Column Right: Technical Inquiries Card -->
+<div class="lg:col-span-4 bg-primary-dark/80 p-8 border border-white/10 space-y-6">
+<div>
+<div class="font-mono text-xs uppercase tracking-widest text-secondary font-bold mb-2">COLLABORATION PROTOCOL</div>
+<div class="font-heading font-bold text-2xl text-[#F4F1E9]">Discovery Sprints</div>
+<p class="font-body text-xs text-on-primary-container mt-1">
+              We review inbound architectural parameters directly with senior engineering and design leads.
+            </p>
+</div>
+<div class="pt-4 border-t border-white/10 space-y-3 font-mono text-xs text-on-primary-container">
+<div class="flex justify-between items-center"><span class="">DIRECT CONTACT:</span><span class="text-[#F4F1E9] font-semibold text-right">hello@dyratek.com <span class="text-secondary text-[10px] block font-mono">[Client-confirmation placeholder: hello@dyratek.com]</span></span></div>
+<div class="flex justify-between items-center">
+<span class="">INITIAL REVIEW:</span>
+<span class="text-[#F4F1E9] font-semibold">Technical Feasibility</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="">CODE HANDOVER:</span>
+<span class="text-[#F4F1E9] font-semibold">100% IP Sovereignty</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- =========================================================================
+       FOOTER (SWISS COLOPHON & CLEAN DISCOVERY)
+       ========================================================================= -->
+<footer class="w-full bg-[#F4F1E9] border-t border-[#E5E2DA]">
+<div class="max-w-7xl mx-auto px-margin lg:px-margin-desktop pt-16 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop pb-12">
+<!-- Brand Summary -->
+<div class="md:col-span-6 flex flex-col justify-between">
+<div>
+<div class="font-heading font-extrabold text-3xl lg:text-4xl text-primary tracking-tighter uppercase select-none">DYRATEK</div>
+<p class="mt-4 font-body text-sm text-charcoal max-w-md leading-relaxed">
+            Digital technology, AI, and business transformation foundry. Designing resilient digital products, intelligent systems, and connected solutions that help companies innovate, automate, and grow.
+          </p>
+</div>
+<div class="mt-6 flex items-center gap-2 font-mono text-xs text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="">BUILD • INTELLIGENCE • AUTOMATE • CREATE &amp; GROW</span>
+</div>
+</div>
+<!-- Pillar Overview Navigation (Accurate 14 Services) -->
+<div class="md:col-span-3 space-y-3">
+<div class="font-mono text-xs uppercase tracking-widest text-outline font-semibold">Service Architecture</div>
+<ul class="space-y-1.5 font-body text-xs text-charcoal">
+<li class=""><a class="hover:text-primary transition-colors" href="#services">01. Build (4 Services)</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#services">02. Intelligence (3 Services)</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#services">03. Automate (2 Services)</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#services">04. Create &amp; Grow (5 Services)</a></li>
+</ul>
+</div>
+<!-- Colophon & Contact -->
+<div class="md:col-span-3 space-y-3">
+<div class="font-mono text-xs uppercase tracking-widest text-outline font-semibold">Institutional Governance</div>
+<div class="space-y-1 font-body text-xs text-charcoal">
+<div class="">Direct: <a class="text-primary font-bold hover:underline" href="mailto:hello@dyratek.com">hello@dyratek.com</a> <span class="text-secondary text-[10px] font-mono block">[Client-confirmation placeholder: hello@dyratek.com]</span></div>
+<div class="font-mono text-[11px] text-outline pt-2">System Standard: 12-Col Modular Swiss Grid</div>
+<div class="font-mono text-[11px] text-outline">Runtime: All Systems Operational</div>
+</div>
+</div>
+</div>
+<!-- Copyright & Legal -->
+<div class="pt-8 border-t border-[#E5E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-outline">
+<div class="">© 2025 DYRATEK. All Rights Reserved.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Framework</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Engagement</a>
+<a class="hover:text-primary transition-colors" href="#">System Architecture</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- =========================================================================
+       MOTION ARCHITECTURE & INTERACTION SPECIFICATION DRAWER
+       Comprehensive developer choreography specifications covering:
+       - Hero Entrance Sequence
+       - Scroll Storytelling
+       - Service Card States
+       - Navigation & Page Transitions
+       - Final CTA & Footer States
+       - Detailed Visual States: [Default], [Hover/Active], [Scroll-Triggered], [Mobile Alternative]
+       ========================================================================= -->
+<div class="fixed inset-y-0 right-0 z-50 w-full max-w-xl bg-[#F4F1E9] border-l border-[#E5E2DA] shadow-2xl p-6 lg:p-8 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto" id="motion-drawer"><div>
+<!-- Drawer Header -->
+<div class="flex justify-between items-center pb-4 border-b border-[#E5E2DA] mb-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs font-bold text-primary tracking-widest uppercase">MOTION ARCHITECTURE &amp; INTERACTION SPECIFICATION</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors" id="close-motion-drawer" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="space-y-6">
+<div>
+<span class="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[10px] text-secondary font-bold uppercase">ENGINEERING SPECIFICATION</span>
+<h4 class="font-heading font-bold text-lg text-primary mt-1">Comprehensive Motion Physics &amp; Choreography (11 Points)</h4>
+<p class="font-body text-xs text-charcoal mt-1 leading-relaxed">
+          Complete engineering parameters across Trigger, Duration, Easing, Initial/Final States, and Touch / Prefers-Reduced-Motion fallbacks.
+        </p>
+</div>
+<!-- Choreography Parameters Table / Blocks -->
+<div class="space-y-3 font-mono text-xs">
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-secondary font-bold text-[11px] mb-1">01 // INITIAL BRAND REVEAL</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> DOMContentLoaded | <strong>Duration:</strong> 350ms | <strong>Easing:</strong> cubic-bezier(0.16, 1, 0.3, 1)<br><strong>Initial State:</strong> opacity: 0, scale: 0.96 | <strong>Final:</strong> opacity: 1, scale: 1<br><strong>Reduced Motion / Mobile:</strong> Instant opacity cut (100ms).</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-primary font-bold text-[11px] mb-1">02 // HERO HEADLINE MASKING</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> +120ms post-brand reveal | <strong>Duration:</strong> 650ms (staggered 120ms/row) | <strong>Easing:</strong> cubic-bezier(0.16, 1, 0.3, 1)<br><strong>Initial:</strong> clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%) | <strong>Final:</strong> polygon(0 0, 100% 0, 100% 100%, 0% 100%)<br><strong>Reduced Motion:</strong> Standard opacity crossfade 200ms.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-secondary font-bold text-[11px] mb-1">03 // SUPPORTING TEXT &amp; CTA STAGGER</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Headline row 3 completion | <strong>Duration:</strong> 500ms (CTAs +100ms) | <strong>Easing:</strong> cubic-bezier(0.2, 0, 0, 1)<br><strong>Initial:</strong> translateY(16px), opacity: 0 | <strong>Final:</strong> translateY(0px), opacity: 1; magnetic bounding cursor active (8px)<br><strong>Touch Alternative:</strong> Static position without magnetic transform.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-primary font-bold text-[11px] mb-1">04 // GEOMETRIC HERO AMBIENT MOVEMENT</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Idle state after hero reveal | <strong>Duration:</strong> 8000ms infinite loop | <strong>Easing:</strong> ease-in-out<br><strong>Initial:</strong> translateY(0px) rotate(0deg) | <strong>Final:</strong> translateY(-10px) rotate(0.8deg)<br><strong>Reduced Motion:</strong> Ambient loop disabled; fixed isometric projection.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-secondary font-bold text-[11px] mb-1">05 // SCROLL-TRIGGERED SECTION REVEALS</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> IntersectionObserver (threshold: 0.15) | <strong>Duration:</strong> 600ms | <strong>Easing:</strong> cubic-bezier(0.16, 1, 0.3, 1)<br><strong>Initial:</strong> translateY(24px), opacity: 0 | <strong>Final:</strong> translateY(0px), opacity: 1<br><strong>Reduced Motion:</strong> Immediate visibility without scroll offset shift.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-primary font-bold text-[11px] mb-1">06 // PROGRESSIVE TEXT HIGHLIGHTING</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Viewport enter (threshold: 0.30) | <strong>Duration:</strong> 400ms delay + 700ms fill | <strong>Easing:</strong> ease-out<br><strong>Initial:</strong> background-size: 0% 100% | <strong>Final:</strong> background-size: 100% 100% on Forest Green markers<br><strong>Reduced Motion:</strong> Solid static highlight with zero fill animation.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-secondary font-bold text-[11px] mb-1">07 // SERVICE CARD HOVER INTERACTIONS</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Pointer hover / Focus visible | <strong>Duration:</strong> 280ms | <strong>Easing:</strong> cubic-bezier(0.16, 1, 0.3, 1)<br><strong>Initial:</strong> translateY(0), border: #E5E2DA | <strong>Final:</strong> translateY(-4px), border: #123D32, arrow translate(+4px)<br><strong>Touch Alternative:</strong> Active touch tap pulse without vertical displacement.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-primary font-bold text-[11px] mb-1">08 // PROCESS TIMELINE PROGRESSION</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Scroll passage (threshold: 0.25) | <strong>Duration:</strong> 500ms staggered per card (80ms delta) | <strong>Easing:</strong> ease-out<br><strong>Initial:</strong> opacity: 0.3, scale: 0.98 | <strong>Final:</strong> opacity: 1.0, scale: 1.0<br><strong>Touch Alternative:</strong> Horizontal snap-scroll on small screens.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-secondary font-bold text-[11px] mb-1">09 // NAVIGATION &amp; MEGA-MENU TRANSITIONS</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Scroll Y &gt; 40px | <strong>Duration:</strong> 200ms | <strong>Easing:</strong> ease-in-out<br><strong>Initial:</strong> backdrop-blur-none, bg-[#F4F1E9] | <strong>Final:</strong> backdrop-blur-md, bg-[#F4F1E9]/90, border-b #E5E2DA<br><strong>Reduced Motion:</strong> Instant CSS class swap without backdrop animation.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-primary font-bold text-[11px] mb-1">10 // DIAGONAL BRAND PAGE TRANSITION</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Anchor click with data-route | <strong>Duration:</strong> 420ms | <strong>Easing:</strong> cubic-bezier(0.77, 0, 0.175, 1)<br><strong>Initial:</strong> polygon(0 0, 0 0, 0 100%, 0 100%) | <strong>Final:</strong> polygon(0 0, 100% 0, 100% 100%, 0 100%) (Forest Green wipe)<br><strong>Reduced Motion:</strong> Fallback to instantaneous 100ms fade.</p>
+</div>
+<div class="p-3 bg-[#ECE8DF] border border-[#E5E2DA]">
+<div class="text-outline font-bold text-[11px] mb-1">11 // FOOTER WORDMARK REVEAL</div>
+<p class="font-body text-[11px] text-charcoal"><strong>Trigger:</strong> Footer scroll boundary &gt; 85% | <strong>Duration:</strong> 800ms | <strong>Easing:</strong> cubic-bezier(0.16, 1, 0.3, 1)<br><strong>Initial:</strong> letter-spacing: -0.05em, opacity: 0 | <strong>Final:</strong> letter-spacing: -0.02em, opacity: 1<br><strong>Reduced Motion:</strong> Default font-tracking with instant opacity reveal.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Footer -->
+<div class="pt-6 border-t border-[#E5E2DA] mt-6 flex justify-between items-center font-mono text-[10px] text-outline">
+<span class="">AGENCY STANDARD SPECIFICATION</span>
+<span class="text-primary font-bold">READY FOR REACTION ENGINES</span>
+</div></div>
+<!-- Drawer Backdrop -->
+<div class="fixed inset-0 bg-primary/25 backdrop-blur-xs z-40 hidden transition-opacity" id="drawer-backdrop"></div>
+<!-- Interactive JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const motionBtn = document.getElementById('motion-spec-btn');
+    const motionDrawer = document.getElementById('motion-drawer');
+    const closeDrawer = document.getElementById('close-motion-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function openDrawer() {
+      motionDrawer.classList.remove('translate-x-full');
+      drawerBackdrop.classList.remove('hidden');
+    }
+
+    function hideDrawer() {
+      motionDrawer.classList.add('translate-x-full');
+      drawerBackdrop.classList.add('hidden');
+    }
+
+    if (motionBtn) motionBtn.addEventListener('click', openDrawer);
+    if (closeDrawer) closeDrawer.addEventListener('click', hideDrawer);
+    if (drawerBackdrop) drawerBackdrop.addEventListener('click', hideDrawer);
+  });
+</script>
+
+
+</body></html>
