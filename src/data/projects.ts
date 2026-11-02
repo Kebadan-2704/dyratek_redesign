@@ -78,7 +78,7 @@ export const PROJECTS: Project[] = [
     solution:
       'We established an atomic design architecture grounded in Swiss modernist discipline: strict 0px border radii, hairline boundary rules, 12-column grids, and automated token sync pipelines.',
     architectureDetails: [
-      'WCAG 2.2 AA certified color palette (> 9.5:1 contrast ratios)',
+      'Architectural color token matrix engineered for WCAG 2.2 AA contrast compliance',
       'Automated token export pipeline syncing Figma variables to Tailwind CSS',
       'Zero-dependency accessible component primitives (accessible disclosure, modals, navigation)',
       'Responsive typographic hierarchy with strict clamp() viewport rules'

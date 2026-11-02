@@ -28,11 +28,19 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: service.meta.title,
     description: service.meta.description,
+    alternates: {
+      canonical: `/services/${service.slug}`
+    },
     openGraph: {
       title: service.meta.title,
       description: service.meta.description,
       type: 'article',
       url: `https://dyratek.com/services/${service.slug}`
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.meta.title,
+      description: service.meta.description
     }
   };
 }
@@ -49,8 +57,26 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     .map((sSlug) => getServiceBySlug(sSlug))
     .filter((s): s is NonNullable<typeof s> => s !== undefined);
 
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    serviceType: service.pillarName,
+    description: service.description,
+    provider: {
+      '@type': 'Organization',
+      name: 'DYRATEK',
+      url: 'https://dyratek.com'
+    },
+    url: `https://dyratek.com/services/${service.slug}`
+  };
+
   return (
     <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-5 lg:px-16">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70 mb-8 pb-4 border-b border-[#E5E2DA]" aria-label="Breadcrumb">

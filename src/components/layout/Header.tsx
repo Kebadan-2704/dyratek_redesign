@@ -4,44 +4,24 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { DyratekLogo } from '@/components/ui/DyratekLogo';
+import { NAV_PILLARS } from '@/data/navigation';
 
-const NAV_ITEMS = [
+interface NavItem {
+  label: string;
+  href: string;
+  children?: typeof NAV_PILLARS;
+}
+
+const NAV_ITEMS: NavItem[] = [
   { label: 'About', href: '/about' },
   {
     label: 'Services',
     href: '/services',
-    children: [
-      {
-        pillar: '01 // BUILD',
-        items: [
-          { label: 'Web Development', href: '/services/web-development' },
-          { label: 'App Development', href: '/services/app-development' },
-          { label: 'E-commerce Solutions', href: '/services/ecommerce-solutions' },
-          { label: 'Digital Solutions', href: '/services/digital-solutions' },
-        ],
-      },
-      {
-        pillar: '02 // AUTOMATE',
-        items: [
-          { label: 'Business Automation', href: '/services/business-automation' },
-          { label: 'Email & WhatsApp Marketing', href: '/services/email-whatsapp-marketing' },
-        ],
-      },
-      {
-        pillar: '03 // CREATE & GROW',
-        items: [
-          { label: 'UI/UX Design', href: '/services/ui-ux-design' },
-          { label: 'Creative & Video', href: '/services/creative-video' },
-          { label: 'Digital Marketing', href: '/services/digital-marketing' },
-          { label: 'Performance Marketing', href: '/services/performance-marketing' },
-          { label: 'Content Strategy & Copywriting', href: '/services/content-strategy-copywriting' },
-        ],
-      },
-    ],
+    children: NAV_PILLARS
   },
   { label: 'Work', href: '/work' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/contact' }
 ];
 
 export default function Header() {
@@ -50,6 +30,7 @@ export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [prevPathname, setPrevPathname] = useState('');
   const pathname = usePathname();
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const servicesTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -78,16 +59,41 @@ export default function Header() {
     };
   }, [isMobileOpen]);
 
+  // Keyboard navigation & Focus trap for mobile menu
   useEffect(() => {
+    if (!isMobileOpen) return;
+
+    const menuEl = mobileMenuRef.current;
+    if (!menuEl) return;
+
+    const focusable = menuEl.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), textarea, input, select'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMobileOpen(false);
-        setIsServicesOpen(false);
+        mobileToggleRef.current?.focus();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
       }
     };
+
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isMobileOpen]);
 
   const handleServicesEnter = useCallback(() => {
     if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
@@ -124,10 +130,10 @@ export default function Header() {
         <Link
           href="/"
           onClick={closeMenus}
-          className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#123D32]"
+          className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#123D32] min-h-[44px]"
           aria-label="DYRATEK — Home"
         >
-          <DyratekLogo size="md" />
+          <DyratekLogo size="md" priority />
         </Link>
 
         {/* Desktop Navigation */}
@@ -229,11 +235,13 @@ export default function Header() {
             className="hidden lg:inline-flex items-center gap-2 bg-[#123D32] text-[#F4F1E9] font-mono text-[11px] uppercase tracking-[0.06em] font-semibold px-5 py-2.5 hover:bg-[#1b4f42] transition-colors"
           >
             <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block flex-shrink-0" aria-hidden="true" />
-            Start a Project
+            <span className="text-[#F4F1E9]">Start a Project</span>
           </Link>
 
           {/* Mobile Menu Toggle (min 44x44px touch target) */}
           <button
+            ref={mobileToggleRef}
+            type="button"
             className="lg:hidden flex items-center justify-center w-11 h-11 text-[#123D32] cursor-pointer"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-expanded={isMobileOpen}
@@ -279,6 +287,7 @@ export default function Header() {
             item.children ? (
               <div key={item.label} className="border-b border-[#E5E2DA]">
                 <button
+                  type="button"
                   className="flex items-center justify-between w-full py-4 text-left cursor-pointer min-h-[44px]"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   aria-expanded={isServicesOpen}
@@ -360,7 +369,7 @@ export default function Header() {
               className="flex items-center justify-center gap-2 w-full bg-[#123D32] text-[#F4F1E9] font-mono text-[11px] uppercase tracking-[0.06em] font-semibold px-5 py-4 min-h-[48px] hover:bg-[#1b4f42] transition-colors"
             >
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              Start a Project
+              <span className="text-[#F4F1E9]">Start a Project</span>
             </Link>
           </div>
         </nav>

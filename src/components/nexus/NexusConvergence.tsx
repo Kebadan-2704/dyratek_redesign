@@ -67,13 +67,14 @@ export function NexusConvergence() {
           return (
             <button
               key={pid}
+              type="button"
               role="tab"
               aria-selected={isSelected}
               aria-controls={`panel-${pid}`}
               onClick={() => handleSelect(pid)}
               onMouseEnter={() => handleHover(pid)}
               onMouseLeave={() => handleHover(null)}
-              className={`py-1.5 px-1 sm:px-2 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+              className={`min-h-[44px] py-2 px-1 sm:px-2 font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                 isSelected
                   ? 'bg-[#123D32] text-[#F4F1E9] shadow-sm'
                   : 'text-[#2A2A2A]/80 hover:text-[#123D32] hover:bg-[#F4F1E9]/50'

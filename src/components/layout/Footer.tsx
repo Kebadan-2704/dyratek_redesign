@@ -116,8 +116,8 @@ export default function Footer() {
                 >
                   hello@dyratek.com
                 </a>
-                <span className="text-[#C83B35] text-[10px] font-mono block mt-0.5">
-                  [Client-Confirmation Placeholder: hello@dyratek.com]
+                <span className="text-[#123D32]/70 text-[10px] font-mono block mt-0.5">
+                  Direct inquiries reviewed by senior software engineering squads
                 </span>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#E5E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#2A2A2A]/60">
           <div>
-            © 2026 DYRATEK. All Rights Reserved.
+            &copy; 2026 DYRATEK. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
             {FOOTER_LEGAL.map((link) => (

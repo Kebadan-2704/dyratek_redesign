@@ -5,12 +5,14 @@ export interface DyratekLogoProps {
   className?: string;
   inverted?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  priority?: boolean;
 }
 
 export function DyratekLogo({
   className = '',
   inverted = false,
-  size = 'md'
+  size = 'md',
+  priority = false
 }: DyratekLogoProps) {
   // Responsive height scale mapping
   const heightClasses = {
@@ -28,7 +30,7 @@ export function DyratekLogo({
         width={411}
         height={67}
         className={`object-contain h-full w-auto select-none ${inverted ? 'brightness-0 invert' : ''}`}
-        priority
+        priority={priority}
       />
     </div>
   );

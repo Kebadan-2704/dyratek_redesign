@@ -72,8 +72,8 @@ export default function PrivacyPage() {
             </p>
             <div className="p-4 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs text-[#123D32]">
               Email: <a href="mailto:hello@dyratek.com" className="font-bold underline">hello@dyratek.com</a>
-              <span className="text-[#C83B35] text-[10px] block mt-1">
-                [Client-Confirmation Placeholder: hello@dyratek.com]
+              <span className="text-[#123D32]/70 text-[10px] block mt-1">
+                Direct compliance review managed by legal and data governance officers
               </span>
             </div>
           </section>

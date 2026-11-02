@@ -54,7 +54,8 @@ export function ProcessSection() {
                 }`}
               >
                 <div className="flex justify-between items-center mb-1">
-                  <span className={`font-mono text-xs font-bold ${isActive ? 'text-[#C83B35]' : 'text-[#123D32]'}`}>
+                  <span className={`font-mono text-xs font-bold flex items-center gap-1.5 ${isActive ? 'text-[#F4F1E9]' : 'text-[#123D32]'}`}>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />}
                     STAGE {stage.step}
                   </span>
                   <span className="font-mono text-[9px] opacity-70">

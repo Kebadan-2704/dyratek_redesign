@@ -28,10 +28,18 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.title} — Architectural Blueprint | DYRATEK`,
     description: project.summary,
+    alternates: {
+      canonical: `/work/${project.slug}`
+    },
     openGraph: {
       title: `${project.title} — DYRATEK`,
       description: project.summary,
       url: `https://dyratek.com/work/${project.slug}`
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} — DYRATEK`,
+      description: project.summary
     }
   };
 }
@@ -44,8 +52,26 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const projectJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    headline: project.heroHeadline,
+    description: project.summary,
+    creator: {
+      '@type': 'Organization',
+      name: 'DYRATEK',
+      url: 'https://dyratek.com'
+    },
+    url: `https://dyratek.com/work/${project.slug}`
+  };
+
   return (
     <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-5 lg:px-16">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70 mb-8 pb-4 border-b border-[#E5E2DA]" aria-label="Breadcrumb">

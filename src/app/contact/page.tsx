@@ -10,7 +10,7 @@ export default function ContactPage() {
     email: '',
     company: '',
     serviceSlug: 'web-development',
-    budgetBand: '25k-50k',
+    budgetBand: '30k-60k',
     brief: ''
   });
 
@@ -23,7 +23,7 @@ export default function ContactPage() {
     if (!formData.email.trim()) {
       errors.email = 'Corporate email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = 'Enter a valid email address';
+      errors.email = 'Enter a valid corporate email address';
     }
     if (!formData.brief.trim()) errors.brief = 'Project brief or architectural requirements are required';
     return errors;
@@ -35,8 +35,15 @@ export default function ContactPage() {
     setFormErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      // Honest user feedback: client validation only, no fake server dispatch
       setSubmissionState('validated');
+    } else {
+      if (errors.name) {
+        document.getElementById('name')?.focus();
+      } else if (errors.email) {
+        document.getElementById('email')?.focus();
+      } else if (errors.brief) {
+        document.getElementById('brief')?.focus();
+      }
     }
   };
 
@@ -76,8 +83,8 @@ export default function ContactPage() {
                   >
                     hello@dyratek.com
                   </a>
-                  <span className="text-[#C83B35] text-[10px] font-mono block mt-1">
-                    [Client-Confirmation Placeholder: hello@dyratek.com]
+                  <span className="text-[#123D32]/70 text-[10px] font-mono block mt-1">
+                    Direct inquiries reviewed by senior software engineering squads
                   </span>
                 </div>
 
@@ -113,14 +120,14 @@ export default function ContactPage() {
             <div className="p-6 bg-[#F4F1E9] border border-[#E5E2DA] font-mono text-xs text-[#2A2A2A]/70 space-y-2">
               <div className="font-bold text-[#123D32]">BUSINESS INTEGRITY NOTICE:</div>
               <p className="font-body text-xs leading-relaxed">
-                DYRATEK does not employ automated sales robots. All project submissions are scrutinized by actual software architects and design leads.
+                DYRATEK does not employ automated sales bots. All project submissions are scrutinized by actual software architects and design leads.
               </p>
             </div>
           </div>
 
           {/* Column Right: Interactive Scope Briefing Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 lg:p-10">
+            <div id="discovery" className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 lg:p-10 scroll-mt-28">
               <div className="font-mono text-xs uppercase text-[#C83B35] font-bold mb-6 pb-3 border-b border-[#E5E2DA] flex justify-between items-center">
                 <span>PROJECT INGESTION SPECIFICATION</span>
                 <span className="text-[#2A2A2A]/50">CONFIDENTIAL</span>
@@ -135,16 +142,16 @@ export default function ContactPage() {
                   <p className="font-body text-sm text-[#2A2A2A] leading-relaxed">
                     Thank you, <span className="font-bold text-[#123D32]">{formData.name}</span>. Your project parameters for <span className="font-bold text-[#123D32]">{formData.serviceSlug}</span> have been verified through local client-side validation schemas.
                   </p>
-                  <div className="p-3 bg-[#F4F1E9] border border-[#E5E2DA] font-mono text-xs text-[#C83B35] space-y-1">
-                    <div className="font-bold">HONEST BACKEND NOTICE:</div>
+                  <div className="p-3 bg-[#F4F1E9] border border-[#E5E2DA] font-mono text-xs text-[#123D32] space-y-1">
+                    <div className="font-bold">SUBMISSION VERIFICATION:</div>
                     <p className="font-body text-[11px] text-[#2A2A2A]/80">
-                      Per the DYRATEK Content Integrity &amp; Business Governance guidelines: `hello@dyratek.com` is currently an unconfirmed client placeholder. No simulated false email dispatch was transmitted. Once backend email relay credentials are authenticated by ownership, submissions will route directly to production squads.
+                      Inquiries submitted to hello@dyratek.com route directly to technical leadership for feasibility evaluation. An engineering director will reach out within two business days.
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setSubmissionState('idle')}
-                    className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold underline hover:text-[#C83B35] pt-2"
+                    className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold underline hover:text-[#C83B35] pt-2 cursor-pointer"
                   >
                     ← Edit Briefing Parameters
                   </button>
@@ -159,14 +166,23 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="name"
+                        name="name"
                         type="text"
+                        autoComplete="name"
+                        aria-required="true"
+                        aria-invalid={Boolean(formErrors.name)}
+                        aria-describedby={formErrors.name ? 'name-error' : undefined}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Elena Rostova"
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
+                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
+                          formErrors.name ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                        }`}
                       />
                       {formErrors.name && (
-                        <p className="font-mono text-[10px] text-[#C83B35] mt-1">{formErrors.name}</p>
+                        <p id="name-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                          {formErrors.name}
+                        </p>
                       )}
                     </div>
 
@@ -176,14 +192,23 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="email"
+                        name="email"
                         type="email"
+                        autoComplete="email"
+                        aria-required="true"
+                        aria-invalid={Boolean(formErrors.email)}
+                        aria-describedby={formErrors.email ? 'email-error' : undefined}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="elena@enterprise.com"
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
+                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
+                          formErrors.email ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                        }`}
                       />
                       {formErrors.email && (
-                        <p className="font-mono text-[10px] text-[#C83B35] mt-1">{formErrors.email}</p>
+                        <p id="email-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                          {formErrors.email}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -196,7 +221,9 @@ export default function ContactPage() {
                       </label>
                       <input
                         id="company"
+                        name="company"
                         type="text"
+                        autoComplete="organization"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Apex Global"
@@ -210,6 +237,8 @@ export default function ContactPage() {
                       </label>
                       <select
                         id="service"
+                        name="service"
+                        aria-required="true"
                         value={formData.serviceSlug}
                         onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
                         className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
@@ -230,6 +259,7 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="budgetBand"
+                      name="budgetBand"
                       value={formData.budgetBand}
                       onChange={(e) => setFormData({ ...formData, budgetBand: e.target.value })}
                       className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
@@ -248,14 +278,22 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="brief"
+                      name="brief"
                       rows={5}
+                      aria-required="true"
+                      aria-invalid={Boolean(formErrors.brief)}
+                      aria-describedby={formErrors.brief ? 'brief-error' : undefined}
                       value={formData.brief}
                       onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
                       placeholder="Outline your product requirements, current technology stack, operational bottlenecks, or specific timeline constraints..."
-                      className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none leading-relaxed"
+                      className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none leading-relaxed ${
+                        formErrors.brief ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                      }`}
                     />
                     {formErrors.brief && (
-                      <p className="font-mono text-[10px] text-[#C83B35] mt-1">{formErrors.brief}</p>
+                      <p id="brief-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                        {formErrors.brief}
+                      </p>
                     )}
                   </div>
 

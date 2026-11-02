@@ -24,8 +24,25 @@ export default function FAQPage() {
     setOpenFaqId(openFaqId === id ? null : id);
   };
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer
+      }
+    }))
+  };
+
   return (
     <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-5 lg:px-16">
         {/* Page Hero */}
         <div className="pb-12 mb-16 border-b border-[#E5E2DA]">

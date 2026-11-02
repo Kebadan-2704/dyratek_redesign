@@ -33,12 +33,12 @@ export function CTASection() {
                   className="inline-flex items-center justify-center gap-2.5 bg-[#F4F1E9] text-[#123D32] font-mono text-xs uppercase tracking-wider font-bold px-7 py-4 min-h-[48px] hover:bg-white transition-colors group"
                 >
                   <span className="w-2 h-2 bg-[#C83B35]" aria-hidden="true" />
-                  <span>Start a Project</span>
-                  <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+                  <span className="text-[#123D32]">Start a Project</span>
+                  <span className="text-[#123D32] group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                 </Link>
 
                 <Link
-                  href="/contact#discovery"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F4F1E9] border border-[#F4F1E9]/30 font-mono text-xs uppercase tracking-wider font-semibold px-7 py-4 min-h-[48px] hover:bg-[#F4F1E9]/10 hover:border-[#F4F1E9] transition-colors"
                 >
                   <span>Schedule Discovery Session</span>
@@ -69,8 +69,8 @@ export function CTASection() {
                       hello@dyratek.com
                     </a>
                   </div>
-                  <div className="text-[10px] text-[#C83B35] font-mono">
-                    [Client-Confirmation Placeholder: hello@dyratek.com]
+                  <div className="text-[10px] text-[#A5D6C6] font-mono">
+                    DIRECT SCOPE REVIEW // CONFIDENTIAL ARCHITECTURE BRIEFING
                   </div>
                   <div className="flex justify-between text-[#A5D6C6] text-[11px] pt-1">
                     <span>INITIAL ENGAGEMENT:</span>

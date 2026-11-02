@@ -52,6 +52,18 @@ export const metadata: Metadata = {
     'Performance Marketing'
   ],
   creator: 'DYRATEK',
+  alternates: {
+    canonical: './'
+  },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' }
+    ],
+    apple: [
+      { url: '/apple-icon', sizes: '180x180', type: 'image/png' }
+    ]
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -85,11 +97,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'DYRATEK',
+    url: 'https://dyratek.com',
+    logo: 'https://dyratek.com/brand/dyratek-logo-transparent.png',
+    description:
+      'Digital product foundry and engineering practice delivering high-performance platforms, business automation, and growth solutions.'
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'DYRATEK',
+    url: 'https://dyratek.com'
+  };
+
   return (
     <html
       lang="en"
       className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-[#F4F1E9] text-[#2A2A2A]">
         {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
         <a

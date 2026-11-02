@@ -65,41 +65,62 @@ export function CapabilitiesSection() {
 
                     {/* Internal UI Layout Mockup with Interactive Tabs */}
                     <div className="grid grid-cols-12 gap-3 pt-1">
-                      <div className="col-span-4 sm:col-span-3 bg-[#F4F1E9] p-2.5 border border-[#E5E2DA] space-y-1.5 font-mono text-[10px]">
+                      <div
+                        role="tablist"
+                        aria-label="Simulation Domains"
+                        className="col-span-4 sm:col-span-3 bg-[#F4F1E9] p-2.5 border border-[#E5E2DA] space-y-1.5 font-mono text-[10px]"
+                      >
                         <div className="font-bold text-[#123D32] pb-1 border-b border-[#E5E2DA]">PROJECTS</div>
                         <button
                           type="button"
+                          role="tab"
+                          id="tab-commerce"
+                          aria-selected={activeTab === 'commerce'}
+                          aria-controls="panel-commerce"
                           onClick={() => setActiveTab('commerce')}
                           className={`w-full text-left px-1.5 py-1 flex items-center justify-between cursor-pointer transition-colors ${
                             activeTab === 'commerce' ? 'bg-[#ECE8DF] text-[#123D32] font-bold' : 'text-[#2A2A2A]'
                           }`}
                         >
                           <span>Commerce</span>
-                          {activeTab === 'commerce' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" />}
+                          {activeTab === 'commerce' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" aria-hidden="true" />}
                         </button>
                         <button
                           type="button"
+                          role="tab"
+                          id="tab-automation"
+                          aria-selected={activeTab === 'automation'}
+                          aria-controls="panel-automation"
                           onClick={() => setActiveTab('automation')}
                           className={`w-full text-left px-1.5 py-1 flex items-center justify-between cursor-pointer transition-colors ${
                             activeTab === 'automation' ? 'bg-[#ECE8DF] text-[#123D32] font-bold' : 'text-[#2A2A2A]'
                           }`}
                         >
                           <span>Automation</span>
-                          {activeTab === 'automation' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" />}
+                          {activeTab === 'automation' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" aria-hidden="true" />}
                         </button>
                         <button
                           type="button"
+                          role="tab"
+                          id="tab-analytics"
+                          aria-selected={activeTab === 'analytics'}
+                          aria-controls="panel-analytics"
                           onClick={() => setActiveTab('analytics')}
                           className={`w-full text-left px-1.5 py-1 flex items-center justify-between cursor-pointer transition-colors ${
                             activeTab === 'analytics' ? 'bg-[#ECE8DF] text-[#123D32] font-bold' : 'text-[#2A2A2A]'
                           }`}
                         >
                           <span>Analytics</span>
-                          {activeTab === 'analytics' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" />}
+                          {activeTab === 'analytics' && <span className="w-1.5 h-1.5 bg-[#C83B35] rounded-full" aria-hidden="true" />}
                         </button>
                       </div>
 
-                      <div className="col-span-8 sm:col-span-9 bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-3">
+                      <div
+                        role="tabpanel"
+                        id={`panel-${activeTab}`}
+                        aria-labelledby={`tab-${activeTab}`}
+                        className="col-span-8 sm:col-span-9 bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-3"
+                      >
                         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                           <div className="font-heading font-bold text-xs text-[#123D32]">
                             {activeTab === 'commerce' && 'Commerce Channel Activity Simulation'}
@@ -172,7 +193,8 @@ export function CapabilitiesSection() {
                         Automated Inbound &amp; CRM Pipeline
                       </h3>
                     </div>
-                    <span className="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-[#C83B35] font-bold">
+                    <span className="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-[#123D32] font-bold flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />
                       PROTOTYPE ONLY
                     </span>
                   </div>
@@ -187,7 +209,7 @@ export function CapabilitiesSection() {
 
                     <div className="flex items-center justify-between text-[10px] text-[#2A2A2A]/70 py-1">
                       <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#C83B35] animate-ping" aria-hidden="true" />
+                        <span className="w-2 h-2 rounded-full bg-[#C83B35] animate-ping motion-reduce:animate-none" aria-hidden="true" />
                         <span>Webhook Event: Parsing payload • Validating parameters</span>
                       </div>
                       <button
@@ -216,7 +238,8 @@ export function CapabilitiesSection() {
                         <span className="px-1.5 py-0.5 bg-[#ECE8DF] text-[#123D32] font-semibold border border-[#E5E2DA]">
                           CRM: UPDATED
                         </span>
-                        <span className="px-1.5 py-0.5 bg-[#ECE8DF] text-[#C83B35] font-semibold border border-[#E5E2DA]">
+                        <span className="px-1.5 py-0.5 bg-[#ECE8DF] text-[#123D32] font-semibold border border-[#E5E2DA] flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />
                           WHATSAPP: DISPATCHED
                         </span>
                       </div>
