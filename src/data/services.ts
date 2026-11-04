@@ -24,36 +24,36 @@ export const SERVICES: Service[] = [
         description: 'Pages that adjust smoothly to look clear on phones, tablets, and computers.'
       },
       {
-        title: 'Clean Code',
-        description: 'Modern website code built for speed and stability.'
+        title: 'Clear Structure',
+        description: 'Logical page hierarchy and easy-to-navigate layouts for your visitors.'
       },
       {
-        title: 'Page Speed',
-        description: 'Lightweight pages designed to load quickly for every visitor.'
+        title: 'Page Performance',
+        description: 'Efficient page assets structured to load reliably across devices.'
       },
       {
-        title: 'Documentation',
-        description: 'Clear written notes explaining how your website is structured.'
+        title: 'Form Connections',
+        description: 'Contact forms that route visitor inquiries directly to your team.'
       }
     ],
     deliverables: [
       'Responsive layouts for mobile and desktop screens',
-      'Pages that adjust smoothly to look clear on phones, tablets, and computers',
-      'Fast page loading and speed optimization',
-      'Lightweight pages designed to load quickly'
+      'Navigation structure and page hierarchy',
+      'Contact forms and inquiry routing',
+      'Domain connection and hosting setup'
     ],
     methodology: [
       { step: '01', title: 'Discover', detail: 'We learn about your business goals and page requirements.' },
       { step: '02', title: 'Plan', detail: 'We outline the page structure and project milestones.' },
-      { step: '03', title: 'Design & Build', detail: 'We design your layouts and write clean website code.' },
+      { step: '03', title: 'Design & Build', detail: 'We design your layouts and build your website pages.' },
       { step: '04', title: 'Review', detail: 'You test a working preview and share feedback.' },
-      { step: '05', title: 'Launch', detail: 'We launch your site and walk you through how it works.' }
+      { step: '05', title: 'Launch', detail: 'We launch your site and walk you through how it operates.' }
     ],
     techStack: ['TypeScript', 'Node.js'],
     metricsOrOutcomes: [
-      'Fast page loading',
+      'Reliable page loading',
       'Clear layouts on all screens',
-      'Thorough testing before launch'
+      'Tested forms and navigation'
     ],
     relatedServiceSlugs: ['app-development', 'ecommerce-solutions', 'ui-ux-design'],
     meta: {

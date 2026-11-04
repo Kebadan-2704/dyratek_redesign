@@ -101,7 +101,7 @@ export function PrototypesSection() {
                           <div className="h-14 bg-[#F0F3F1] rounded flex items-center justify-center text-xs text-[#123D32] font-medium">
                             Product card
                           </div>
-                          <div className="text-xs font-semibold text-[#1E2221]">Fast search</div>
+                          <div className="text-xs font-semibold text-[#1E2221]">Product search</div>
                           <div className="text-[11px] text-[#123D32]">In stock</div>
                         </div>
                         <div className="bg-white border border-[#E1E4E0] rounded-lg p-3 space-y-1.5">

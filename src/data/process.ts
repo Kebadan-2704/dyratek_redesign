@@ -34,11 +34,11 @@ export const PROCESS_STAGES: ProcessStage[] = [
     name: 'Design & Build',
     phase: 'DESIGN & CODE',
     duration: 'Step 3',
-    description: 'We design your pages and write clean code.',
+    description: 'We design your layouts and build responsive, working pages.',
     focus: 'Create layouts and build responsive, working pages.',
     deliverables: [
       'Visual screen layouts',
-      'Clean website code',
+      'Responsive page layouts',
       'Connected forms and tools'
     ],
     governance: 'Build Verification'

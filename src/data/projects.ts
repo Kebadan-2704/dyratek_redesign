@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
     solution:
       'We built a sample store with fast search, clear product cards, and automatic inventory updates.',
     architectureDetails: [
-      'Fast product catalog with easy-to-use search and filters',
+      'Product catalog with easy-to-use search and filters',
       'Shopping cart drawer that saves selected items',
       'Inventory updates between warehouses to reduce stock errors',
       'Clear design elements that work on phones and computers'
@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
       'Pre-built buttons, dropdowns, and cards for pages',
       'Typography sizing that adjusts smoothly from mobile to desktop'
     ],
-    technologies: ['Design System', 'Style Guides', 'Component Blocks', 'Documentation'],
+    technologies: ['Design System', 'Style Guides', 'Component Blocks', 'Design Tokens'],
     deliverables: [
       { label: 'Design Library', specification: 'Design files with ready-to-use buttons and screen layouts' },
       { label: 'Style Settings', specification: 'Color, font, and spacing settings for code' },
