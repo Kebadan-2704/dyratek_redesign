@@ -78,7 +78,7 @@ export interface ProcessStage {
 
 export interface FAQItem {
   id: string;
-  category: 'Engagement & Scope' | 'Engineering & Architecture' | 'Delivery & Commercial' | 'Operations & Support';
+  category: 'Working With Us' | 'Technology & Code' | 'Timelines & Pricing' | 'Support & Security';
   question: string;
   answer: string;
 }

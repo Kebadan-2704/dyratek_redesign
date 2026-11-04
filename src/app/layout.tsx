@@ -35,21 +35,20 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dyratek.com'),
   title: {
-    default: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    default: 'DYRATEK — Fast Websites, Apps & Business Automations',
     template: '%s | DYRATEK'
   },
   description:
-    'DYRATEK designs and engineers digital products, business automation systems, and creative growth solutions across 3 pillars and 11 focused services.',
+    'DYRATEK builds clean websites, mobile apps, and automated workflows that help your business work better.',
   applicationName: 'DYRATEK',
   authors: [{ name: 'DYRATEK Product Team' }],
   keywords: [
-    'Digital Product Engineering',
     'Web Development',
-    'App Development',
-    'E-commerce Solutions',
+    'Mobile App Development',
+    'E-commerce Stores',
     'Business Automation',
-    'UI/UX Design Systems',
-    'Performance Marketing'
+    'UI/UX Design',
+    'Online Advertising'
   ],
   creator: 'DYRATEK',
   alternates: {
@@ -69,15 +68,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://dyratek.com',
     siteName: 'DYRATEK',
-    title: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    title: 'DYRATEK — Fast Websites, Apps & Business Automations',
     description:
-      'Digital products, business automation systems, and creative growth solutions built with architectural precision.'
+      'We design clean websites, mobile apps, and automated workflows that help your business work better.'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    title: 'DYRATEK — Fast Websites, Apps & Business Automations',
     description:
-      'Digital products, business automation systems, and creative growth solutions built with architectural precision.'
+      'We design clean websites, mobile apps, and automated workflows that help your business work better.'
   },
   robots: {
     index: true,
@@ -104,7 +103,7 @@ export default function RootLayout({
     url: 'https://dyratek.com',
     logo: 'https://dyratek.com/brand/dyratek-logo-transparent.png',
     description:
-      'Digital product foundry and engineering practice delivering high-performance platforms, business automation, and growth solutions.'
+      'Digital studio building fast websites, mobile apps, and business workflow automations.'
   };
 
   const websiteSchema = {

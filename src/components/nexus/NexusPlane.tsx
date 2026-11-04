@@ -153,7 +153,7 @@ export function NexusPlane({
               fontSize="8"
               letterSpacing="0.08em"
             >
-              FOUNDRY // 4 SERVICES
+              WEBSITES &amp; APPS
             </text>
           </g>
         </g>
@@ -293,7 +293,7 @@ export function NexusPlane({
               fontSize="8"
               letterSpacing="0.08em"
             >
-              WORKFLOW // ZERO LATENCY
+              APP AUTOMATION
             </text>
           </g>
         </g>
@@ -407,7 +407,7 @@ export function NexusPlane({
             fontWeight="800"
             letterSpacing="0.06em"
           >
-            CREATE &amp; GROW
+            GROW
           </text>
         </g>
 
@@ -421,7 +421,7 @@ export function NexusPlane({
             fontSize="8"
             letterSpacing="0.08em"
           >
-            SCALE // 5 DISCIPLINES
+            DESIGN &amp; ADS
           </text>
         </g>
       </g>

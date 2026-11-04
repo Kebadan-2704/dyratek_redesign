@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/Button';
 
 const CATEGORIES = [
   'All',
-  'Engagement & Scope',
-  'Engineering & Architecture',
-  'Delivery & Commercial',
-  'Operations & Support'
+  'Working With Us',
+  'Technology & Code',
+  'Timelines & Pricing',
+  'Support & Security'
 ] as const;
 
 export default function FAQPage() {
@@ -48,24 +48,24 @@ export default function FAQPage() {
         <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
           <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
             <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>KNOWLEDGE BASE // FREQUENTLY ASKED QUESTIONS</span>
+            <span>HELP &amp; ANSWERS</span>
           </div>
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
-            Operational answers &amp; standards.
+            Frequently asked questions.
           </h1>
           <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
-            Transparent clarification regarding engagement frameworks, intellectual property ownership, technology selections, and delivery protocols.
+            Clear answers about our services, process, timelines, and technology.
           </p>
 
           {/* Category Filter Pills */}
           <div className="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-[#E5E2DA] font-mono text-xs">
-            <span className="text-[#2A2A2A]/60 mr-2 uppercase">FILTER CATEGORY:</span>
+            <span className="text-[#2A2A2A]/60 mr-2 uppercase">FILTER BY TOPIC:</span>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 border transition-all text-xs font-semibold ${
+                className={`px-3 py-1.5 border transition-all text-xs font-semibold cursor-pointer ${
                   activeCategory === cat
                     ? 'bg-[#123D32] text-[#F4F1E9] border-[#123D32]'
                     : 'bg-[#ECE8DF] text-[#2A2A2A] border-[#E5E2DA] hover:border-[#123D32]'
@@ -123,18 +123,18 @@ export default function FAQPage() {
         <div className="mt-20 max-w-4xl mx-auto bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-1 font-semibold">
-              UNRESOLVED INQUIRY?
+              STILL HAVE QUESTIONS?
             </div>
             <h2 className="font-heading font-extrabold text-2xl uppercase tracking-tight text-[#F4F1E9]">
-              Request a Technical Architecture Review
+              Ask Us Directly
             </h2>
             <p className="font-body text-xs text-[#F4F1E9]/80 max-w-md mt-1">
-              Direct consultation with our engineering squad to answer complex integration questions.
+              We are happy to answer any questions about your project, timeline, or technology.
             </p>
           </div>
           <div className="flex-shrink-0">
-            <Button href="/contact" variant="accent" size="md" showArrow>
-              Submit Inquiry
+            <Button href="/contact" aria-label="Contact us with your questions" variant="accent" size="md" showArrow>
+              Contact us
             </Button>
           </div>
         </div>
@@ -142,4 +142,3 @@ export default function FAQPage() {
     </div>
   );
 }
-

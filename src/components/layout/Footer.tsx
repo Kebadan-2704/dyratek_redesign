@@ -41,7 +41,7 @@ export default function Footer() {
                 <DyratekLogo size="lg" />
               </Link>
               <p className="mt-5 font-body text-sm text-[#2A2A2A] max-w-sm leading-relaxed opacity-90">
-                Digital product engineering, business automation systems, and creative growth infrastructure for modern commercial enterprises.
+                We build fast websites, mobile apps, and automated workflows that help your business grow.
               </p>
             </div>
 
@@ -49,12 +49,12 @@ export default function Footer() {
               <div className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70">
                 <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
                 <span className="tracking-wider uppercase font-semibold text-[#123D32]">
-                  BUILD • AUTOMATE • CREATE & GROW
+                  BUILD • AUTOMATE • GROW
                 </span>
               </div>
               <div className="p-3 bg-[#ECE8DF] border-l-2 border-[#123D32] font-mono text-[11px] text-[#2A2A2A]/80 space-y-1">
-                <div>SYSTEM ARCHITECTURE: 3 PILLARS // 11 SERVICES</div>
-                <div>FRAMEWORK: SWISS MODERNIST SPECIFICATION</div>
+                <div>SERVICES: BUILD • AUTOMATE • GROW</div>
+                <div>SIMPLE • FAST • BUILT TO LAST</div>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function Footer() {
           {/* Service Architecture (3 Pillars) */}
           <div className="md:col-span-4 space-y-6">
             <div className="font-mono text-xs uppercase tracking-widest text-[#123D32] font-bold border-b border-[#E5E2DA] pb-2">
-              Service Taxonomy (11 Services)
+              What We Do
             </div>
             <div className="space-y-4">
               {FOOTER_PILLARS.map((pillar) => (
@@ -90,7 +90,7 @@ export default function Footer() {
           {/* Company & Governance */}
           <div className="md:col-span-3 space-y-6">
             <div className="font-mono text-xs uppercase tracking-widest text-[#123D32] font-bold border-b border-[#E5E2DA] pb-2">
-              Corporate Governance
+              Company
             </div>
             <ul className="space-y-2">
               {FOOTER_COMPANY.map((link) => (
@@ -107,17 +107,17 @@ export default function Footer() {
 
             <div className="pt-4 border-t border-[#E5E2DA] space-y-2">
               <div className="font-mono text-xs text-[#2A2A2A]/70 uppercase tracking-wider font-semibold">
-                Direct Contact
+                Say Hello
               </div>
               <div className="font-body text-xs text-[#2A2A2A]">
-                <a
-                  href="mailto:hello@dyratek.com"
+                <Link
+                  href="/contact"
                   className="text-[#123D32] font-bold hover:underline"
                 >
-                  hello@dyratek.com
-                </a>
+                  Contact form
+                </Link>
                 <span className="text-[#123D32]/70 text-[10px] font-mono block mt-0.5">
-                  Direct inquiries reviewed by senior software engineering squads
+                  Get in touch to talk through your project.
                 </span>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function Footer() {
           aria-hidden="true"
         >
           <div className="font-heading font-extrabold text-[7vw] lg:text-[112px] leading-none text-[#123D32]/10 tracking-tight text-center uppercase whitespace-nowrap overflow-hidden">
-            DYRATEK • ARCHITECTURAL
+            DYRATEK • DIGITAL STUDIO
           </div>
         </div>
 

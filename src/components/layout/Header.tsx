@@ -205,9 +205,9 @@ export default function Header() {
                         ))}
                       </div>
                       <div className="mt-4 pt-3 border-t border-[#E5E2DA] flex justify-between items-center text-[11px] font-mono">
-                        <span className="text-[#2A2A2A]/60">PRACTICE ARCHITECTURE</span>
+                        <span className="text-[#2A2A2A]/60">OUR SERVICES</span>
                         <Link href="/services" onClick={closeMenus} className="text-[#123D32] font-bold hover:text-[#C83B35]">
-                          View All 11 Services →
+                          View all services →
                         </Link>
                       </div>
                     </div>
@@ -228,14 +228,15 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Action Area: Start a Project CTA + Mobile Menu Toggle */}
+        {/* Action Area: Contact CTA + Mobile Menu Toggle */}
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
+            aria-label="Contact us to discuss your project"
             className="hidden lg:inline-flex items-center gap-2 bg-[#123D32] text-[#F4F1E9] font-mono text-[11px] uppercase tracking-[0.06em] font-semibold px-5 py-2.5 hover:bg-[#1b4f42] transition-colors"
           >
             <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block flex-shrink-0" aria-hidden="true" />
-            <span className="text-[#F4F1E9]">Start a Project</span>
+            <span className="text-[#F4F1E9]">Contact us</span>
           </Link>
 
           {/* Mobile Menu Toggle (min 44x44px touch target) */}
@@ -366,10 +367,11 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={closeMenus}
+              aria-label="Contact us to discuss your project"
               className="flex items-center justify-center gap-2 w-full bg-[#123D32] text-[#F4F1E9] font-mono text-[11px] uppercase tracking-[0.06em] font-semibold px-5 py-4 min-h-[48px] hover:bg-[#1b4f42] transition-colors"
             >
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span className="text-[#F4F1E9]">Start a Project</span>
+              <span className="text-[#F4F1E9]">Contact us</span>
             </Link>
           </div>
         </nav>
