@@ -285,7 +285,7 @@ export const SERVICES: Service[] = [
     metricsOrOutcomes: [
       'Automated routine tasks',
       'Connected business software',
-      'Instant team alerts'
+      'Fast team alerts'
     ],
     relatedServiceSlugs: ['email-whatsapp-marketing', 'digital-solutions', 'web-development'],
     meta: {
@@ -363,7 +363,7 @@ export const SERVICES: Service[] = [
     shortName: 'UI/UX',
     pillarId: 'create-grow',
     pillarName: 'Grow',
-    tagline: 'Clean design that visitors understand instantly.',
+    tagline: 'Clean design that visitors understand right away.',
     description:
       'We design clear, easy-to-use interfaces for websites and mobile applications. Every screen is organized so visitors can navigate naturally.',
     strategicObjective:

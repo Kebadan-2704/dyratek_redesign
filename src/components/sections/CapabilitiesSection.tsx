@@ -5,7 +5,7 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 export function CapabilitiesSection() {
   const [activeTab, setActiveTab] = useState<'commerce' | 'analytics' | 'automation'>('commerce');
-  const [simulatedWebhookDispatched, setSimulatedWebhookDispatched] = useState(false);
+  const [simulatedDispatched, setSimulatedDispatched] = useState(false);
 
   return (
     <section className="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="capabilities">
@@ -194,7 +194,7 @@ export function CapabilitiesSection() {
                         MODULE 02 // AUTOMATION
                       </span>
                       <h3 className="font-heading font-bold text-lg text-[#123D32] mt-1">
-                        Instant Leads &amp; Customer Updates
+                        Fast Inquiries &amp; Customer Updates
                       </h3>
                     </div>
                     <span className="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-[#123D32] font-bold flex items-center gap-1">
@@ -218,10 +218,10 @@ export function CapabilitiesSection() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => setSimulatedWebhookDispatched(!simulatedWebhookDispatched)}
+                        onClick={() => setSimulatedDispatched(!simulatedDispatched)}
                         className="px-2 py-0.5 bg-[#F4F1E9] border border-[#E5E2DA] text-[#123D32] font-bold hover:bg-[#123D32] hover:text-[#F4F1E9] transition-colors cursor-pointer"
                       >
-                        {simulatedWebhookDispatched ? 'Reset' : 'Try it'}
+                        {simulatedDispatched ? 'Reset' : 'Try it'}
                       </button>
                     </div>
 
@@ -234,7 +234,7 @@ export function CapabilitiesSection() {
                         <span className="text-[#2A2A2A]/60">SAMPLE RESULT</span>
                       </div>
                       <p className="font-body text-xs text-[#2A2A2A] leading-normal">
-                        {simulatedWebhookDispatched
+                        {simulatedDispatched
                           ? 'Customer details saved to your contact list. A confirmation message was sent to their phone.'
                           : 'When a customer sends a message, their details save automatically to your contact list.'}
                       </p>
