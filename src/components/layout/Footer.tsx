@@ -1,81 +1,49 @@
-'use client';
-
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { FOOTER_PILLARS, FOOTER_COMPANY, FOOTER_LEGAL } from '@/data/navigation';
 import { DyratekLogo } from '@/components/ui/DyratekLogo';
 
 export default function Footer() {
-  const [wordmarkRevealed, setWordmarkRevealed] = useState(false);
-  const wordmarkRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const current = wordmarkRef.current;
-    if (!current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setWordmarkRevealed(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <footer className="w-full bg-[#F4F1E9] border-t border-[#E5E2DA]" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 pb-12">
-          {/* Brand Colophon with Official Original Logo */}
-          <div className="md:col-span-5 flex flex-col justify-between">
-            <div>
-              <Link href="/" className="inline-block" aria-label="DYRATEK Home">
-                <DyratekLogo size="lg" />
+    <footer className="w-full bg-[#FBFBF9] border-t border-[#E1E4E0]" role="contentinfo">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 pt-16 pb-12">
+        {/* Main 3-Column Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#E1E4E0]">
+          {/* Column 1: Brand & Action (lg:col-span-4) */}
+          <div className="lg:col-span-4 space-y-6">
+            <Link href="/" aria-label="DYRATEK Home" className="inline-block">
+              <DyratekLogo size="lg" />
+            </Link>
+            <p className="text-[15px] text-[#555B57] leading-relaxed max-w-sm">
+              We design clean websites, mobile apps, and automated workflows that help your business work better.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center h-11 px-5 rounded-xl bg-[#123D32] text-[#FBFBF9] hover:bg-[#0B2720] text-sm font-medium transition-colors"
+              >
+                Contact us
               </Link>
-              <p className="mt-5 font-body text-sm text-[#2A2A2A] max-w-sm leading-relaxed opacity-90">
-                We build fast websites, mobile apps, and automated workflows that help your business grow.
-              </p>
-            </div>
-
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70">
-                <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-                <span className="tracking-wider uppercase font-semibold text-[#123D32]">
-                  BUILD • AUTOMATE • GROW
-                </span>
-              </div>
-              <div className="p-3 bg-[#ECE8DF] border-l-2 border-[#123D32] font-mono text-[11px] text-[#2A2A2A]/80 space-y-1">
-                <div>SERVICES: BUILD • AUTOMATE • GROW</div>
-                <div>SIMPLE • FAST • BUILT TO LAST</div>
-              </div>
             </div>
           </div>
 
-          {/* Service Architecture (3 Pillars) */}
-          <div className="md:col-span-4 space-y-6">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#123D32] font-bold border-b border-[#E5E2DA] pb-2">
-              What We Do
+          {/* Column 2: Services Grouped by Pillar (lg:col-span-5) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="text-sm font-semibold text-[#123D32] pb-2 border-b border-[#E1E4E0]">
+              Services
             </div>
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-1">
               {FOOTER_PILLARS.map((pillar) => (
-                <div key={pillar.title}>
-                  <div className="font-heading font-bold text-xs uppercase text-[#123D32] mb-1.5">
+                <div key={pillar.title} className="space-y-2.5">
+                  <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
                     {pillar.title}
                   </div>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1.5">
                     {pillar.links.map((link) => (
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="font-body text-xs text-[#2A2A2A]/80 hover:text-[#123D32] transition-colors"
+                          className="text-[13px] text-[#555B57] hover:text-[#123D32] transition-colors leading-snug block"
                         >
                           {link.label}
                         </Link>
@@ -87,66 +55,40 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company & Governance */}
-          <div className="md:col-span-3 space-y-6">
-            <div className="font-mono text-xs uppercase tracking-widest text-[#123D32] font-bold border-b border-[#E5E2DA] pb-2">
+          {/* Column 3: Company & Governance (lg:col-span-3) */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="text-sm font-semibold text-[#123D32] pb-2 border-b border-[#E1E4E0]">
               Company
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-2 pt-1">
               {FOOTER_COMPANY.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-xs text-[#2A2A2A]/80 hover:text-[#123D32] transition-colors"
+                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              {FOOTER_LEGAL.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors block"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-
-            <div className="pt-4 border-t border-[#E5E2DA] space-y-2">
-              <div className="font-mono text-xs text-[#2A2A2A]/70 uppercase tracking-wider font-semibold">
-                Say Hello
-              </div>
-              <div className="font-body text-xs text-[#2A2A2A]">
-                <Link
-                  href="/contact"
-                  className="text-[#123D32] font-bold hover:underline"
-                >
-                  Contact form
-                </Link>
-                <span className="text-[#123D32]/70 text-[10px] font-mono block mt-0.5">
-                  Get in touch to talk through your project.
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sequence 11: Large Footer Wordmark Reveal */}
-        <div
-          ref={wordmarkRef}
-          style={{
-            transitionDuration: '750ms',
-            transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)'
-          }}
-          className={`py-8 border-t border-[#E5E2DA] overflow-hidden w-full max-w-full transition-all select-none ${
-            wordmarkRevealed
-              ? 'opacity-100 scale-100 translate-y-0'
-              : 'opacity-0 scale-[0.98] translate-y-4 motion-reduce:opacity-100 motion-reduce:scale-100 motion-reduce:translate-y-0'
-          }`}
-          aria-hidden="true"
-        >
-          <div className="font-heading font-extrabold text-[7vw] lg:text-[112px] leading-none text-[#123D32]/10 tracking-tight text-center uppercase whitespace-nowrap overflow-hidden">
-            DYRATEK • DIGITAL STUDIO
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#E5E2DA] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#2A2A2A]/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#555B57]">
           <div>
-            &copy; 2026 DYRATEK. All Rights Reserved.
+            &copy; 2026 DYRATEK. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             {FOOTER_LEGAL.map((link) => (
