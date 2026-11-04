@@ -15,19 +15,19 @@ export function PhilosophySection() {
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
                 <span className="font-mono text-xs uppercase tracking-widest text-[#123D32] font-bold">
-                  02 / CORE PHILOSOPHY
+                  02 / HOW WE WORK
                 </span>
               </div>
               <h2 className="font-heading font-bold text-xl uppercase text-[#123D32]">
-                The Modern Delivery Model
+                Simple Tools That Help You Grow
               </h2>
               <p className="font-body text-xs text-[#2A2A2A]/80 leading-relaxed">
-                Transforming complex commercial challenges into resilient digital systems through strict engineering discipline, automated workflows, and strategic interface design.
+                We combine clean design with fast technology. You get reliable websites and software without unnecessary complexity.
               </p>
               <div className="p-3 bg-[#ECE8DF] border-l-2 border-[#C83B35] font-mono text-[10px] text-[#2A2A2A]/70 space-y-1">
-                <div>DELIVERY PARADIGM: INTEGRATED</div>
-                <div>METHOD: MULTI-DISCIPLINARY SQUADS</div>
-                <div>OUTCOME: SUSTAINED BUSINESS IMPACT</div>
+                <div>CLEAR PLAN: NO SURPRISES</div>
+                <div>ONE TEAM: DESIGNERS &amp; CODERS</div>
+                <div>YOUR GOAL: REAL RESULTS</div>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export function PhilosophySection() {
           <div className="lg:col-span-9 flex flex-col justify-between">
             <TextHighlight threshold={0.35}>
               <blockquote className="font-heading font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-snug">
-                “Where <span className="bg-[#123D32] text-[#F4F1E9] px-2.5 py-0.5 inline-block">product engineering</span> meets operational automation and measurable business growth. We partner with ambitious companies to replace fragmented workflows with <span className="text-[#C83B35] font-bold underline decoration-[#C83B35] underline-offset-8">cohesive digital ecosystems</span> designed for long-term scale.”
+                “We replace confusing tools and slow websites with <span className="bg-[#123D32] text-[#F4F1E9] px-2.5 py-0.5 inline-block">simple, reliable products</span>. You get fast results, clear communication, and <span className="text-[#C83B35] font-bold underline decoration-[#C83B35] underline-offset-8">dependable code</span> for your work.”
               </blockquote>
             </TextHighlight>
 
@@ -45,26 +45,26 @@ export function PhilosophySection() {
               <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-[#E5E2DA]">
                 <div>
                   <div className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold mb-1.5">
-                    01. FULL SPECTRUM CAPABILITY
+                    01. FAST WEBSITES &amp; APPS
                   </div>
                   <p className="font-body text-xs text-[#2A2A2A]/80 leading-relaxed">
-                    From cloud-native web architectures and mobile native apps to headless commerce backends and custom internal tools.
+                    We build websites, mobile apps, and online stores that load quickly and look great on every screen.
                   </p>
                 </div>
                 <div>
                   <div className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold mb-1.5">
-                    02. APPLIED AUTOMATION
+                    02. USEFUL AUTOMATIONS
                   </div>
                   <p className="font-body text-xs text-[#2A2A2A]/80 leading-relaxed">
-                    Pragmatic, high-utility automation—interconnecting CRMs, WhatsApp business messaging, and event-driven webhook pipelines.
+                    We connect your everyday tools so repetitive tasks like sending emails and updating records happen automatically.
                   </p>
                 </div>
                 <div>
                   <div className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold mb-1.5">
-                    03. COMMERCIALLY ALIGNED
+                    03. FOCUSED ON GROWTH
                   </div>
                   <p className="font-body text-xs text-[#2A2A2A]/80 leading-relaxed">
-                    Every sprint, interface component, and campaign pipeline is engineered to convert demand and unlock operational margin.
+                    Every page we design and every ad we run is built to bring in real leads and sales for your business.
                   </p>
                 </div>
               </div>

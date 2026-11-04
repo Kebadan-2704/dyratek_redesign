@@ -5,28 +5,28 @@ import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 const ADVANTAGES = [
   {
-    index: '01 // DELIVERY',
-    title: 'Integrated Execution',
+    index: '01 // ONE TEAM',
+    title: 'Designers & Coders Together',
     description:
-      'Designers, software engineers, and growth strategists work in single cross-functional squads to eliminate communication silos and handoff delays.'
+      'Our designers and developers work side by side. That means no messy handoffs, faster delivery, and no miscommunication.'
   },
   {
-    index: '02 // SOVEREIGNTY',
-    title: '100% Code Ownership',
+    index: '02 // CODE HANDOVER',
+    title: 'Clean Code Handover',
     description:
-      'You retain complete intellectual property and source code rights. No obscure licensing fees, closed vendor lock-in, or proprietary runtime traps.'
+      'We hand over clean code files and documentation upon project completion.'
   },
   {
-    index: '03 // PRAGMATISM',
-    title: 'Applied Automation',
+    index: '03 // SAVE TIME',
+    title: 'Practical Automations',
     description:
-      'We implement structured, quantifiable automation to increase workflow velocity, customer conversion, and operational margin.'
+      'We link your apps so tasks happen on their own. Spend less time copying data and more time running your business.'
   },
   {
-    index: '04 // LONGEVITY',
-    title: 'Engineered for Scale',
+    index: '04 // READY TO GROW',
+    title: 'Built to Expand',
     description:
-      'Architected on modular clean patterns and modern standards, allowing your systems to scale effortlessly as your business requirements expand.'
+      'We write clean, standard code that is easy to update. As your business adds new services, your software grows with you.'
   }
 ];
 
@@ -39,14 +39,14 @@ export function ValuePropositionSection() {
           <div>
             <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#C83B35] font-semibold">
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span>07 / THE DYRATEK ADVANTAGE</span>
+              <span>07 / WHY CHOOSE US</span>
             </div>
             <h2 className="font-heading font-extrabold text-3xl lg:text-[44px] leading-tight text-[#123D32] uppercase tracking-tight">
-              Why Growing Companies Choose Us
+              Why Businesses Choose DYRATEK
             </h2>
           </div>
           <p className="font-mono text-xs text-[#2A2A2A]/70 uppercase tracking-wider mt-4 md:mt-0 font-medium">
-            FULL SOVEREIGNTY • ZERO LOCK-IN
+            SIMPLE • HONEST • DEPENDABLE
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export function ValuePropositionSection() {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-[#E5E2DA] font-mono text-[9px] text-[#2A2A2A]/50 uppercase tracking-widest">
-                  VERIFIED STANDARD
+                  VERIFIED QUALITY
                 </div>
               </div>
             </ScrollReveal>

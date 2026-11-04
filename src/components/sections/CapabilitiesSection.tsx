@@ -15,16 +15,16 @@ export function CapabilitiesSection() {
           <div>
             <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#123D32] font-semibold">
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span>04 / CAPABILITY ARCHITECTURE</span>
+              <span>04 / SAMPLE WORK</span>
             </div>
             <h2 className="font-heading font-extrabold text-3xl lg:text-[44px] leading-tight text-[#123D32] uppercase tracking-tight">
-              System &amp; Interface Prototypes
+              See what we can build for you.
             </h2>
           </div>
           <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs mt-4 md:mt-0 flex-wrap">
             <span className="w-2 h-2 rounded-full bg-[#C83B35] flex-shrink-0" aria-hidden="true" />
             <span className="font-bold text-[#C83B35] break-words">
-              ILLUSTRATIVE INTERFACE CONCEPT — NON-PRODUCTION SIMULATION
+              SAMPLE PREVIEW — INTERACTIVE DEMO
             </span>
           </div>
         </div>
@@ -39,14 +39,14 @@ export function CapabilitiesSection() {
                   <div className="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
                     <div>
                       <span className="font-mono text-[10px] uppercase text-[#C83B35] font-bold">
-                        MODULE 01 // INTERFACE FRAMEWORK
+                        MODULE 01 // DASHBOARDS
                       </span>
                       <h3 className="font-heading font-bold text-lg text-[#123D32] mt-1">
-                        Multi-Platform SaaS Web &amp; Mobile Workspace
+                        Custom Web &amp; Mobile Dashboards
                       </h3>
                     </div>
                     <span className="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-[#123D32] font-bold">
-                      CONCEPT SIMULATION
+                      LIVE DEMO
                     </span>
                   </div>
 
@@ -58,9 +58,9 @@ export function CapabilitiesSection() {
                         <span className="w-2.5 h-2.5 rounded-full bg-[#E5E2DA] flex-shrink-0" aria-hidden="true" />
                         <span className="w-2.5 h-2.5 rounded-full bg-[#E5E2DA] flex-shrink-0" aria-hidden="true" />
                         <span className="w-2.5 h-2.5 rounded-full bg-[#E5E2DA] flex-shrink-0" aria-hidden="true" />
-                        <span className="ml-2 text-[#2A2A2A] font-medium truncate max-w-[130px] sm:max-w-none">prototype.dyratek.internal/workspace</span>
+                        <span className="ml-2 text-[#2A2A2A] font-medium truncate max-w-[130px] sm:max-w-none">app.dyratek.com/dashboard</span>
                       </div>
-                      <span className="text-[#123D32] font-bold">ARCHETYPE V1.0</span>
+                      <span className="text-[#123D32] font-bold">PREVIEW V1.0</span>
                     </div>
 
                     {/* Internal UI Layout Mockup with Interactive Tabs */}
@@ -123,31 +123,35 @@ export function CapabilitiesSection() {
                       >
                         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                           <div className="font-heading font-bold text-xs text-[#123D32]">
-                            {activeTab === 'commerce' && 'Commerce Channel Activity Simulation'}
-                            {activeTab === 'automation' && 'Webhook Event Orchestration Pipeline'}
-                            {activeTab === 'analytics' && 'Operational Latency & Cache Parity'}
+                            {activeTab === 'commerce' && 'Daily Store Activity'}
+                            {activeTab === 'automation' && 'Automated Task Queue'}
+                            {activeTab === 'analytics' && 'Page Speed & Uptime'}
                           </div>
                           <span className="font-mono text-[8px] px-1.5 py-0.5 bg-[#123D32] text-[#F4F1E9] w-max">
-                            NON-PRODUCTION SAMPLE DATA
+                            SAMPLE DATA
                           </span>
                         </div>
 
                         <div className="grid grid-cols-3 gap-2 font-mono">
                           <div className="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
-                            <div className="text-[9px] text-[#2A2A2A]/60">Simulated Units</div>
+                            <div className="text-[9px] text-[#2A2A2A]/60">
+                              {activeTab === 'commerce' ? 'Orders Today' : activeTab === 'automation' ? 'Tasks Done' : 'Uptime'}
+                            </div>
                             <div className="text-xs font-bold text-[#123D32]">
                               {activeTab === 'commerce' ? '1,482' : activeTab === 'automation' ? '89,410' : '99.98%'}
                             </div>
                           </div>
                           <div className="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
-                            <div className="text-[9px] text-[#2A2A2A]/60">Performance Band</div>
+                            <div className="text-[9px] text-[#2A2A2A]/60">
+                              {activeTab === 'commerce' ? 'Store Speed' : activeTab === 'automation' ? 'Queue State' : 'Response'}
+                            </div>
                             <div className="text-xs font-bold text-[#123D32]">
-                              {activeTab === 'commerce' ? 'High' : activeTab === 'automation' ? 'Optimal' : 'Sub-50ms'}
+                              {activeTab === 'commerce' ? '0.4s' : activeTab === 'automation' ? 'Active' : '42ms'}
                             </div>
                           </div>
                           <div className="bg-[#ECE8DF] p-1.5 border border-[#E5E2DA]">
-                            <div className="text-[9px] text-[#2A2A2A]/60">API State</div>
-                            <div className="text-xs font-bold text-[#C83B35]">Synced</div>
+                            <div className="text-[9px] text-[#2A2A2A]/60">Status</div>
+                            <div className="text-xs font-bold text-[#C83B35]">Live</div>
                           </div>
                         </div>
 
@@ -172,8 +176,8 @@ export function CapabilitiesSection() {
                 </div>
 
                 <div className="flex justify-between items-center font-mono text-[11px] text-[#2A2A2A]/60 pt-4 mt-4 border-t border-[#E5E2DA]">
-                  <span>ILLUSTRATIVE INTERFACE CONCEPT</span>
-                  <span className="text-[#123D32] font-semibold">NON-PRODUCTION SIMULATION</span>
+                  <span>SAMPLE INTERFACE PREVIEW</span>
+                  <span className="text-[#123D32] font-semibold">FAST MODERN CODE</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -187,15 +191,15 @@ export function CapabilitiesSection() {
                   <div className="flex justify-between items-start pb-3 border-b border-[#E5E2DA] mb-4">
                     <div>
                       <span className="font-mono text-[10px] uppercase text-[#C83B35] font-bold">
-                        MODULE 02 // WORKFLOW AUTOMATION
+                        MODULE 02 // AUTOMATION
                       </span>
                       <h3 className="font-heading font-bold text-lg text-[#123D32] mt-1">
-                        Automated Inbound &amp; CRM Pipeline
+                        Instant Leads &amp; Customer Updates
                       </h3>
                     </div>
                     <span className="px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[9px] text-[#123D32] font-bold flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />
-                      PROTOTYPE ONLY
+                      TEST IT OUT
                     </span>
                   </div>
 
@@ -203,21 +207,21 @@ export function CapabilitiesSection() {
                   <div className="bg-[#ECE8DF] border border-[#E5E2DA] p-3.5 space-y-3 font-mono text-xs">
                     <div className="flex gap-2 items-start justify-end">
                       <div className="bg-[#123D32] text-[#F4F1E9] p-2.5 max-w-[90%] text-[11px] leading-relaxed">
-                        &ldquo;Inbound customer request received via WhatsApp Business channel.&rdquo;
+                        &ldquo;New customer inquiry received via WhatsApp.&rdquo;
                       </div>
                     </div>
 
                     <div className="flex items-center justify-between text-[10px] text-[#2A2A2A]/70 py-1">
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#C83B35] animate-ping motion-reduce:animate-none" aria-hidden="true" />
-                        <span>Webhook Event: Parsing payload • Validating parameters</span>
+                        <span>Automated check: Validating customer inquiry</span>
                       </div>
                       <button
                         type="button"
                         onClick={() => setSimulatedWebhookDispatched(!simulatedWebhookDispatched)}
                         className="px-2 py-0.5 bg-[#F4F1E9] border border-[#E5E2DA] text-[#123D32] font-bold hover:bg-[#123D32] hover:text-[#F4F1E9] transition-colors cursor-pointer"
                       >
-                        {simulatedWebhookDispatched ? 'Reset State' : 'Trigger Simulation'}
+                        {simulatedWebhookDispatched ? 'Reset' : 'Try it'}
                       </button>
                     </div>
 
@@ -227,20 +231,20 @@ export function CapabilitiesSection() {
                           <span className="w-1.5 h-1.5 bg-[#C83B35]" aria-hidden="true" />
                           DYRATEK AUTOMATION ENGINE
                         </span>
-                        <span className="text-[#2A2A2A]/60">SAMPLE EXECUTION</span>
+                        <span className="text-[#2A2A2A]/60">SAMPLE RESULT</span>
                       </div>
                       <p className="font-body text-xs text-[#2A2A2A] leading-normal">
                         {simulatedWebhookDispatched
-                          ? 'Simulated payload processed: Customer verified in CRM database. Transaction record staged in negotiation funnel. Auto-response dispatched.'
-                          : 'Inbound customer data validated. Transaction record created. WhatsApp confirmation template staged and dispatched to user.'}
+                          ? 'Customer details saved to your contact list. A confirmation message was sent to their phone.'
+                          : 'When a customer sends a message, their details save automatically to your contact list.'}
                       </p>
                       <div className="pt-1.5 flex gap-2 font-mono text-[9px]">
                         <span className="px-1.5 py-0.5 bg-[#ECE8DF] text-[#123D32] font-semibold border border-[#E5E2DA]">
-                          CRM: UPDATED
+                          CONTACTS: UPDATED
                         </span>
                         <span className="px-1.5 py-0.5 bg-[#ECE8DF] text-[#123D32] font-semibold border border-[#E5E2DA] flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />
-                          WHATSAPP: DISPATCHED
+                          MESSAGE: SENT
                         </span>
                       </div>
                     </div>
@@ -248,8 +252,8 @@ export function CapabilitiesSection() {
                 </div>
 
                 <div className="flex justify-between items-center font-mono text-[11px] text-[#2A2A2A]/60 pt-4 mt-4 border-t border-[#E5E2DA]">
-                  <span>STRICT RUNTIME GUARDRAILS</span>
-                  <span className="text-[#C83B35] font-bold">ILLUSTRATIVE INTERFACE CONCEPT</span>
+                  <span>NOTIFICATIONS</span>
+                  <span className="text-[#C83B35] font-bold">AUTOMATED UPDATES</span>
                 </div>
               </div>
             </ScrollReveal>
