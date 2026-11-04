@@ -7,59 +7,52 @@ export function ProcessSection() {
   const [activeStep, setActiveStep] = useState<string>('01');
 
   const currentStage = PROCESS_STAGES.find((s) => s.step === activeStep) || PROCESS_STAGES[0];
-  const activeIndex = PROCESS_STAGES.findIndex((s) => s.step === activeStep);
-  const progressPercentage = ((activeIndex + 1) / PROCESS_STAGES.length) * 100;
 
   return (
-    <section className="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="process">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+    <section className="w-full bg-[#FBFBF9] py-16 sm:py-20 lg:py-24 border-b border-[#E1E4E0]" id="process">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 space-y-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 border-b border-[#E5E2DA]">
-          <div>
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#C83B35] font-semibold">
-              <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span>Process</span>
-            </div>
-            <h2 className="font-heading font-extrabold text-3xl lg:text-[44px] leading-tight text-[#123D32] uppercase tracking-tight">
-              How your project gets built.
-            </h2>
-          </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#2A2A2A]/70 flex items-center gap-3">
-            <span>STEP PROGRESSION:</span>
-            <span className="font-bold text-[#123D32]">{activeStep} / 05</span>
-          </div>
+        <div>
+          <h2 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-[#123D32]">
+            How your project gets built
+          </h2>
+          <p className="text-base sm:text-lg text-[#555B57] mt-3 max-w-[65ch] leading-relaxed">
+            Every project follows five clear stages from first conversation to final launch.
+          </p>
         </div>
 
-        {/* Global Progress Bar Line */}
-        <div className="w-full bg-[#E5E2DA] h-1 mb-8 relative">
-          <div
-            className="bg-[#123D32] h-1 transition-all duration-500 ease-out"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-
-        {/* Interactive Step Tab Navigation */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-4 mb-8">
-          {PROCESS_STAGES.map((stage) => {
+        {/* Stepper Navigation: Vertical on Mobile, 5-col on Desktop (No orphan tile!) */}
+        <div
+          role="tablist"
+          aria-label="Project stages"
+          className="grid grid-cols-1 sm:grid-cols-5 gap-3"
+        >
+          {PROCESS_STAGES.map((stage, idx) => {
             const isActive = stage.step === activeStep;
             return (
               <button
                 key={stage.step}
+                id={`stage-tab-${stage.step}`}
+                role="tab"
                 type="button"
+                aria-selected={isActive}
+                aria-controls={`stage-panel-${stage.step}`}
                 onClick={() => setActiveStep(stage.step)}
-                className={`p-4 text-left border transition-all duration-200 cursor-pointer ${
+                className={`p-4 rounded-xl text-left border transition-all cursor-pointer min-h-[56px] flex flex-col justify-between ${
                   isActive
-                    ? 'bg-[#123D32] text-[#F4F1E9] border-[#123D32] shadow-md'
-                    : 'bg-[#ECE8DF] text-[#2A2A2A] border-[#E5E2DA] hover:border-[#123D32]/50'
+                    ? 'bg-[#123D32] text-[#FBFBF9] border-[#123D32] shadow-sm'
+                    : 'bg-white text-[#1E2221] border-[#E1E4E0] hover:bg-[#F3F4F1]'
                 }`}
               >
-                <div className="flex justify-between items-center mb-1">
-                  <span className={`font-mono text-xs font-bold flex items-center gap-1.5 ${isActive ? 'text-[#F4F1E9]' : 'text-[#123D32]'}`}>
-                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#C83B35]" aria-hidden="true" />}
-                    STEP {stage.step}
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className={`text-xs font-semibold ${isActive ? 'text-[#D8D4CA]' : 'text-[#555B57]'}`}>
+                    Step {idx + 1}
                   </span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#FBFBF9]" aria-hidden="true" />
+                  )}
                 </div>
-                <div className="font-heading font-bold text-sm uppercase truncate">
+                <div className="font-semibold text-sm leading-snug">
                   {stage.name}
                 </div>
               </button>
@@ -67,32 +60,34 @@ export function ProcessSection() {
           })}
         </div>
 
-        {/* Active Stage Detailed Card */}
-        <div className="bg-[#F4F1E9] border-2 border-[#123D32] p-6 lg:p-10 shadow-sm">
+        {/* Active Stage Panel */}
+        <div
+          id={`stage-panel-${currentStage.step}`}
+          role="tabpanel"
+          aria-labelledby={`stage-tab-${currentStage.step}`}
+          className="rounded-2xl bg-white border border-[#E1E4E0] p-6 sm:p-10 shadow-xs"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-4">
-              <div className="flex items-center gap-2 font-mono text-xs text-[#C83B35] font-bold uppercase">
-                <span className="w-1.5 h-1.5 bg-[#C83B35]" aria-hidden="true" />
-                STEP {currentStage.step} &bull; {currentStage.name}
+              <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                Stage focus
               </div>
-
-              <h3 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase text-[#123D32]">
+              <h3 className="font-bold text-2xl sm:text-3xl text-[#123D32]">
                 {currentStage.focus}
               </h3>
-
-              <p className="font-body text-base text-[#2A2A2A]/85 leading-relaxed">
+              <p className="text-base text-[#555B57] leading-relaxed">
                 {currentStage.description}
               </p>
             </div>
 
-            <div className="lg:col-span-5 bg-[#ECE8DF] border border-[#E5E2DA] p-6 space-y-4">
-              <div className="font-mono text-xs uppercase text-[#123D32] font-bold pb-2 border-b border-[#E5E2DA]">
+            <div className="lg:col-span-5 rounded-xl bg-[#F3F4F1] p-6 space-y-3.5 border border-[#E1E4E0]">
+              <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide pb-2 border-b border-[#E1E4E0]">
                 What is covered
               </div>
-              <ul className="space-y-2.5 font-mono text-xs text-[#2A2A2A]/80">
+              <ul className="space-y-2.5 text-sm text-[#1E2221]">
                 {currentStage.deliverables.map((deliv, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#C83B35] font-bold">0{idx + 1}.</span>
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#123D32] mt-2 flex-shrink-0" aria-hidden="true" />
                     <span>{deliv}</span>
                   </li>
                 ))}
