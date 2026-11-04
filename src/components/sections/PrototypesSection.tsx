@@ -102,14 +102,14 @@ export function PrototypesSection() {
                             Product card
                           </div>
                           <div className="text-xs font-semibold text-[#1E2221]">Product search</div>
-                          <div className="text-[11px] text-[#123D32]">In stock</div>
+                          <div className="text-[13px] text-[#123D32]">In stock</div>
                         </div>
                         <div className="bg-white border border-[#E1E4E0] rounded-lg p-3 space-y-1.5">
                           <div className="h-14 bg-[#F0F3F1] rounded flex items-center justify-center text-xs text-[#123D32] font-medium">
                             Product card
                           </div>
                           <div className="text-xs font-semibold text-[#1E2221]">Clear filters</div>
-                          <div className="text-[11px] text-[#123D32]">In stock</div>
+                          <div className="text-[13px] text-[#123D32]">In stock</div>
                         </div>
                       </div>
                       <div className="p-2 rounded bg-white border border-[#E1E4E0] flex justify-between items-center text-xs">
@@ -161,13 +161,13 @@ export function PrototypesSection() {
                         <span className="text-[#555B57]">Consistent UI</span>
                       </div>
                       <div className="grid grid-cols-3 gap-2">
-                        <div className="h-10 rounded-md bg-[#123D32] text-[#FBFBF9] text-[10px] flex items-center justify-center font-medium">
+                        <div className="h-10 rounded-md bg-[#123D32] text-[#FBFBF9] text-[13px] flex items-center justify-center font-medium">
                           Forest
                         </div>
-                        <div className="h-10 rounded-md bg-[#FBFBF9] border border-[#E1E4E0] text-[#1E2221] text-[10px] flex items-center justify-center font-medium">
+                        <div className="h-10 rounded-md bg-[#FBFBF9] border border-[#E1E4E0] text-[#1E2221] text-[13px] flex items-center justify-center font-medium">
                           Porcelain
                         </div>
-                        <div className="h-10 rounded-md bg-[#1E2221] text-[#FBFBF9] text-[10px] flex items-center justify-center font-medium">
+                        <div className="h-10 rounded-md bg-[#1E2221] text-[#FBFBF9] text-[13px] flex items-center justify-center font-medium">
                           Charcoal
                         </div>
                       </div>

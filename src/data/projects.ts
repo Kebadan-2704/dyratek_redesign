@@ -2,7 +2,7 @@ import { Project } from '@/types';
 
 export const PROJECTS: Project[] = [
   {
-    slug: 'omnichannel-commerce-architecture',
+    slug: 'online-store',
     title: 'Online Store & Inventory Updates',
     category: 'Store & Inventory',
     pillar: 'BUILD',
@@ -14,16 +14,16 @@ export const PROJECTS: Project[] = [
     challenge:
       'Older online stores can be slow to browse and show inaccurate inventory numbers across multiple storage locations.',
     solution:
-      'We built a sample store with fast search, clear product cards, and automatic inventory updates.',
+      'We built a sample store with product search, clear product cards, and automatic inventory updates.',
     architectureDetails: [
       'Product catalog with easy-to-use search and filters',
       'Shopping cart drawer that saves selected items',
       'Inventory updates between warehouses to reduce stock errors',
       'Clear design elements that work on phones and computers'
     ],
-    technologies: ['Web Storefront', 'Payment Gateway', 'Inventory Sync', 'Cloud Cache'],
+    technologies: ['Store Catalog', 'Payment Setup', 'Inventory Link'],
     deliverables: [
-      { label: 'Fast Storefront', specification: 'Quick-loading catalog with filters' },
+      { label: 'Store Catalog', specification: 'Product catalog with search and filters' },
       { label: 'Shopping Cart', specification: 'Cart drawer that saves selected items' },
       { label: 'Inventory Link', specification: 'Link between inventory records and online stock' },
       { label: 'Reusable Layouts', specification: 'Product cards, buttons, and checkout blocks' }
@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     conceptDisclaimer: 'These are sample projects to show how we design and build. They are not work for real clients.'
   },
   {
-    slug: 'automated-crm-workflow-engine',
+    slug: 'inquiry-follow-up',
     title: 'Automated Inquiry Follow-Up',
     category: 'Workflow Automation',
     pillar: 'AUTOMATE',
@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
       'Updates customer records and notifies the team',
       'Sends alerts if any app connection pauses'
     ],
-    technologies: ['Automated Workflows', 'Messaging Service', 'Customer Records', 'Email Delivery'],
+    technologies: ['Form Handoff', 'Customer List', 'Team Alerts'],
     deliverables: [
       { label: 'Flow Map', specification: 'Visual map showing how messages move to your team' },
       { label: 'Inquiry Links', specification: 'Cloud connections that send website inquiries to your customer list' },
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     conceptDisclaimer: 'These are sample projects to show how we design and build. They are not work for real clients.'
   },
   {
-    slug: 'unified-brand-digital-design-system',
+    slug: 'design-kit',
     title: 'Design Kit for Web & Mobile',
     category: 'Design System',
     pillar: 'GROW',
@@ -83,12 +83,12 @@ export const PROJECTS: Project[] = [
       'Pre-built buttons, dropdowns, and cards for pages',
       'Typography sizing that adjusts smoothly from mobile to desktop'
     ],
-    technologies: ['Design System', 'Style Guides', 'Component Blocks', 'Design Tokens'],
+    technologies: ['Color Palette', 'Typography', 'Reusable Buttons'],
     deliverables: [
       { label: 'Design Library', specification: 'Design files with ready-to-use buttons and screen layouts' },
-      { label: 'Style Settings', specification: 'Color, font, and spacing settings for code' },
-      { label: 'Ready-Made Blocks', specification: 'Pre-built website sections that can be added to pages' },
-      { label: 'Contrast Review', specification: 'Checklist confirming readable text and clear contrast' }
+      { label: 'Style Guidelines', specification: 'Color, font, and spacing standards' },
+      { label: 'Section Layouts', specification: 'Reusable page sections for common layouts' },
+      { label: 'Visual Review', specification: 'Review of text contrast and button clarity' }
     ],
     servicesInvolved: ['Website & App Design', 'Web Development', 'Content Strategy & Copywriting'],
     isConcept: true,

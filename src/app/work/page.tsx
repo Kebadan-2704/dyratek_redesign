@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PROJECTS } from '@/data/projects';
-import { Button } from '@/components/ui/Button';
+import { CTASection } from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
   title: 'Our Work — Sample Projects & Concepts | DYRATEK',
@@ -11,75 +11,84 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 lg:py-24 border-b border-[#E1E4E0]">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 space-y-16 lg:space-y-20">
         {/* Page Hero */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>OUR WORK</span>
+        <div className="pb-12 border-b border-[#E1E4E0] space-y-4 max-w-3xl">
+          <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+            Our Work
           </div>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
+          <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight">
             Sample projects and concepts.
           </h1>
-          <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
+          <p className="text-lg text-[#555B57] leading-relaxed pt-2">
             These sample projects demonstrate the kinds of digital systems we design and build.
           </p>
 
-          <div className="mt-8 p-4 bg-[#ECE8DF] border-l-4 border-[#123D32] text-xs font-body text-[#2A2A2A]">
-            <strong>Notice:</strong> These are sample projects to show how we design and build. They are not work for real clients.
+          <div className="mt-4 p-4 rounded-xl bg-[#F0F3F1] border border-[#E1E4E0] text-sm text-[#1E2221]">
+            <strong className="text-[#123D32]">Notice:</strong> These are sample demonstration projects to show how we design and build. They are not work for real clients.
           </div>
         </div>
 
         {/* Projects List */}
-        <div className="space-y-16">
-          {PROJECTS.map((project, idx) => (
+        <div className="space-y-10">
+          {PROJECTS.map((project) => (
             <article
               key={project.slug}
-              className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 lg:p-10 transition-all duration-300 hover:border-[#123D32]"
+              className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-10 shadow-xs transition-all duration-300 hover:border-[#123D32] hover:shadow-sm"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div className="lg:col-span-8 space-y-4">
-                  <div className="flex flex-wrap items-center gap-2 font-mono text-[10px]">
-                    <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#123D32] font-bold border border-[#E5E2DA]">
-                      {project.pillar}
+                <div className="lg:col-span-8 space-y-5">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <span className="px-2.5 py-1 rounded-md bg-[#F0F3F1] text-[#123D32]">
+                      Category: {project.category}
                     </span>
-                    <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#2A2A2A]/70 border border-[#E5E2DA]">
-                      {project.category}
+                    <span className="px-2.5 py-1 rounded-md bg-[#F3F4F1] text-[#555B57]">
+                      Demonstration Sample
                     </span>
                   </div>
 
-                  <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase text-[#123D32]">
+                  <h2 className="font-bold text-2xl sm:text-3xl text-[#123D32]">
                     <Link
                       href={`/work/${project.slug}`}
-                      aria-label={`View details for ${project.title}`}
-                      className="hover:text-[#C83B35] transition-colors"
+                      className="hover:underline"
                     >
                       {project.title}
                     </Link>
                   </h2>
 
-                  <p className="font-body text-base text-[#2A2A2A]/85 leading-relaxed">
+                  <p className="text-base sm:text-lg text-[#555B57] leading-relaxed">
                     {project.summary}
                   </p>
 
-                  <div className="space-y-2 pt-2">
-                    <div className="font-mono text-[10px] uppercase text-[#123D32] font-bold">
-                      PROJECT HIGHLIGHTS:
+                  <div className="space-y-2.5 pt-3 border-t border-[#E1E4E0]">
+                    <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                      Key Highlights:
                     </div>
-                    {project.architectureDetails.map((detail, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-2 font-mono text-xs text-[#2A2A2A]/80">
-                        <span className="text-[#C83B35] font-bold" aria-hidden="true">›</span>
-                        <span>{detail}</span>
-                      </div>
-                    ))}
+                    <ul className="space-y-2">
+                      {project.architectureDetails.map((detail, dIdx) => (
+                        <li key={dIdx} className="flex items-start gap-2.5 text-sm text-[#1E2221]">
+                          <svg
+                            className="w-4 h-4 text-[#123D32] mt-0.5 flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="pt-4 flex flex-wrap gap-2">
+                  <div className="pt-2 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs text-[#123D32] font-semibold"
+                        className="px-3 py-1 rounded-md bg-[#F3F4F1] border border-[#E1E4E0] text-xs font-medium text-[#123D32]"
                       >
                         {tech}
                       </span>
@@ -87,24 +96,23 @@ export default function WorkPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 bg-[#ECE8DF] border border-[#E5E2DA] p-6 font-mono text-xs flex flex-col justify-between space-y-4">
-                  <div>
-                    <div className="font-bold text-[#123D32] border-b border-[#E5E2DA] pb-2 mb-3">
-                      PROJECT OVERVIEW 0{idx + 1}
+                <div className="lg:col-span-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] p-6 flex flex-col justify-between space-y-6">
+                  <div className="space-y-3">
+                    <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide border-b border-[#E1E4E0] pb-2">
+                      Project Format
                     </div>
-                    <div className="space-y-2 text-[#2A2A2A]/70 text-[11px]">
-                      <div>FORMAT: Sample Preview</div>
-                      <div>STATUS: Ready to View</div>
+                    <div className="space-y-1.5 text-sm text-[#555B57]">
+                      <div>Type: Concept demonstration</div>
+                      <div>Status: Interactive preview</div>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#E5E2DA]">
+                  <div className="pt-4 border-t border-[#E1E4E0]">
                     <Link
                       href={`/work/${project.slug}`}
-                      aria-label={`View details for ${project.title}`}
-                      className="block w-full text-center py-3 bg-[#123D32] text-[#F4F1E9] font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#1b4f42] transition-colors"
+                      className="h-11 px-5 rounded-xl bg-[#123D32] text-[#FBFBF9] text-sm font-medium flex items-center justify-center hover:bg-[#0B2720] transition-colors shadow-xs"
                     >
-                      View details →
+                      View project details →
                     </Link>
                   </div>
                 </div>
@@ -113,25 +121,8 @@ export default function WorkPage() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-20 bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-2 font-semibold">
-              START YOUR PROJECT
-            </div>
-            <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase tracking-tight text-[#F4F1E9]">
-              Talk with our team
-            </h2>
-            <p className="font-body text-xs text-[#F4F1E9]/80 max-w-lg mt-2">
-              Send us a message to discuss your timeline, goals, and ideas.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <Button href="/contact" aria-label="Contact us about your project" variant="accent" size="md" showArrow>
-              Contact us
-            </Button>
-          </div>
-        </div>
+        {/* Global CTA Band */}
+        <CTASection />
       </div>
     </div>
   );

@@ -3,15 +3,13 @@ export type PillarId = 'build' | 'automate' | 'create-grow';
 export interface Service {
   id: string;
   slug: string;
-  index: string; // e.g. "01", "02", ... "11"
-  pillarIndex: string; // e.g. "01.1", "02.1"
+  index: string; // "01".."11" (internal ordering)
   name: string;
   shortName: string;
   pillarId: PillarId;
   pillarName: string;
   tagline: string;
   description: string;
-  strategicObjective: string;
   capabilities: {
     title: string;
     description: string;
@@ -33,8 +31,6 @@ export interface Service {
 
 export interface Pillar {
   id: PillarId;
-  index: string; // "01", "02", "03"
-  code: string; // "01 // BUILD", etc.
   name: string;
   tagline: string;
   description: string;
@@ -68,12 +64,9 @@ export interface Project {
 export interface ProcessStage {
   step: string; // "01", "02", etc.
   name: string;
-  phase: string;
-  duration: string;
   description: string;
   focus: string;
   deliverables: string[];
-  governance: string;
 }
 
 export interface FAQItem {

@@ -8,23 +8,22 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
-      <div className="max-w-4xl mx-auto px-5 lg:px-16">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 lg:py-24 border-b border-[#E1E4E0]">
+      <div className="max-w-[760px] mx-auto px-5 sm:px-8 space-y-12">
         {/* Header */}
-        <div className="pb-8 mb-12 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>LEGAL &amp; PRIVACY</span>
+        <div className="pb-8 border-b border-[#E1E4E0] space-y-3">
+          <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+            Legal &amp; Privacy
           </div>
-          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] uppercase tracking-tight">
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#123D32] leading-tight">
             Privacy Policy
           </h1>
         </div>
 
         {/* Legal Text Content */}
-        <div className="space-y-8 font-body text-sm sm:text-base text-[#2A2A2A]/85 leading-relaxed">
+        <div className="space-y-8 text-base text-[#555B57] leading-relaxed">
           <section className="space-y-3">
-            <h2 className="font-heading font-bold text-xl uppercase text-[#123D32]">
+            <h2 className="font-bold text-xl text-[#123D32]">
               Overview
             </h2>
             <p>
@@ -33,7 +32,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-heading font-bold text-xl uppercase text-[#123D32]">
+            <h2 className="font-bold text-xl text-[#123D32]">
               Information You Provide
             </h2>
             <p>
@@ -42,7 +41,7 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-heading font-bold text-xl uppercase text-[#123D32]">
+            <h2 className="font-bold text-xl text-[#123D32]">
               Questions
             </h2>
             <p>
@@ -51,11 +50,11 @@ export default function PrivacyPage() {
           </section>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[#E5E2DA] flex justify-between items-center font-mono text-xs">
-          <Link href="/" aria-label="Go to homepage" className="text-[#123D32] font-bold hover:text-[#C83B35]">
+        <div className="pt-8 border-t border-[#E1E4E0] flex justify-between items-center text-sm font-medium">
+          <Link href="/" className="text-[#123D32] hover:underline">
             ← Return to homepage
           </Link>
-          <Link href="/terms" aria-label="View Terms of Service" className="text-[#123D32] hover:underline">
+          <Link href="/terms" className="text-[#123D32] hover:underline">
             View Terms of Service →
           </Link>
         </div>

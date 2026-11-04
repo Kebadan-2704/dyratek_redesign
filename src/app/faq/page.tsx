@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FAQS } from '@/data/faq';
-import { Button } from '@/components/ui/Button';
+import { CTASection } from '@/components/sections/CTASection';
 
 const CATEGORIES = [
   'All',
@@ -38,37 +38,38 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 lg:py-24 border-b border-[#E1E4E0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12 sm:space-y-16">
         {/* Page Hero */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>HELP &amp; ANSWERS</span>
+        <div className="max-w-3xl space-y-4 pb-8 border-b border-[#E1E4E0]">
+          <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+            Help &amp; Answers
           </div>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
+          <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight">
             Frequently asked questions.
           </h1>
-          <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
+          <p className="text-lg text-[#555B57] leading-relaxed pt-2">
             Clear answers about our services, process, timelines, and technology.
           </p>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-[#E5E2DA] font-mono text-xs">
-            <span className="text-[#2A2A2A]/60 mr-2 uppercase">FILTER BY TOPIC:</span>
+          {/* Category Filter Pills (Aligned with Container) */}
+          <div className="flex flex-wrap items-center gap-2 pt-4">
+            <span className="text-xs font-semibold text-[#555B57] uppercase tracking-wide mr-1">
+              Filter:
+            </span>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 border transition-all text-xs font-semibold cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-[#123D32] text-[#F4F1E9] border-[#123D32]'
-                    : 'bg-[#ECE8DF] text-[#2A2A2A] border-[#E5E2DA] hover:border-[#123D32]'
+                    ? 'bg-[#123D32] text-[#FBFBF9] border-[#123D32]'
+                    : 'bg-white text-[#1E2221] border-[#E1E4E0] hover:bg-[#F3F4F1]'
                 }`}
               >
                 {cat}
@@ -77,40 +78,45 @@ export default function FAQPage() {
           </div>
         </div>
 
-        {/* FAQ Accordion List */}
-        <div className="max-w-4xl mx-auto space-y-4">
+        {/* FAQ Accordion List (Aligned with Hero) */}
+        <div className="max-w-3xl space-y-3">
           {filteredFaqs.map((faq) => {
             const isOpen = openFaqId === faq.id;
             return (
               <div
                 key={faq.id}
-                className="bg-[#F4F1E9] border border-[#E5E2DA] transition-all"
+                className="rounded-2xl bg-white border border-[#E1E4E0] overflow-hidden shadow-xs transition-all duration-200"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(faq.id)}
                   aria-expanded={isOpen}
-                  className="w-full p-6 text-left flex items-start justify-between gap-4 group cursor-pointer"
+                  aria-controls={`faq-answer-${faq.id}`}
+                  id={`faq-btn-${faq.id}`}
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#FBFBF9] transition-colors"
                 >
-                  <div className="space-y-1">
-                    <span className="font-mono text-[10px] text-[#C83B35] font-bold uppercase tracking-wider block">
-                      {faq.category}
-                    </span>
-                    <h2 className="font-heading font-bold text-lg sm:text-xl uppercase text-[#123D32] group-hover:text-[#C83B35] transition-colors">
-                      {faq.question}
-                    </h2>
-                  </div>
-                  <span
-                    className={`font-mono text-xl font-bold text-[#123D32] transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? 'rotate-45 text-[#C83B35]' : ''
+                  <h2 className="font-bold text-lg text-[#123D32] leading-snug">
+                    {faq.question}
+                  </h2>
+                  <div
+                    className={`w-7 h-7 rounded-full bg-[#F0F3F1] flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 bg-[#123D32] text-[#FBFBF9]' : 'text-[#123D32]'
                     }`}
+                    aria-hidden="true"
                   >
-                    +
-                  </span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-[#E5E2DA] font-body text-sm sm:text-base text-[#2A2A2A]/85 leading-relaxed bg-[#ECE8DF]/40">
+                  <div
+                    id={`faq-answer-${faq.id}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${faq.id}`}
+                    className="px-6 pb-6 pt-1 text-base text-[#555B57] leading-relaxed border-t border-[#F0F3F1]"
+                  >
                     {faq.answer}
                   </div>
                 )}
@@ -119,25 +125,8 @@ export default function FAQPage() {
           })}
         </div>
 
-        {/* Unresolved Questions Callout */}
-        <div className="mt-20 max-w-4xl mx-auto bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-1 font-semibold">
-              STILL HAVE QUESTIONS?
-            </div>
-            <h2 className="font-heading font-extrabold text-2xl uppercase tracking-tight text-[#F4F1E9]">
-              Ask Us Directly
-            </h2>
-            <p className="font-body text-xs text-[#F4F1E9]/80 max-w-md mt-1">
-              We are happy to answer any questions about your project, timeline, or technology.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <Button href="/contact" aria-label="Contact us with your questions" variant="accent" size="md" showArrow>
-              Contact us
-            </Button>
-          </div>
-        </div>
+        {/* Global CTA Band */}
+        <CTASection />
       </div>
     </div>
   );

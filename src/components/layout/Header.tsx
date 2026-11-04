@@ -52,6 +52,16 @@ export default function Header() {
   useEffect(() => {
     if (isMobileOpen) {
       document.body.style.overflow = 'hidden';
+      // Trap focus in mobile dialog
+      const dialog = mobileMenuRef.current;
+      if (dialog) {
+        const focusables = dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length > 0) {
+          focusables[0].focus();
+        }
+      }
     } else {
       document.body.style.overflow = '';
     }

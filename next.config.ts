@@ -39,6 +39,25 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: '/work/omnichannel-commerce-architecture',
+        destination: '/work/online-store',
+        permanent: true,
+      },
+      {
+        source: '/work/automated-crm-workflow-engine',
+        destination: '/work/inquiry-follow-up',
+        permanent: true,
+      },
+      {
+        source: '/work/unified-brand-digital-design-system',
+        destination: '/work/design-kit',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { SERVICES } from '@/data/services';
-import { Button } from '@/components/ui/Button';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -48,76 +47,84 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 lg:py-24 border-b border-[#E1E4E0]">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12 sm:space-y-16">
         {/* Page Hero */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>GET IN TOUCH</span>
+        <div className="max-w-3xl space-y-4 pb-8 border-b border-[#E1E4E0]">
+          <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+            Get In Touch
           </div>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
+          <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight">
             Tell us about your project.
           </h1>
-          <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
+          <p className="text-lg text-[#555B57] leading-relaxed pt-2">
             Send us a message about what you want to build. We will review your goals and talk through practical options.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Column Left: Contact Details & Protocol */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="bg-[#ECE8DF] border border-[#E5E2DA] p-6 lg:p-8 space-y-6">
-              <div className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold pb-3 border-b border-[#E5E2DA]">
-                What to Expect
+        {/* 2-Column Equal Height Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Column Left: Information Sidebar (Equal Height) */}
+          <div className="lg:col-span-5 flex flex-col">
+            <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 shadow-xs flex-1 flex flex-col justify-between space-y-8">
+              <div className="space-y-6">
+                <div>
+                  <span className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                    What to Expect
+                  </span>
+                  <h2 className="font-bold text-2xl text-[#123D32] mt-1">
+                    Direct Review
+                  </h2>
+                </div>
+
+                <div className="space-y-5 text-sm text-[#555B57] leading-relaxed">
+                  <div className="p-4 rounded-xl bg-[#F0F3F1] text-[#1E2221] space-y-1.5 border border-[#E1E4E0]">
+                    <div className="font-semibold text-sm text-[#123D32]">Direct Conversation</div>
+                    <div>Our team reads every inquiry and reviews your requirements before responding.</div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="font-semibold text-sm text-[#123D32]">Practical Discussion</div>
+                    <div>We outline the steps and options to help you move forward with clarity.</div>
+                  </div>
+
+                  <div className="space-y-2 pt-2 border-t border-[#E1E4E0]">
+                    <div className="font-semibold text-sm text-[#123D32]">Working With Us</div>
+                    <div>All projects follow a clear 5-stage plan with working previews before launch.</div>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-4 font-mono text-xs text-[#2A2A2A]/80">
-                <div>
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    Review Process:
-                  </div>
-                  <div className="text-[#123D32] font-semibold">
-                    Direct Review
-                  </div>
-                  <span className="text-[#123D32]/70 text-[10px] font-mono block mt-1">
-                    Our team reads every inquiry and reviews the project requirements.
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-[#E5E2DA]">
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    Discussion:
-                  </div>
-                  <div className="text-[#2A2A2A]">
-                    We outline the steps and options to help you move forward.
-                  </div>
-                </div>
+              <div className="pt-6 border-t border-[#E1E4E0] text-xs text-[#555B57] space-y-1">
+                <div className="font-semibold text-[#123D32]">DYRATEK Digital Studio</div>
+                <div>Custom websites, mobile apps, and business automations.</div>
               </div>
             </div>
           </div>
 
-          {/* Column Right: Form */}
-          <div className="lg:col-span-7">
-            <div id="discovery" className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 lg:p-10 scroll-mt-28">
-              <div className="font-mono text-xs uppercase text-[#C83B35] font-bold mb-6 pb-3 border-b border-[#E5E2DA] flex justify-between items-center">
-                <span>PROJECT INQUIRY</span>
-                <span className="text-[#2A2A2A]/50">CONFIDENTIAL</span>
+          {/* Column Right: Form Container */}
+          <div className="lg:col-span-7 flex flex-col">
+            <div id="discovery" className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 shadow-xs flex-1 scroll-mt-28">
+              <div className="pb-4 mb-6 border-b border-[#E1E4E0] flex justify-between items-center">
+                <span className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                  Project Inquiry
+                </span>
+                <span className="text-xs text-[#555B57]">Direct Form</span>
               </div>
 
               {submissionState === 'validated' ? (
-                <div className="p-6 bg-[#ECE8DF] border-l-4 border-[#123D32] space-y-4">
-                  <div className="font-mono text-xs text-[#123D32] font-bold uppercase tracking-wider flex items-center gap-2">
+                <div className="p-7 rounded-xl bg-[#F0F3F1] border border-[#123D32] space-y-4">
+                  <div className="text-sm font-bold text-[#123D32] flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#123D32]" />
                     Message Received
                   </div>
-                  <p className="font-body text-sm text-[#2A2A2A] leading-relaxed">
-                    Thank you, <span className="font-bold text-[#123D32]">{formData.name}</span>. We received your note. Our team will review your project details and follow up with you.
+                  <p className="text-base text-[#1E2221] leading-relaxed">
+                    Thank you, <strong className="text-[#123D32]">{formData.name}</strong>. We received your note. Our team will review your project details and follow up with you.
                   </p>
                   <button
                     type="button"
                     onClick={() => setSubmissionState('idle')}
-                    className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold underline hover:text-[#C83B35] pt-2 cursor-pointer"
+                    className="text-sm font-semibold text-[#123D32] hover:underline pt-2 cursor-pointer block"
                   >
                     ← Send another message
                   </button>
@@ -125,10 +132,10 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Your Name *
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-sm font-semibold text-[#123D32]">
+                        Your Name <span className="text-[#C83B35]">*</span>
                       </label>
                       <input
                         id="name"
@@ -141,20 +148,20 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Sarah Jenkins"
-                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
-                          formErrors.name ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                        className={`w-full h-12 px-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-colors focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent ${
+                          formErrors.name ? 'border-[#C83B35]' : 'border-[#E1E4E0]'
                         }`}
                       />
                       {formErrors.name && (
-                        <p id="name-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                        <p id="name-error" role="alert" className="text-xs text-[#C83B35] font-medium">
                           {formErrors.name}
                         </p>
                       )}
                     </div>
 
-                    <div>
-                      <label htmlFor="email" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Email Address *
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="block text-sm font-semibold text-[#123D32]">
+                        Email Address <span className="text-[#C83B35]">*</span>
                       </label>
                       <input
                         id="email"
@@ -167,12 +174,12 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="sarah@company.com"
-                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
-                          formErrors.email ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                        className={`w-full h-12 px-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-colors focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent ${
+                          formErrors.email ? 'border-[#C83B35]' : 'border-[#E1E4E0]'
                         }`}
                       />
                       {formErrors.email && (
-                        <p id="email-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                        <p id="email-error" role="alert" className="text-xs text-[#C83B35] font-medium">
                           {formErrors.email}
                         </p>
                       )}
@@ -180,9 +187,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Company & Primary Service Interest */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="company" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-2">
+                      <label htmlFor="company" className="block text-sm font-semibold text-[#123D32]">
                         Company Name
                       </label>
                       <input
@@ -193,13 +200,13 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="e.g. Acme Studio"
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
+                        className="w-full h-12 px-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] text-base text-[#1E2221] transition-colors focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent"
                       />
                     </div>
 
-                    <div>
-                      <label htmlFor="service" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Service Needed *
+                    <div className="space-y-2">
+                      <label htmlFor="service" className="block text-sm font-semibold text-[#123D32]">
+                        Service Needed <span className="text-[#C83B35]">*</span>
                       </label>
                       <select
                         id="service"
@@ -207,7 +214,7 @@ export default function ContactPage() {
                         aria-required="true"
                         value={formData.serviceSlug}
                         onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
+                        className="w-full h-12 px-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] text-base text-[#1E2221] transition-colors focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent"
                       >
                         {SERVICES.map((serv) => (
                           <option key={serv.slug} value={serv.slug}>
@@ -219,9 +226,9 @@ export default function ContactPage() {
                   </div>
 
                   {/* Project Details */}
-                  <div>
-                    <label htmlFor="brief" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                      Project Details *
+                  <div className="space-y-2">
+                    <label htmlFor="brief" className="block text-sm font-semibold text-[#123D32]">
+                      Project Details <span className="text-[#C83B35]">*</span>
                     </label>
                     <textarea
                       id="brief"
@@ -233,25 +240,29 @@ export default function ContactPage() {
                       value={formData.brief}
                       onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
                       placeholder="Tell us what you want to build and any details you have in mind..."
-                      className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none leading-relaxed ${
-                        formErrors.brief ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
+                      className={`w-full p-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-colors focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent leading-relaxed ${
+                        formErrors.brief ? 'border-[#C83B35]' : 'border-[#E1E4E0]'
                       }`}
                     />
                     {formErrors.brief && (
-                      <p id="brief-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
+                      <p id="brief-error" role="alert" className="text-xs text-[#C83B35] font-medium">
                         {formErrors.brief}
                       </p>
                     )}
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-4 border-t border-[#E5E2DA] flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <span className="font-mono text-[10px] text-[#2A2A2A]/60">
-                      * REQUIRED FIELDS
+                  <div className="pt-4 border-t border-[#E1E4E0] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span className="text-xs text-[#555B57]">
+                      * Required fields
                     </span>
-                    <Button type="submit" aria-label="Send message to our team" variant="primary" size="lg" showArrow>
+                    <button
+                      type="submit"
+                      aria-label="Send message to our team"
+                      className="h-12 px-8 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-medium flex items-center justify-center shadow-xs hover:bg-[#0B2720] transition-colors cursor-pointer"
+                    >
                       Send message
-                    </Button>
+                    </button>
                   </div>
                 </form>
               )}

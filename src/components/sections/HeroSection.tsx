@@ -43,7 +43,7 @@ export function HeroSection() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#D4D8D2]"></span>
                   <span className="w-2.5 h-2.5 rounded-full bg-[#D4D8D2]"></span>
                 </div>
-                <div className="ml-2 flex-1 h-6 rounded-md bg-white border border-[#E1E4E0] px-3 flex items-center text-[12px] text-[#555B57]">
+                <div className="ml-2 flex-1 h-6 rounded-md bg-white border border-[#E1E4E0] px-3 flex items-center text-[13px] text-[#555B57]">
                   <span>store.example.com</span>
                 </div>
               </div>
@@ -51,7 +51,7 @@ export function HeroSection() {
               {/* Sample Store Content */}
               <div className="p-5 space-y-4 bg-white">
                 <div className="flex justify-between items-center pb-2 border-b border-[#F3F4F1]">
-                  <span className="font-semibold text-xs text-[#123D32]">ONLINE STORE DEMO</span>
+                  <span className="font-semibold text-xs text-[#123D32]">Online store demo</span>
                   <span className="text-xs text-[#555B57]">Shopping cart</span>
                 </div>
                 <div className="rounded-xl bg-[#F0F3F1] p-4 flex items-center justify-between">
@@ -89,7 +89,7 @@ export function HeroSection() {
 
             {/* Overlapping Phone Frame with Approved Inquiry Notification Text */}
             <div className="absolute -bottom-5 -right-2 sm:-right-4 w-60 sm:w-68 rounded-2xl bg-white border-2 border-[#123D32] shadow-xl p-3.5 space-y-2">
-              <div className="flex items-center justify-between text-[11px] text-[#555B57] border-b border-[#F3F4F1] pb-1.5">
+              <div className="flex items-center justify-between text-[13px] text-[#555B57] border-b border-[#F3F4F1] pb-1.5">
                 <span className="font-semibold text-[#123D32]">Automated Workflow</span>
                 <span>Just now</span>
               </div>
@@ -98,12 +98,12 @@ export function HeroSection() {
                   <span className="w-2 h-2 rounded-full bg-[#123D32]"></span>
                   <span>Customer inquiry received</span>
                 </div>
-                <div className="text-[12px] text-[#1E2221] leading-snug">
+                <div className="text-[13px] text-[#1E2221] leading-snug">
                   Updates customer records and notifies the team.
                 </div>
               </div>
               <div className="flex items-center justify-between text-xs text-[#555B57] pt-0.5">
-                <span>Confirmation sent</span>
+                <span>Order received</span>
                 <span className="font-medium text-[#123D32]">View details</span>
               </div>
             </div>

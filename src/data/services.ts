@@ -8,7 +8,6 @@ export const SERVICES: Service[] = [
     id: 'web-development',
     slug: 'web-development',
     index: '01',
-    pillarIndex: '01.1',
     name: 'Web Development',
     shortName: 'Web Dev',
     pillarId: 'build',
@@ -16,8 +15,6 @@ export const SERVICES: Service[] = [
     tagline: 'Clean websites and web tools that load quickly.',
     description:
       'We design and build clean websites and web applications. Every page loads quickly and works across phones, tablets, and computers.',
-    strategicObjective:
-      'Give your business a dependable website that makes it easy for visitors to find what they need and reach out.',
     capabilities: [
       {
         title: 'Responsive Layouts',
@@ -39,8 +36,8 @@ export const SERVICES: Service[] = [
     deliverables: [
       'Responsive layouts for mobile and desktop screens',
       'Navigation structure and page hierarchy',
-      'Contact forms and inquiry routing',
-      'Domain connection and hosting setup'
+      'Clear page sections organized for visitors',
+      'Standard contact and inquiry page link'
     ],
     methodology: [
       { step: '01', title: 'Discover', detail: 'We learn about your business goals and page requirements.' },
@@ -65,7 +62,6 @@ export const SERVICES: Service[] = [
     id: 'app-development',
     slug: 'app-development',
     index: '02',
-    pillarIndex: '01.2',
     name: 'Mobile App Development',
     shortName: 'App Dev',
     pillarId: 'build',
@@ -73,8 +69,6 @@ export const SERVICES: Service[] = [
     tagline: 'Mobile apps for phones and tablets.',
     description:
       'We build mobile applications for iPhone and Android devices. Your users get a smooth, reliable experience designed for everyday use.',
-    strategicObjective:
-      'Give your customers a reliable mobile app that keeps them connected to your services.',
     capabilities: [
       {
         title: 'Apple and Android Ready',
@@ -122,7 +116,6 @@ export const SERVICES: Service[] = [
     id: 'ecommerce-solutions',
     slug: 'ecommerce-solutions',
     index: '03',
-    pillarIndex: '01.3',
     name: 'Online Stores',
     shortName: 'Commerce',
     pillarId: 'build',
@@ -130,8 +123,6 @@ export const SERVICES: Service[] = [
     tagline: 'Online stores that make buying simple.',
     description:
       'We build online stores that make finding and purchasing products simple. Every store includes clear product organization and reliable checkout flows.',
-    strategicObjective:
-      'Help your business sell products online with a clear shopping catalog and straightforward checkout.',
     capabilities: [
       {
         title: 'Product Catalog',
@@ -179,7 +170,6 @@ export const SERVICES: Service[] = [
     id: 'digital-solutions',
     slug: 'digital-solutions',
     index: '04',
-    pillarIndex: '01.4',
     name: 'Custom Software',
     shortName: 'Software',
     pillarId: 'build',
@@ -187,8 +177,6 @@ export const SERVICES: Service[] = [
     tagline: 'Software built around your business needs.',
     description:
       'We build custom web software to manage your internal business operations. Your team gets tools designed around your specific workflow.',
-    strategicObjective:
-      'Replace manual spreadsheets with custom software tools built specifically for your staff.',
     capabilities: [
       {
         title: 'Customer Portals',
@@ -240,7 +228,6 @@ export const SERVICES: Service[] = [
     id: 'business-automation',
     slug: 'business-automation',
     index: '05',
-    pillarIndex: '02.1',
     name: 'Business Automation',
     shortName: 'Automation',
     pillarId: 'automate',
@@ -248,8 +235,6 @@ export const SERVICES: Service[] = [
     tagline: 'Put routine tasks on autopilot.',
     description:
       'We connect your business software so routine tasks happen on their own. Passing data automatically between your apps saves time and prevents manual errors.',
-    strategicObjective:
-      'Save hours of manual data entry by routing inquiries and information between your apps automatically.',
     capabilities: [
       {
         title: 'Inquiry Routing',
@@ -297,7 +282,6 @@ export const SERVICES: Service[] = [
     id: 'email-whatsapp-marketing',
     slug: 'email-whatsapp-marketing',
     index: '06',
-    pillarIndex: '02.2',
     name: 'Email & WhatsApp Messaging',
     shortName: 'Messaging',
     pillarId: 'automate',
@@ -305,8 +289,6 @@ export const SERVICES: Service[] = [
     tagline: 'Direct updates via messaging channels.',
     description:
       'We set up direct email and WhatsApp message flows to keep your customers informed. You can send order updates, confirmations, and announcements from one place.',
-    strategicObjective:
-      'Keep your customers informed with clear, timely messages delivered straight to their inboxes and chat.',
     capabilities: [
       {
         title: 'Message Templates',
@@ -358,7 +340,6 @@ export const SERVICES: Service[] = [
     id: 'ui-ux-design',
     slug: 'ui-ux-design',
     index: '07',
-    pillarIndex: '03.1',
     name: 'Website & App Design',
     shortName: 'UI/UX',
     pillarId: 'create-grow',
@@ -366,8 +347,6 @@ export const SERVICES: Service[] = [
     tagline: 'Clean design that visitors understand right away.',
     description:
       'We design clear, easy-to-use interfaces for websites and mobile applications. Every screen is organized so visitors can navigate naturally.',
-    strategicObjective:
-      'Create clean, modern screens that make your business easy to understand and pleasant to use.',
     capabilities: [
       {
         title: 'Page Wireframes',
@@ -415,7 +394,6 @@ export const SERVICES: Service[] = [
     id: 'creative-video',
     slug: 'creative-video',
     index: '08',
-    pillarIndex: '03.2',
     name: 'Video & Motion',
     shortName: 'Video',
     pillarId: 'create-grow',
@@ -423,8 +401,6 @@ export const SERVICES: Service[] = [
     tagline: 'Visuals that explain your product.',
     description:
       'We create short product walkthroughs, animations, and video clips for your business. Visuals help explain what your company offers in a few seconds.',
-    strategicObjective:
-      'Explain your products and services with engaging videos and clear motion graphics.',
     capabilities: [
       {
         title: 'Product Walkthroughs',
@@ -472,7 +448,6 @@ export const SERVICES: Service[] = [
     id: 'digital-marketing',
     slug: 'digital-marketing',
     index: '09',
-    pillarIndex: '03.3',
     name: 'Search Engine Optimization (SEO)',
     shortName: 'SEO',
     pillarId: 'create-grow',
@@ -480,8 +455,6 @@ export const SERVICES: Service[] = [
     tagline: 'Help customers find your business on Google.',
     description:
       'Search engine optimization (SEO) helps your website show up higher when people search on Google. We improve your site structure, page speed, and keywords so searchers can find you.',
-    strategicObjective:
-      'Help your business show up when prospective customers search for the services you provide.',
     capabilities: [
       {
         title: 'Site Structure Review',
@@ -529,7 +502,6 @@ export const SERVICES: Service[] = [
     id: 'performance-marketing',
     slug: 'performance-marketing',
     index: '10',
-    pillarIndex: '03.4',
     name: 'Online Advertising',
     shortName: 'Ads',
     pillarId: 'create-grow',
@@ -537,8 +509,6 @@ export const SERVICES: Service[] = [
     tagline: 'Targeted advertising campaigns that attract customers.',
     description:
       'We set up and manage targeted ad campaigns on search engines and social platforms. Every campaign is organized to bring qualified visitors to your site.',
-    strategicObjective:
-      'Direct interested prospective customers to your website through organized search and social ads.',
     capabilities: [
       {
         title: 'Ad Campaign Setup',
@@ -586,7 +556,6 @@ export const SERVICES: Service[] = [
     id: 'content-strategy-copywriting',
     slug: 'content-strategy-copywriting',
     index: '11',
-    pillarIndex: '03.5',
     name: 'Content Strategy & Copywriting',
     shortName: 'Copywriting',
     pillarId: 'create-grow',
@@ -594,8 +563,6 @@ export const SERVICES: Service[] = [
     tagline: 'Clear words that explain your business.',
     description:
       'We write clear, simple website copy that non-technical visitors understand right away. Plain words build trust and make your business easy to understand.',
-    strategicObjective:
-      'Explain your business in simple, everyday language so visitors quickly understand what you offer.',
     capabilities: [
       {
         title: 'Website Copy',
@@ -647,8 +614,6 @@ export const SERVICES: Service[] = [
 export const PILLARS: Pillar[] = [
   {
     id: 'build',
-    index: '01',
-    code: 'BUILD',
     name: 'Build',
     tagline: 'Websites, mobile apps, and custom web tools.',
     description:
@@ -657,8 +622,6 @@ export const PILLARS: Pillar[] = [
   },
   {
     id: 'automate',
-    index: '02',
-    code: 'AUTOMATE',
     name: 'Automate',
     tagline: 'Connected tools and routine tasks on autopilot.',
     description:
@@ -667,8 +630,6 @@ export const PILLARS: Pillar[] = [
   },
   {
     id: 'create-grow',
-    index: '03',
-    code: 'GROW',
     name: 'Grow',
     tagline: 'Clean design, plain writing, and targeted campaigns.',
     description:
