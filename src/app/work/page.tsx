@@ -4,9 +4,9 @@ import { PROJECTS } from '@/data/projects';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Selected Architecture Prototypes & Demonstrations — DYRATEK',
+  title: 'Our Work — Sample Projects & Concepts | DYRATEK',
   description:
-    'Demonstration concepts and technical architectural blueprints exhibiting DYRATEK’s capabilities across e-commerce, business automation, and design systems.'
+    'Explore sample projects showing how we build clean online stores, workflow automations, and design kits.'
 };
 
 export default function WorkPage() {
@@ -17,17 +17,17 @@ export default function WorkPage() {
         <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
           <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
             <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>TECHNICAL DOSSIERS // DEMONSTRATED WORK</span>
+            <span>OUR WORK</span>
           </div>
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
-            Selected architecture prototypes.
+            Sample projects and concepts.
           </h1>
           <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
-            In accordance with our strict data governance and client confidentiality rules, all demonstrated systems are illustrative architectural concepts designed to exhibit DYRATEK&apos;s technical scope and design rigor.
+            These sample projects demonstrate the kinds of digital systems we design and build.
           </p>
 
-          <div className="mt-8 p-4 bg-[#ECE8DF] border-l-2 border-[#C83B35] font-mono text-xs text-[#2A2A2A]/80">
-            <span className="font-bold text-[#C83B35]">GOVERNANCE NOTICE:</span> Illustrative Concepts — Demonstration of DYRATEK Capabilities (Not Completed Client Projects). Zero fabricated metrics, reviews, or client outcomes.
+          <div className="mt-8 p-4 bg-[#ECE8DF] border-l-4 border-[#123D32] text-xs font-body text-[#2A2A2A]">
+            <strong>Notice:</strong> These are sample projects to show how we design and build. They are not work for real clients.
           </div>
         </div>
 
@@ -44,16 +44,17 @@ export default function WorkPage() {
                     <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#123D32] font-bold border border-[#E5E2DA]">
                       {project.pillar}
                     </span>
-                    <span className="px-2 py-0.5 bg-[#C83B35]/10 text-[#C83B35] font-bold border border-[#C83B35]/30">
+                    <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#2A2A2A]/70 border border-[#E5E2DA]">
                       {project.category}
-                    </span>
-                    <span className="text-[#2A2A2A]/50">
-                      {project.year}
                     </span>
                   </div>
 
                   <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase text-[#123D32]">
-                    <Link href={`/work/${project.slug}`} className="hover:text-[#C83B35] transition-colors">
+                    <Link
+                      href={`/work/${project.slug}`}
+                      aria-label={`View details for ${project.title}`}
+                      className="hover:text-[#C83B35] transition-colors"
+                    >
                       {project.title}
                     </Link>
                   </h2>
@@ -64,11 +65,11 @@ export default function WorkPage() {
 
                   <div className="space-y-2 pt-2">
                     <div className="font-mono text-[10px] uppercase text-[#123D32] font-bold">
-                      ARCHITECTURAL HIGHLIGHTS:
+                      PROJECT HIGHLIGHTS:
                     </div>
                     {project.architectureDetails.map((detail, dIdx) => (
                       <div key={dIdx} className="flex items-start gap-2 font-mono text-xs text-[#2A2A2A]/80">
-                        <span className="text-[#C83B35] font-bold">›</span>
+                        <span className="text-[#C83B35] font-bold" aria-hidden="true">›</span>
                         <span>{detail}</span>
                       </div>
                     ))}
@@ -89,21 +90,21 @@ export default function WorkPage() {
                 <div className="lg:col-span-4 bg-[#ECE8DF] border border-[#E5E2DA] p-6 font-mono text-xs flex flex-col justify-between space-y-4">
                   <div>
                     <div className="font-bold text-[#123D32] border-b border-[#E5E2DA] pb-2 mb-3">
-                      SYSTEM METRICS // ARCHETYPE 0{idx + 1}
+                      PROJECT OVERVIEW 0{idx + 1}
                     </div>
                     <div className="space-y-2 text-[#2A2A2A]/70 text-[11px]">
-                      <div>STATUS: Verified Blueprint</div>
-                      <div>SPECIFICATION: Production Architecture</div>
-                      <div>DISCLAIMER: Non-Production Simulation</div>
+                      <div>FORMAT: Sample Preview</div>
+                      <div>STATUS: Ready to View</div>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-[#E5E2DA]">
                     <Link
                       href={`/work/${project.slug}`}
+                      aria-label={`View details for ${project.title}`}
                       className="block w-full text-center py-3 bg-[#123D32] text-[#F4F1E9] font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#1b4f42] transition-colors"
                     >
-                      View Technical Blueprint →
+                      View details →
                     </Link>
                   </div>
                 </div>
@@ -116,18 +117,18 @@ export default function WorkPage() {
         <div className="mt-20 bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-2 font-semibold">
-              COMMENCE A CUSTOM BUILD
+              START YOUR PROJECT
             </div>
             <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase tracking-tight text-[#F4F1E9]">
-              Commission a Project with DYRATEK
+              Talk with our team
             </h2>
             <p className="font-body text-xs text-[#F4F1E9]/80 max-w-lg mt-2">
-              Transform your business requirements into an engineered, high-performance digital product.
+              Send us a message to discuss your timeline, goals, and ideas.
             </p>
           </div>
           <div className="flex-shrink-0">
-            <Button href="/contact" variant="accent" size="md" showArrow>
-              Start a Project
+            <Button href="/contact" aria-label="Contact us about your project" variant="accent" size="md" showArrow>
+              Contact us
             </Button>
           </div>
         </div>
@@ -135,4 +136,3 @@ export default function WorkPage() {
     </div>
   );
 }
-

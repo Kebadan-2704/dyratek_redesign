@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   return {
-    title: `${project.title} — Architectural Blueprint | DYRATEK`,
+    title: `${project.title} — Sample Project | DYRATEK`,
     description: project.summary,
     alternates: {
       canonical: `/work/${project.slug}`
@@ -76,9 +76,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70 mb-8 pb-4 border-b border-[#E5E2DA]" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-[#123D32]">HOME</Link>
-          <span className="text-[#E5E2DA]">/</span>
+          <span className="text-[#E5E2DA]" aria-hidden="true">/</span>
           <Link href="/work" className="hover:text-[#123D32]">WORK</Link>
-          <span className="text-[#E5E2DA]">/</span>
+          <span className="text-[#E5E2DA]" aria-hidden="true">/</span>
           <span className="text-[#C83B35] font-bold">{project.title.toUpperCase()}</span>
         </nav>
 
@@ -88,8 +88,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <span className="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[11px] text-[#123D32] font-bold">
               {project.category}
             </span>
-            <span className="px-2.5 py-1 bg-[#C83B35]/10 border border-[#C83B35]/30 font-mono text-[11px] text-[#C83B35] font-bold">
-              {project.conceptDisclaimer}
+            <span className="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[11px] text-[#2A2A2A]/70">
+              SAMPLE PROJECT
             </span>
           </div>
 
@@ -102,24 +102,40 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-8">
-            <Button href="/contact" variant="primary" size="md" showArrow>
-              Commission Similar Architecture
+            <Button
+              href="/contact"
+              aria-label={`Contact us about ${project.title}`}
+              variant="primary"
+              size="md"
+              showArrow
+            >
+              Contact us
             </Button>
-            <Button href="/work" variant="secondary" size="md">
-              Back to All Prototypes
+            <Button
+              href="/work"
+              aria-label="See all projects"
+              variant="secondary"
+              size="md"
+            >
+              See all projects
             </Button>
           </div>
+        </div>
+
+        {/* Notice Box */}
+        <div className="mb-12 p-4 bg-[#ECE8DF] border-l-4 border-[#123D32] text-xs font-body text-[#2A2A2A]">
+          <strong>Notice:</strong> These are sample projects to show how we design and build. They are not work for real clients.
         </div>
 
         {/* Challenge & Solution Architecture */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 mb-16 border-b border-[#E5E2DA]">
           <div className="lg:col-span-6 space-y-4 bg-[#ECE8DF] p-6 lg:p-8 border border-[#E5E2DA]">
             <div className="flex items-center gap-2 font-mono text-xs uppercase text-[#C83B35] font-bold">
-              <span className="w-1.5 h-1.5 bg-[#C83B35]" />
-              01 // THE SYSTEM CHALLENGE
+              <span className="w-1.5 h-1.5 bg-[#C83B35]" aria-hidden="true" />
+              THE PROBLEM
             </div>
             <h2 className="font-heading font-bold text-2xl uppercase text-[#123D32]">
-              Architectural Bottleneck
+              The Challenge
             </h2>
             <p className="font-body text-sm text-[#2A2A2A]/85 leading-relaxed">
               {project.challenge}
@@ -128,11 +144,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           <div className="lg:col-span-6 space-y-4 bg-[#F4F1E9] p-6 lg:p-8 border border-[#123D32]">
             <div className="flex items-center gap-2 font-mono text-xs uppercase text-[#123D32] font-bold">
-              <span className="w-1.5 h-1.5 bg-[#123D32]" />
-              02 // THE APPLIED SOLUTION
+              <span className="w-1.5 h-1.5 bg-[#123D32]" aria-hidden="true" />
+              OUR SOLUTION
             </div>
             <h2 className="font-heading font-bold text-2xl uppercase text-[#123D32]">
-              Engineered Resolution
+              How We Solved It
             </h2>
             <p className="font-body text-sm text-[#2A2A2A]/85 leading-relaxed">
               {project.solution}
@@ -140,14 +156,14 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Technical Architecture Specifications */}
+        {/* Key Features */}
         <div className="pb-16 mb-16 border-b border-[#E5E2DA]">
           <div className="mb-8">
             <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block mb-1">
-              03 // TECHNICAL SPECIFICATIONS
+              KEY FEATURES
             </span>
             <h2 className="font-heading font-extrabold text-3xl uppercase text-[#123D32]">
-              System Specifications &amp; Attributes
+              How the System Works
             </h2>
           </div>
 
@@ -168,10 +184,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <div className="pb-16 mb-16 border-b border-[#E5E2DA]">
           <div className="mb-8">
             <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block mb-1">
-              04 // CONTRACT ARTIFACTS
+              WHAT WAS DELIVERED
             </span>
             <h2 className="font-heading font-extrabold text-3xl uppercase text-[#123D32]">
-              Demonstration Deliverables
+              What You Get
             </h2>
           </div>
 
@@ -193,10 +209,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-16 mb-16 border-b border-[#E5E2DA]">
           <div className="lg:col-span-6 space-y-4">
             <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block">
-              05 // PRODUCTION STACK
+              TOOLS USED
             </span>
             <h3 className="font-heading font-bold text-xl uppercase text-[#123D32]">
-              Technologies Utilized
+              Technologies
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
@@ -212,10 +228,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           <div className="lg:col-span-6 space-y-4">
             <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block">
-              06 // INVOLVED DISCIPLINES
+              SERVICES INCLUDED
             </span>
             <h3 className="font-heading font-bold text-xl uppercase text-[#123D32]">
-              Practice Areas Combined
+              Services Used
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.servicesInvolved.map((serv) => (
@@ -230,24 +246,23 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Governance Disclaimer */}
-        <div className="p-6 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs text-[#2A2A2A]/70 mb-16">
-          <div className="font-bold text-[#123D32] mb-1">DATA GOVERNANCE &amp; ACCREDITATION:</div>
-          <p>
-            {project.conceptDisclaimer}. All architecture designs, code snippets, and interface states are proprietary property of DYRATEK.
-          </p>
-        </div>
-
         {/* Back Link & CTA */}
         <div className="flex flex-wrap items-center justify-between gap-6">
           <Link
             href="/work"
+            aria-label="Return to all projects"
             className="font-mono text-xs uppercase font-bold text-[#123D32] hover:text-[#C83B35] transition-colors"
           >
-            ← Return to All Technical Dossiers
+            ← Return to all projects
           </Link>
-          <Button href="/contact" variant="primary" size="md" showArrow>
-            Start a Project
+          <Button
+            href="/contact"
+            aria-label={`Contact us about ${project.title}`}
+            variant="primary"
+            size="md"
+            showArrow
+          >
+            Contact us
           </Button>
         </div>
       </div>
