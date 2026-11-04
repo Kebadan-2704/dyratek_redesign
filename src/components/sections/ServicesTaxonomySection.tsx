@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PILLARS } from '@/data/services';
+import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 
 export function ServicesTaxonomySection() {
@@ -14,18 +15,20 @@ export function ServicesTaxonomySection() {
           <div>
             <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#C83B35] font-semibold">
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span>03 / SERVICE TAXONOMY (11 SERVICES)</span>
+              <span>What We Do</span>
             </div>
             <h2 className="font-heading font-extrabold text-3xl lg:text-[44px] leading-tight text-[#123D32] uppercase tracking-tight">
-              Three Pillars. Eleven Services.
+              Three clear ways we help your business.
             </h2>
           </div>
-          <p className="font-body text-sm text-[#2A2A2A]/80 max-w-md mt-4 md:mt-0 leading-relaxed">
-            Strict service taxonomy across three integrated domains: foundational engineering, workflow automation, and commercial growth.
-          </p>
+          <div className="max-w-md mt-4 md:mt-0 space-y-2">
+            <p className="font-body text-xs sm:text-sm text-[#2A2A2A]/85 leading-relaxed">
+              Automations connect your everyday business tools so routine tasks happen on their own. For example, when a new customer reaches out, their details save automatically and notify your team.
+            </p>
+          </div>
         </div>
 
-        {/* 3 Pillars Grid with Sequence 05 Scroll-Triggered Reveal & Sequence 07 Micro-Interactions */}
+        {/* 3 Pillars Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PILLARS.map((pillar, idx) => {
             const isAutomate = pillar.id === 'automate';
@@ -68,6 +71,7 @@ export function ServicesTaxonomySection() {
                           >
                             <Link
                               href={`/services/${service.slug}`}
+                              aria-label={`View details for ${service.name}`}
                               className="group/link block min-h-[44px] flex flex-col justify-center"
                             >
                               <div className="flex items-center justify-between text-xs font-heading font-bold text-[#123D32] group-hover/link:text-[#C83B35] transition-colors">
@@ -89,20 +93,28 @@ export function ServicesTaxonomySection() {
                   <div className="mt-8 pt-4 border-t border-[#E5E2DA]">
                     <Link
                       href={`/services#${pillar.id}`}
+                      aria-label={`See all ${pillar.name} services`}
                       className={`inline-flex items-center justify-between w-full font-mono text-xs uppercase font-bold min-h-[44px] transition-colors group/cta ${
                         isAutomate
                           ? 'text-[#C83B35] hover:text-[#99221f]'
                           : 'text-[#123D32] hover:text-[#0A261F]'
                       }`}
                     >
-                      <span>Explore Pillar Architecture</span>
-                      <span className="transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
+                      <span>See these services</span>
+                      <span className="transition-transform duration-200 group-hover/cta:translate-x-1" aria-hidden="true">→</span>
                     </Link>
                   </div>
                 </div>
               </ScrollReveal>
             );
           })}
+        </div>
+
+        {/* Section Closing Action */}
+        <div className="mt-12 text-center">
+          <Button href="/contact" aria-label="Contact us about our services" variant="primary" size="md">
+            Contact us
+          </Button>
         </div>
       </div>
     </section>

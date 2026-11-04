@@ -11,19 +11,21 @@ export function PrototypesSection() {
     <section className="w-full bg-[#F4F1E9] py-20 lg:py-28 border-b border-[#E5E2DA]" id="work">
       <div className="max-w-7xl mx-auto px-5 lg:px-16">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-12 border-b border-[#E5E2DA]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 mb-8 border-b border-[#E5E2DA]">
           <div>
             <div className="flex items-center gap-2 mb-2 font-mono text-xs tracking-widest uppercase text-[#123D32] font-semibold">
               <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-              <span>06 / DEMONSTRATED WORK</span>
+              <span>Sample Work</span>
             </div>
             <h2 className="font-heading font-extrabold text-3xl lg:text-[44px] leading-tight text-[#123D32] uppercase tracking-tight">
-              Selected Architecture Prototypes
+              Sample projects to show how we build.
             </h2>
           </div>
-          <div className="mt-4 md:mt-0 font-mono text-xs text-[#C83B35] font-semibold">
-            ILLUSTRATIVE CONCEPTS — NON-CLIENT SIMULATIONS
-          </div>
+        </div>
+
+        {/* Notice Box */}
+        <div className="mb-10 p-4 bg-[#ECE8DF] border-l-4 border-[#123D32] text-xs font-body text-[#2A2A2A]">
+          <strong>Notice:</strong> These are sample projects to show how we design and build. They are not work for real clients.
         </div>
 
         {/* Projects Stack */}
@@ -40,13 +42,17 @@ export function PrototypesSection() {
                         <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#123D32] font-bold border border-[#E5E2DA]">
                           {project.category}
                         </span>
-                        <span className="px-2 py-0.5 bg-[#C83B35]/10 text-[#C83B35] font-bold border border-[#C83B35]/30">
-                          {project.conceptDisclaimer}
+                        <span className="px-2 py-0.5 bg-[#ECE8DF] text-[#2A2A2A]/70 border border-[#E5E2DA]">
+                          SAMPLE PROJECT
                         </span>
                       </div>
 
                       <h3 className="font-heading font-bold text-2xl lg:text-3xl uppercase text-[#123D32] mb-3">
-                        <Link href={`/work/${project.slug}`} className="hover:text-[#C83B35] transition-colors">
+                        <Link
+                          href={`/work/${project.slug}`}
+                          aria-label={`View details for ${project.title}`}
+                          className="hover:text-[#C83B35] transition-colors"
+                        >
                           {project.title}
                         </Link>
                       </h3>
@@ -81,36 +87,37 @@ export function PrototypesSection() {
 
                       <Link
                         href={`/work/${project.slug}`}
+                        aria-label={`View details for ${project.title}`}
                         className="inline-flex items-center gap-1.5 font-mono text-xs uppercase text-[#123D32] font-bold hover:text-[#C83B35] transition-colors min-h-[44px]"
                       >
-                        <span>Explore Technical Dossier</span>
-                        <span>→</span>
+                        <span>View details</span>
+                        <span aria-hidden="true">→</span>
                       </Link>
                     </div>
                   </div>
 
-                  {/* Column Right: Wireframe Simulation Blueprint */}
+                  {/* Column Right: Overview Panel */}
                   <div className="lg:col-span-5 bg-[#ECE8DF] border border-[#E5E2DA] p-5 font-mono text-[10px]">
                     <div className="flex justify-between items-center pb-2.5 border-b border-[#E5E2DA] text-[#2A2A2A]/60">
-                      <span className="font-bold text-[#123D32]">SPECIFICATION // ARCHETYPE {idx + 1}</span>
-                      <span className="text-[#C83B35]">SAMPLE TELEMETRY</span>
+                      <span className="font-bold text-[#123D32]">PROJECT OVERVIEW 0{idx + 1}</span>
+                      <span className="text-[#123D32]">SAMPLE</span>
                     </div>
 
                     <div className="py-4 space-y-3">
                       <div className="bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-1">
-                        <div className="text-[#2A2A2A]/60 text-[9px] uppercase">Core Challenge</div>
+                        <div className="text-[#2A2A2A]/60 text-[9px] uppercase">The Challenge</div>
                         <div className="font-body text-xs text-[#2A2A2A]">{project.challenge}</div>
                       </div>
 
                       <div className="bg-[#F4F1E9] p-3 border border-[#E5E2DA] space-y-1">
-                        <div className="text-[#2A2A2A]/60 text-[9px] uppercase">Engineered Solution</div>
+                        <div className="text-[#2A2A2A]/60 text-[9px] uppercase">How We Solved It</div>
                         <div className="font-body text-xs text-[#2A2A2A]">{project.solution}</div>
                       </div>
                     </div>
 
                     <div className="pt-2.5 border-t border-[#E5E2DA] flex justify-between items-center text-[#2A2A2A]/60 text-[9px]">
-                      <span>STATUS: DEMONSTRATION BLUEPRINT</span>
-                      <span className="text-[#123D32] font-bold">100% SPEC COMPLIANT</span>
+                      <span>FORMAT: WORKING PREVIEW</span>
+                      <span className="text-[#123D32] font-bold">READY TO REVIEW</span>
                     </div>
                   </div>
                 </div>
@@ -121,8 +128,8 @@ export function PrototypesSection() {
 
         {/* View All Work Link */}
         <div className="mt-12 text-center">
-          <Button href="/work" variant="secondary" size="md" showArrow>
-            View Complete Technical Dossiers
+          <Button href="/work" aria-label="View all sample projects" variant="secondary" size="md" showArrow>
+            View all projects
           </Button>
         </div>
       </div>
