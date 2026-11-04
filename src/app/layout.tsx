@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Outfit, Inter, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -11,22 +11,8 @@ export const viewport: Viewport = {
   themeColor: '#123D32'
 };
 
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800']
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700']
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: '--font-plus-jakarta-sans',
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600', '700']
@@ -116,7 +102,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${plusJakartaSans.variable} font-sans antialiased`}
     >
       <head>
         <script
@@ -128,11 +115,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F4F1E9] text-[#2A2A2A]">
+      <body className="min-h-screen flex flex-col bg-[#FBFBF9] text-[#1E2221]">
         {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#F4F1E9] focus:font-mono focus:text-xs"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#FBFBF9] focus:rounded-lg focus:text-sm font-medium shadow-md"
         >
           Skip to main content
         </a>
