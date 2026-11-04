@@ -4,9 +4,9 @@ import { PILLARS } from '@/data/services';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'Services Architecture (11 Services // 3 Pillars) — DYRATEK',
+  title: 'Our Services — Websites, Apps & Automation | DYRATEK',
   description:
-    'Comprehensive overview of DYRATEK’s 11 focused services across Build, Automate, and Create & Grow pillars. Engineering, automation, and commercial growth.'
+    'Explore our 11 services across Build, Automate, and Grow. Clean websites, mobile apps, and automated workflows.'
 };
 
 export default function ServicesPage() {
@@ -17,25 +17,25 @@ export default function ServicesPage() {
         <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
           <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
             <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>PRACTICE TAXONOMY // 3 PILLARS • 11 SERVICES</span>
+            <span>OUR SERVICES</span>
           </div>
           <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
-            Engineering, automation &amp; commercial growth.
+            Websites, apps, and automations.
           </h1>
           <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
-            Our capabilities are strictly organized across three foundational pillars. Each service is executed by senior specialists with rigorous standards for code quality and business impact.
+            Explore the 11 ways we help businesses build better digital tools and work smoothly.
           </p>
 
           {/* Pillar Jump Bar */}
           <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-[#E5E2DA] font-mono text-xs">
-            <span className="text-[#2A2A2A]/60 uppercase">JUMP TO PILLAR:</span>
+            <span className="text-[#2A2A2A]/60 uppercase">JUMP TO:</span>
             {PILLARS.map((p) => (
               <a
                 key={p.id}
                 href={`#${p.id}`}
                 className="px-3 py-1 bg-[#ECE8DF] border border-[#E5E2DA] text-[#123D32] font-semibold hover:border-[#123D32] transition-colors"
               >
-                {p.code}
+                {p.name}
               </a>
             ))}
           </div>
@@ -70,7 +70,7 @@ export default function ServicesPage() {
                     <div>
                       <div className="flex justify-between items-center mb-4">
                         <span className="font-mono text-[11px] px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] text-[#123D32] font-bold">
-                          SERVICE // {service.index}
+                          SERVICE {service.index}
                         </span>
                         <span className="font-mono text-xs text-[#C83B35] font-semibold">
                           {service.pillarIndex}
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                       </div>
 
                       <h3 className="font-heading font-bold text-2xl uppercase text-[#123D32] mb-2 group-hover:text-[#C83B35] transition-colors">
-                        <Link href={`/services/${service.slug}`}>
+                        <Link href={`/services/${service.slug}`} aria-label={`View details for ${service.name}`}>
                           {service.name}
                         </Link>
                       </h3>
@@ -87,28 +87,16 @@ export default function ServicesPage() {
                         {service.description}
                       </p>
 
-                      {/* Capabilities Preview */}
+                      {/* Included Items Preview */}
                       <div className="space-y-2 mb-6">
                         <div className="font-mono text-[10px] uppercase text-[#123D32] font-bold">
-                          KEY CAPABILITIES:
+                          WHAT IS INCLUDED:
                         </div>
-                        {service.capabilities.slice(0, 3).map((cap, cIdx) => (
-                          <div key={cIdx} className="flex items-start gap-2 font-mono text-xs text-[#2A2A2A]/80">
+                        {service.deliverables.slice(0, 3).map((item, dIdx) => (
+                          <div key={dIdx} className="flex items-start gap-2 font-mono text-xs text-[#2A2A2A]/80">
                             <span className="text-[#C83B35]" aria-hidden="true">›</span>
-                            <span>{cap.title}</span>
+                            <span>{item}</span>
                           </div>
-                        ))}
-                      </div>
-
-                      {/* Tech Stack Preview */}
-                      <div className="flex flex-wrap gap-1.5 font-mono text-[10px] mb-6">
-                        {service.techStack.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-0.5 bg-[#ECE8DF] text-[#123D32] border border-[#E5E2DA]"
-                          >
-                            {tech}
-                          </span>
                         ))}
                       </div>
                     </div>
@@ -116,13 +104,14 @@ export default function ServicesPage() {
                     <div className="pt-4 border-t border-[#E5E2DA] flex items-center justify-between">
                       <Link
                         href={`/services/${service.slug}`}
+                        aria-label={`View details for ${service.name}`}
                         className="font-mono text-xs uppercase font-bold text-[#123D32] group-hover:text-[#C83B35] transition-colors inline-flex items-center gap-1.5"
                       >
-                        <span>View Detailed Specification</span>
-                        <span>→</span>
+                        <span>View details</span>
+                        <span aria-hidden="true">→</span>
                       </Link>
                       <span className="font-mono text-[10px] text-[#2A2A2A]/50">
-                        {service.deliverables.length} Deliverables
+                        {service.deliverables.length} Items Included
                       </span>
                     </div>
                   </div>
@@ -136,18 +125,18 @@ export default function ServicesPage() {
         <div className="mt-24 bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-2 font-semibold">
-              BESPOKE SCOPE REQUIREMENTS?
+              READY TO DISCUSS A PROJECT?
             </div>
             <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase tracking-tight text-[#F4F1E9]">
-              Configure a Tailored Architecture
+              Talk with our team
             </h2>
             <p className="font-body text-xs text-[#F4F1E9]/80 max-w-lg mt-2">
-              If your product requires a hybrid cross-pillar team (e.g. Web Development + Business Automation + Performance Marketing), we construct custom squads.
+              Tell us about your project requirements and goals. We will be happy to talk through options.
             </p>
           </div>
           <div className="flex-shrink-0">
-            <Button href="/contact" variant="accent" size="md" showArrow>
-              Start a Project
+            <Button href="/contact" aria-label="Contact us about our services" variant="accent" size="md" showArrow>
+              Contact us
             </Button>
           </div>
         </div>
