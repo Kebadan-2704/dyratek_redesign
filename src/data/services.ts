@@ -38,9 +38,9 @@ export const SERVICES: Service[] = [
     ],
     deliverables: [
       'Responsive layouts for mobile and desktop screens',
-      'Clean website code tested across modern browsers',
+      'Pages that adjust smoothly to look clear on phones, tablets, and computers',
       'Fast page loading and speed optimization',
-      'Technical documentation explaining site structure'
+      'Lightweight pages designed to load quickly'
     ],
     methodology: [
       { step: '01', title: 'Discover', detail: 'We learn about your business goals and page requirements.' },

@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getServiceBySlug, getAllServiceSlugs } from '@/data/services';
-import { Button } from '@/components/ui/Button';
+
+export const instant = false;
 
 interface ServicePageProps {
   params: Promise<{
@@ -72,96 +73,96 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   };
 
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 border-b border-[#E1E4E0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
-      <div className="max-w-4xl mx-auto px-5 lg:px-12">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12">
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70 mb-8 pb-4 border-b border-[#E5E2DA]" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-[#123D32]">HOME</Link>
-          <span className="text-[#E5E2DA]" aria-hidden="true">/</span>
-          <Link href="/services" className="hover:text-[#123D32]">SERVICES</Link>
-          <span className="text-[#E5E2DA]" aria-hidden="true">/</span>
-          <span className="text-[#C83B35] font-bold">{service.name.toUpperCase()}</span>
+        <nav className="flex items-center gap-2 text-sm text-[#555B57] pb-4 border-b border-[#E1E4E0]" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-[#123D32]">Home</Link>
+          <span className="text-[#D4D8D2]" aria-hidden="true">/</span>
+          <Link href="/services" className="hover:text-[#123D32]">Services</Link>
+          <span className="text-[#D4D8D2]" aria-hidden="true">/</span>
+          <span className="font-semibold text-[#123D32]">{service.name}</span>
         </nav>
 
         {/* Part 1: Headline + 2 Sentences */}
-        <div className="pb-10 mb-10 border-b border-[#E5E2DA]">
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[11px] text-[#123D32] font-bold">
-              CATEGORY: {service.pillarName.toUpperCase()}
+        <div className="space-y-4 max-w-[65ch]">
+          <div>
+            <span className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+              Category: {service.pillarName}
             </span>
           </div>
 
-          <h1 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight leading-[1.05] mb-6">
+          <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight">
             {service.name}
           </h1>
 
-          <p className="font-body text-base lg:text-lg text-[#2A2A2A]/90 leading-relaxed">
+          <p className="text-lg text-[#555B57] leading-relaxed pt-2">
             {service.description}
           </p>
         </div>
 
-        {/* Part 2: What's Included (4 to 5 bullets) */}
-        <div className="pb-10 mb-10 border-b border-[#E5E2DA]">
-          <h2 className="font-heading font-bold text-xl uppercase text-[#123D32] mb-6">
+        {/* Part 2: What's Included (4–5 deliverables bullets) */}
+        <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 space-y-5 max-w-2xl shadow-xs">
+          <h2 className="font-bold text-xl text-[#123D32]">
             What&apos;s included
           </h2>
 
-          <div className="space-y-3 font-mono text-xs sm:text-sm">
+          <ul className="space-y-3">
             {service.deliverables.map((item, dIdx) => (
-              <div
-                key={dIdx}
-                className="bg-[#ECE8DF] p-4 border border-[#E5E2DA] flex items-start gap-3"
-              >
-                <span className="text-[#C83B35] font-bold">0{dIdx + 1}.</span>
-                <span className="text-[#2A2A2A] font-medium">{item}</span>
-              </div>
+              <li key={dIdx} className="flex items-start gap-3 text-base text-[#1E2221]">
+                <svg
+                  className="w-5 h-5 text-[#123D32] mt-0.5 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
-        {/* Part 3: Contact Us Button */}
-        <div className="pb-12 mb-12 border-b border-[#E5E2DA] flex flex-wrap items-center gap-4">
-          <Button
+        {/* Part 3: Contact Us Action */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <Link
             href="/contact"
-            aria-label={`Contact us about ${service.name}`}
-            variant="primary"
-            size="md"
-            showArrow
+            className="h-12 px-7 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-medium flex items-center justify-center shadow-xs hover:bg-[#0B2720] transition-colors"
           >
             Contact us
-          </Button>
-          <Button
+          </Link>
+          <Link
             href="/services"
-            aria-label="See all services"
-            variant="secondary"
-            size="md"
+            className="h-12 px-7 rounded-xl bg-white border border-[#E1E4E0] text-[#123D32] text-base font-medium flex items-center justify-center hover:bg-[#F3F4F1] transition-colors"
           >
-            See services
-          </Button>
+            See all services
+          </Link>
         </div>
 
         {/* Related Services */}
         {relatedServices.length > 0 && (
-          <div>
-            <h2 className="font-heading font-bold text-sm uppercase text-[#123D32]/70 mb-4 font-mono">
-              Related Services
+          <div className="pt-10 border-t border-[#E1E4E0] space-y-5">
+            <h2 className="font-semibold text-base text-[#123D32]">
+              Related services
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {relatedServices.map((rel) => (
                 <Link
                   key={rel.slug}
                   href={`/services/${rel.slug}`}
-                  aria-label={`View details for ${rel.name}`}
-                  className="bg-[#ECE8DF] p-4 border border-[#E5E2DA] hover:border-[#123D32] transition-colors block"
+                  className="rounded-xl bg-white p-5 border border-[#E1E4E0] hover:border-[#123D32] transition-colors block shadow-xs space-y-1"
                 >
-                  <div className="font-heading font-bold text-sm text-[#123D32] mb-1">
+                  <div className="font-semibold text-sm text-[#123D32]">
                     {rel.name}
                   </div>
-                  <p className="font-mono text-[11px] text-[#2A2A2A]/70 line-clamp-2">
+                  <p className="text-xs text-[#555B57] line-clamp-2">
                     {rel.tagline}
                   </p>
                 </Link>
