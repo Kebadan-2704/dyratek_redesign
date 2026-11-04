@@ -4,77 +4,71 @@ export const PROCESS_STAGES: ProcessStage[] = [
   {
     step: '01',
     name: 'Discover',
-    phase: 'ALIGNMENT & ARCHITECTURE',
-    duration: 'Weeks 1–2',
-    description:
-      'Rigorous audit of commercial objectives, user journeys, technical constraints, and system dependencies to define clear engineering boundaries.',
-    focus: 'Commercial objectives, technical scoping, infrastructure audit, and requirement specification.',
+    phase: 'GOALS & REQUIREMENTS',
+    duration: 'Step 1',
+    description: 'We learn about your business goals and what you need built.',
+    focus: 'Understand your project requirements and priorities.',
     deliverables: [
-      'Technical specification document & architecture blueprint',
-      'Data model and integration inventory',
-      'Milestone-based project schedule and risk register'
+      'Summary of business goals',
+      'Feature checklist',
+      'Initial discussion notes'
     ],
-    governance: 'Signed Architecture Charter & Sprint Scope'
+    governance: 'Initial Consultation'
   },
   {
     step: '02',
-    name: 'Design',
-    phase: 'SYSTEMATISATION & UX',
-    duration: 'Weeks 2–4',
-    description:
-      'Translation of requirements into mathematical 12-column wireframes, atomic design systems, and interactive prototypes for validation.',
-    focus: 'Information architecture, user flow mapping, WCAG contrast verification, and design tokens.',
+    name: 'Plan',
+    phase: 'TIMELINE & DETAILS',
+    duration: 'Step 2',
+    description: 'We outline the project details, milestones, and timeline.',
+    focus: 'Define pages, milestones, and project steps clearly.',
     deliverables: [
-      'Interactive Figma prototypes for desktop and mobile viewports',
-      'Published design token library and component states',
-      'Content framework and microcopy guidelines'
+      'Project milestones outline',
+      'Page and feature plan',
+      'Timeline schedule'
     ],
-    governance: 'Prototype Usability & Visual Direction Sign-off'
+    governance: 'Project Plan Agreement'
   },
   {
     step: '03',
-    name: 'Build',
-    phase: 'PRODUCTION ENGINEERING',
-    duration: 'Weeks 4–8',
-    description:
-      'Modular full-stack development, component implementation, API orchestration, and continuous automated integration testing.',
-    focus: 'Clean TypeScript codebase, component encapsulation, edge routing, and webhook resilience.',
+    name: 'Design & Build',
+    phase: 'DESIGN & CODE',
+    duration: 'Step 3',
+    description: 'We design your pages and write clean code.',
+    focus: 'Create layouts and build responsive, working pages.',
     deliverables: [
-      'Production codebase with automated test coverage',
-      'Configured staging environments with branch previews',
-      'API connectors and database migration schemas'
+      'Visual screen layouts',
+      'Clean website code',
+      'Connected forms and tools'
     ],
-    governance: 'Sprint Demonstration & Code Quality Review'
+    governance: 'Build Verification'
   },
   {
     step: '04',
-    name: 'Launch',
-    phase: 'ROLLOUT & OBSERVABILITY',
-    duration: 'Week 9',
-    description:
-      'Structured staging cutover, edge CDN caching rules, automated error telemetry, and zero-downtime DNS deployment.',
-    focus: 'Performance benchmarking, security hardening, DNS propagation, and runbook handover.',
+    name: 'Review',
+    phase: 'PREVIEW & FEEDBACK',
+    duration: 'Step 4',
+    description: 'You test a working preview and share feedback before launch.',
+    focus: 'Review the preview on phones and computers to confirm details.',
     deliverables: [
-      'Zero-downtime production cutover and DNS switch',
-      'Real-time error tracing and performance dashboards',
-      'System administrator documentation and handover training'
+      'Working private preview',
+      'Feedback review notes',
+      'Adjustments and refinements'
     ],
-    governance: 'Deployment Verification & Go-Live Acceptance'
+    governance: 'Pre-Launch Approval'
   },
   {
     step: '05',
-    name: 'Grow',
-    phase: 'ITERATION & EXPANSION',
-    duration: 'Ongoing',
-    description:
-      'Continuous conversion rate optimization, lifecycle funnel automation, performance marketing execution, and iterative feature sprints.',
-    focus: 'Attribution telemetry, checkout friction removal, organic search ranking, and retention loops.',
+    name: 'Launch',
+    phase: 'GO LIVE & HANDOVER',
+    duration: 'Step 5',
+    description: 'We launch your site and walk you through how it works.',
+    focus: 'Publish your pages live and explain everyday management.',
     deliverables: [
-      'Bi-weekly conversion rate audit and backlog grooming',
-      'Campaign performance attribution and ROAS reports',
-      'Continuous dependency updates and security patches'
+      'Live website release',
+      'System walkthrough session',
+      'Handover notes'
     ],
-    governance: 'Quarterly Commercial Review & KPI Tracking'
+    governance: 'Project Completion'
   }
 ];
-
