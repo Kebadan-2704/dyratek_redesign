@@ -2,722 +2,638 @@ import { Service, Pillar } from '@/types';
 
 export const SERVICES: Service[] = [
   // ==========================================
-  // PILLAR 01 // BUILD (4 Services)
+  // PILLAR BUILD (4 Services)
   // ==========================================
   {
     id: 'web-development',
     slug: 'web-development',
     index: '01',
-    pillarIndex: '01.1',
     name: 'Web Development',
     shortName: 'Web Dev',
     pillarId: 'build',
     pillarName: 'Build',
-    tagline: 'High-performance web applications and enterprise platforms engineered for scale.',
+    tagline: 'Clean websites and web tools that load quickly.',
     description:
-      'We architect, build, and deploy high-performance web applications using modern component-driven frameworks, edge infrastructure, and rigorous engineering principles.',
-    strategicObjective:
-      'Replace brittle, fragmented web properties with deterministic, sub-second web platforms engineered for peak traffic and long-term maintainability.',
+      'We design and build clean websites and web applications. Every page loads quickly and works across phones, tablets, and computers.',
     capabilities: [
       {
-        title: 'Modern Front-End Engineering',
-        description: 'Server Components, static edge delivery, and reactive interfaces built with Next.js, React, and TypeScript.'
+        title: 'Responsive Layouts',
+        description: 'Pages that adjust smoothly to look clear on phones, tablets, and computers.'
       },
       {
-        title: 'Full-Stack Architecture',
-        description: 'Robust serverless microservices, distributed caching, and transactional SQL/NoSQL data layers.'
+        title: 'Clear Structure',
+        description: 'Logical page hierarchy and easy-to-navigate layouts for your visitors.'
       },
       {
-        title: 'API & Microservice Integration',
-        description: 'Resilient REST, GraphQL, and webhook pipelines with contract testing and error telemetry.'
+        title: 'Page Performance',
+        description: 'Efficient page assets structured to load reliably across devices.'
       },
       {
-        title: 'Performance Optimization & Core Web Vitals',
-        description: 'Sub-second page generation, asset compression, bundle reduction, and flawless lighthouse metric engineering.'
-      },
-      {
-        title: 'Enterprise CMS & Headless Backends',
-        description: 'Structured content modeling and composable headless integrations for marketing and editorial independence.'
+        title: 'Form Connections',
+        description: 'Contact forms that route visitor inquiries directly to your team.'
       }
     ],
     deliverables: [
-      'Production-ready codebase with full TypeScript coverage',
-      'Automated CI/CD deployment pipelines on edge infrastructure',
-      'Modular design token and UI component library',
-      'Comprehensive technical documentation and runbooks',
-      'Core Web Vitals compliance verification report'
+      'Responsive layouts for mobile and desktop screens',
+      'Navigation structure and page hierarchy',
+      'Clear page sections organized for visitors',
+      'Standard contact and inquiry page link'
     ],
     methodology: [
-      { step: '01', title: 'System Architecture', detail: 'Technical specification, data modeling, routing structure, and infrastructure planning.' },
-      { step: '02', title: 'Foundational Sprint', detail: 'Repository setup, build tooling, design token mapping, and core layout scaffolding.' },
-      { step: '03', title: 'Feature Engineering', detail: 'Component implementation, business logic, state handling, and endpoint integrations.' },
-      { step: '04', title: 'Hardening & QA', detail: 'Cross-browser verification, accessibility compliance audits, and latency profiling.' },
-      { step: '05', title: 'Deployment & Telemetry', detail: 'Zero-downtime cutover, DNS routing, caching rule enforcement, and error monitoring.' }
+      { step: '01', title: 'Discover', detail: 'We learn about your business goals and page requirements.' },
+      { step: '02', title: 'Plan', detail: 'We outline the page structure and project milestones.' },
+      { step: '03', title: 'Design & Build', detail: 'We design your layouts and build your website pages.' },
+      { step: '04', title: 'Review', detail: 'You test a working preview and share feedback.' },
+      { step: '05', title: 'Launch', detail: 'We launch your site and walk you through how it operates.' }
     ],
-    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Docker'],
+    techStack: ['TypeScript', 'Node.js'],
     metricsOrOutcomes: [
-      'Lighthouse performance targets >= 95',
-      'Sub-200ms TTFB across edge regions',
-      '100% intellectual property ownership'
+      'Reliable page loading',
+      'Clear layouts on all screens',
+      'Tested forms and navigation'
     ],
     relatedServiceSlugs: ['app-development', 'ecommerce-solutions', 'ui-ux-design'],
     meta: {
-      title: 'Web Development | High-Performance Engineering — DYRATEK',
-      description: 'Enterprise web application development, modern frontend architecture, and scalable full-stack systems built by DYRATEK.'
+      title: 'Web Development — Fast Websites & Web Apps | DYRATEK',
+      description: 'We build clean, fast-loading websites and web applications that work smoothly on every screen.'
     }
   },
   {
     id: 'app-development',
     slug: 'app-development',
     index: '02',
-    pillarIndex: '01.2',
-    name: 'App Development',
+    name: 'Mobile App Development',
     shortName: 'App Dev',
     pillarId: 'build',
     pillarName: 'Build',
-    tagline: 'Native and cross-platform mobile applications crafted for intuitive user utility.',
+    tagline: 'Mobile apps for phones and tablets.',
     description:
-      'We engineer production-grade mobile applications for iOS and Android, pairing platform-native design patterns with resilient offline sync and secure API infrastructure.',
-    strategicObjective:
-      'Deliver fluid, responsive mobile touchpoints that retain active users through instant interaction feedback and robust background operations.',
+      'We build mobile applications for iPhone and Android devices. Your users get a smooth, reliable experience designed for everyday use.',
     capabilities: [
       {
-        title: 'Cross-Platform Frameworks',
-        description: 'Unified React Native codebases delivering authentic 60fps performance across iOS and Android.'
+        title: 'Apple and Android Ready',
+        description: 'One application build that runs smoothly on both iPhone and Android devices.'
       },
       {
-        title: 'Offline-First State Management',
-        description: 'Local datastore caching, optimistic UI updates, and intelligent background synchronization.'
+        title: 'Device Features',
+        description: 'Connects to notifications, camera, and location when needed.'
       },
       {
-        title: 'Device Hardware Integration',
-        description: 'Deep integration with biometrics, camera pipelines, geolocation, and push notification services.'
+        title: 'Store Preparation',
+        description: 'Assistance preparing your app for store review and release.'
       },
       {
-        title: 'App Store Submission & Compliance',
-        description: 'End-to-end management of Apple App Store and Google Play Store review guidelines and signing protocols.'
-      },
-      {
-        title: 'Real-Time Telemetry & Crash Reporting',
-        description: 'Instrumentation for operational tracing, device-level crash diagnostics, and session health.'
+        title: 'Device Testing',
+        description: 'Tested on physical phone hardware before release.'
       }
     ],
     deliverables: [
-      'Compiled iOS and Android production binary artifacts',
-      'Store-ready metadata, asset packs, and compliance sheets',
-      'Secure authentication and session token management logic',
-      'Automated TestFlight and Internal Testing distribution lanes'
+      'One application build that runs on both iOS and Android',
+      'Device features such as camera, location, and push notifications',
+      'App store preparation and submission files',
+      'Testing on physical phone hardware'
     ],
     methodology: [
-      { step: '01', title: 'Mobile Blueprint', detail: 'Device compatibility scope, offline strategy, and interaction flow definition.' },
-      { step: '02', title: 'Prototype & Scaffolding', detail: 'Native module configuration, design system translation, and navigation stack.' },
-      { step: '03', title: 'Core Functionality', detail: 'API sync, secure storage implementation, and interactive view assembly.' },
-      { step: '04', title: 'Device Matrix Testing', detail: 'Regression testing across screen sizes, OS revisions, and latency conditions.' },
-      { step: '05', title: 'Store Delivery', detail: 'Code signing, production binary staging, and compliance submission review.' }
+      { step: '01', title: 'Discover', detail: 'We review user flows and required app features.' },
+      { step: '02', title: 'Plan', detail: 'We define the technical plan and screen list.' },
+      { step: '03', title: 'Design & Build', detail: 'We design the interface and build the application.' },
+      { step: '04', title: 'Review', detail: 'You test the app on real devices and suggest adjustments.' },
+      { step: '05', title: 'Launch', detail: 'We prepare store files and walk you through deployment.' }
     ],
-    techStack: ['React Native', 'Expo', 'TypeScript', 'Swift / Kotlin Bridges', 'Supabase', 'GraphQL'],
+    techStack: ['TypeScript', 'Node.js'],
     metricsOrOutcomes: [
-      'Zero-lag 60fps view transitions',
-      'Consistent offline data integrity',
-      'Clean App Store approval turnaround'
+      'Smooth performance on phones',
+      'Store-ready submission files',
+      'Tested on real devices'
     ],
-    relatedServiceSlugs: ['web-development', 'digital-solutions', 'ui-ux-design'],
+    relatedServiceSlugs: ['web-development', 'ui-ux-design', 'digital-solutions'],
     meta: {
-      title: 'App Development | iOS & Android Cross-Platform — DYRATEK',
-      description: 'Production mobile applications engineered with React Native, offline-first reliability, and seamless API integration.'
+      title: 'Mobile App Development — iOS & Android Apps | DYRATEK',
+      description: 'We build reliable mobile apps for iPhone and Android devices with clean navigation and smooth performance.'
     }
   },
   {
     id: 'ecommerce-solutions',
     slug: 'ecommerce-solutions',
     index: '03',
-    pillarIndex: '01.3',
-    name: 'E-commerce Solutions',
-    shortName: 'E-commerce',
+    name: 'Online Stores',
+    shortName: 'Commerce',
     pillarId: 'build',
     pillarName: 'Build',
-    tagline: 'High-converting digital storefronts and composable commercial architectures.',
+    tagline: 'Online stores that make buying simple.',
     description:
-      'We design and develop high-speed commercial infrastructure, combining composable headless checkouts, inventory synchronizations, and frictionless buying flows.',
-    strategicObjective:
-      'Maximize digital transaction throughput and checkout completion rates with instantaneous catalogue browsing and unified payment gateways.',
+      'We build online stores that make finding and purchasing products simple. Every store includes clear product organization and reliable checkout flows.',
     capabilities: [
       {
-        title: 'Headless & Composable Commerce',
-        description: 'Next.js storefronts decoupled from commerce engines for unparalleled page rendering speeds.'
+        title: 'Product Catalog',
+        description: 'Fast product search and organized categories for easy browsing.'
       },
       {
-        title: 'Shopify Plus & Custom Themes',
-        description: 'Bespoke liquid architectures, private apps, custom checkout extensions, and theme engineering.'
+        title: 'Shopping Cart',
+        description: 'Clear cart drawer and step-by-step checkout.'
       },
       {
-        title: 'Multi-Gateway Payment Integration',
-        description: 'Secure, PCI-compliant Stripe, PayPal, and regional payment orchestration with fraud screening.'
+        title: 'Payment Integration',
+        description: 'Connects to standard card processors and checkout methods.'
       },
       {
-        title: 'ERP & Inventory Synchronization',
-        description: 'Two-way catalog, customer, and real-time inventory updates across warehouses and physical stores.'
-      },
-      {
-        title: 'Cart & Checkout Conversion Engineering',
-        description: 'One-click checkout workflows, persistent micro-carts, and automated order confirmation funnels.'
+        title: 'Inventory Link',
+        description: 'Connects your product stock counts to your online store.'
       }
     ],
     deliverables: [
-      'Custom commerce storefront with headless or native integration',
-      'Configured payment processors, tax calculations, and shipping rules',
-      'Automated transactional email and SMS notification schemas',
-      'Inventory sync middleware with error recovery queues'
+      'Product catalog with search and filtering',
+      'Shopping cart drawer and checkout flow',
+      'Payment processor setup for cards and standard payment options',
+      'Inventory link between product stock and your catalog'
     ],
     methodology: [
-      { step: '01', title: 'Commerce Scoping', detail: 'SKU hierarchy, pricing tiers, payment gateways, and shipping parameters.' },
-      { step: '02', title: 'Store Architecture', detail: 'Checkout flow modeling, customer account pathways, and catalogue structure.' },
-      { step: '03', title: 'Storefront Engineering', detail: 'Speed-optimized product grids, filter mechanisms, and cart interfaces.' },
-      { step: '04', title: 'Transaction Verification', detail: 'End-to-end payment simulations, test webhooks, and tax rule verification.' },
-      { step: '05', title: 'Go-Live Execution', detail: 'Catalogue migration, 301 redirect map verification, and analytics cutover.' }
+      { step: '01', title: 'Discover', detail: 'We review your product catalog and payment requirements.' },
+      { step: '02', title: 'Plan', detail: 'We map category filters, product options, and checkout steps.' },
+      { step: '03', title: 'Design & Build', detail: 'We build the store layout, cart, and payment links.' },
+      { step: '04', title: 'Review', detail: 'You test product purchases and review the store.' },
+      { step: '05', title: 'Launch', detail: 'We launch the store and walk you through order management.' }
     ],
-    techStack: ['Shopify Plus', 'Next.js Commerce', 'Stripe', 'Sanity CMS', 'Webhooks', 'Algolia'],
+    techStack: ['TypeScript', 'Node.js'],
     metricsOrOutcomes: [
-      'Sub-500ms catalog search and filter responses',
-      'Optimized checkout completion funnels',
-      'Resilient multi-warehouse inventory parity'
+      'Clear shopping experience',
+      'Direct payment connections',
+      'Inventory tracking link'
     ],
-    relatedServiceSlugs: ['web-development', 'business-automation', 'performance-marketing'],
+    relatedServiceSlugs: ['web-development', 'ui-ux-design', 'business-automation'],
     meta: {
-      title: 'E-commerce Solutions | Composable & Headless Stores — DYRATEK',
-      description: 'High-performance e-commerce development, Shopify Plus engineering, and composable checkout solutions by DYRATEK.'
+      title: 'Online Stores — E-Commerce Development | DYRATEK',
+      description: 'We build online stores with fast browsing, organized product catalogs, and straightforward checkout.'
     }
   },
   {
     id: 'digital-solutions',
     slug: 'digital-solutions',
     index: '04',
-    pillarIndex: '01.4',
-    name: 'Digital Solutions',
-    shortName: 'Digital Solutions',
+    name: 'Custom Software',
+    shortName: 'Software',
     pillarId: 'build',
     pillarName: 'Build',
-    tagline: 'Custom business software, client portals, and bespoke internal operational systems.',
+    tagline: 'Software built around your business needs.',
     description:
-      'We engineer bespoke digital platforms and internal operating tools tailored to complex organizational workflows that off-the-shelf software cannot satisfy.',
-    strategicObjective:
-      'Consolidate disjointed manual workflows into centralized, secure internal systems that enhance organizational agility and data accuracy.',
+      'We build custom web software to manage your internal business operations. Your team gets tools designed around your specific workflow.',
     capabilities: [
       {
-        title: 'Custom B2B & Client Portals',
-        description: 'Role-gated secure environments for client onboarding, asset management, and billing dashboards.'
+        title: 'Customer Portals',
+        description: 'Private dashboards where customers or partners can log in and view records.'
       },
       {
-        title: 'Internal Operational Dashboards',
-        description: 'Real-time operational command centers connecting multiple backend databases into unified tables.'
+        title: 'User Roles',
+        description: 'Separate logins and permissions for team members and managers.'
       },
       {
-        title: 'Role-Based Access Control (RBAC)',
-        description: 'Granular organizational security models, permission trees, audit logs, and session timeouts.'
+        title: 'Data Organization',
+        description: 'Clean database structure that keeps your records organized.'
       },
       {
-        title: 'Custom Workflow Engines',
-        description: 'Multi-stage approval pathways, state-machine processing, and automated audit trails.'
-      },
-      {
-        title: 'Legacy System Modernization',
-        description: 'Re-engineering obsolete legacy software into modular cloud architectures without downtime.'
+        title: 'Admin Tools',
+        description: 'Management consoles to review activity and export data.'
       }
     ],
     deliverables: [
-      'Tailored web software platform with role-based authentication',
-      'Secure administrative back-office and reporting console',
-      'Database schemas with automated migration scripts',
-      'Operational administrator documentation and handover training'
+      'Customer portals and internal operational dashboards',
+      'Role-based accounts with separate staff and manager access',
+      'Database structure and data organization',
+      'Admin guide explaining system operation'
     ],
     methodology: [
-      { step: '01', title: 'Workflow Mapping', detail: 'Operational bottleneck audit, user role definition, and data flow modeling.' },
-      { step: '02', title: 'Data Architecture', detail: 'Relational schema design, normalization, indexing, and security boundaries.' },
-      { step: '03', title: 'System Development', detail: 'Sprint-based implementation of core logic, permission validation, and views.' },
-      { step: '04', title: 'User Acceptance Testing', detail: 'Internal stakeholder pilots, edge case validation, and security scans.' },
-      { step: '05', title: 'Operational Rollout', detail: 'Phased staff migration, legacy data transfer, and monitoring activation.' }
+      { step: '01', title: 'Discover', detail: 'We learn about your team workflow and daily operational tasks.' },
+      { step: '02', title: 'Plan', detail: 'We map data records, access permissions, and screens.' },
+      { step: '03', title: 'Design & Build', detail: 'We build the portal, databases, and admin controls.' },
+      { step: '04', title: 'Review', detail: 'Your team tests the portal with real operational scenarios.' },
+      { step: '05', title: 'Launch', detail: 'We deploy the software and walk your team through daily use.' }
     ],
-    techStack: ['TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'Tailwind CSS', 'AWS / Cloudflare'],
+    techStack: ['TypeScript', 'Node.js'],
     metricsOrOutcomes: [
-      'Elimination of manual spreadsheet reconciliation',
-      'Strict audit trails for critical operations',
-      'Reduced workflow completion turnaround times'
+      'Custom workflow management',
+      'Organized data records',
+      'Role-based team access'
     ],
-    relatedServiceSlugs: ['web-development', 'business-automation', 'ui-ux-design'],
+    relatedServiceSlugs: ['web-development', 'business-automation', 'app-development'],
     meta: {
-      title: 'Digital Solutions | Custom Business Software & Portals — DYRATEK',
-      description: 'Bespoke enterprise software, internal tools, and client portals engineered by DYRATEK for streamlined operations.'
+      title: 'Custom Software — Client Portals & Operations Tools | DYRATEK',
+      description: 'We build custom web portals and software tools that match your specific business operations.'
     }
   },
 
   // ==========================================
-  // PILLAR 02 // AUTOMATE (2 Services)
+  // PILLAR AUTOMATE (2 Services)
   // ==========================================
   {
     id: 'business-automation',
     slug: 'business-automation',
     index: '05',
-    pillarIndex: '02.1',
     name: 'Business Automation',
     shortName: 'Automation',
     pillarId: 'automate',
     pillarName: 'Automate',
-    tagline: 'Orchestrated API integrations, webhook pipelines, and error-resilient process workflows.',
+    tagline: 'Put routine tasks on autopilot.',
     description:
-      'We eliminate administrative friction by interconnecting your CRM, ERP, and operational toolchains with robust, self-healing automated workflows.',
-    strategicObjective:
-      'Free high-value teams from repetitive administrative tasks through deterministic automation pipelines with full error telemetry.',
+      'We connect your business software so routine tasks happen on their own. Passing data automatically between your apps saves time and prevents manual errors.',
     capabilities: [
       {
-        title: 'CRM & ERP Synchronization',
-        description: 'Bi-directional real-time data sync across HubSpot, Salesforce, Zoho, and enterprise backends.'
+        title: 'Inquiry Routing',
+        description: 'Sends website form inquiries directly to the right team member.'
       },
       {
-        title: 'Event-Driven Webhook Pipelines',
-        description: 'Custom serverless listeners that process transactional triggers with retry queues and fallback alerts.'
+        title: 'App Handoffs',
+        description: 'Passes details between your customer list, spreadsheets, and chat apps.'
       },
       {
-        title: 'Document & Invoice Generation',
-        description: 'Automated contract assembly, PDF stamping, digital signature routing, and storage filing.'
+        title: 'Workflow Mapping',
+        description: 'Clear visual diagram of how your business information moves.'
       },
       {
-        title: 'Automated Lead Qualification & Routing',
-        description: 'Instant lead scoring, enrichment, and assignment based on commercial parameters and territory.'
-      },
-      {
-        title: 'Custom Middleware Development',
-        description: 'Dedicated cloud functions translating payloads between incompatible third-party services.'
+        title: 'Connection Alerts',
+        description: 'Sends a notice if an app connection ever pauses.'
       }
     ],
     deliverables: [
-      'Documented automation architecture and logic mapping diagrams',
-      'Configured workflow pipelines with automated exception logging',
-      'Dead-letter queues and alerting integrations (Slack/Email)',
-      'Security audit confirming token encryption and minimal scope access'
+      'Inquiry routing from website forms to your team',
+      'Automated handoffs between your customer records and team apps',
+      'Workflow map showing how data moves across services',
+      'Connection alert setup if any connected app pauses'
     ],
     methodology: [
-      { step: '01', title: 'Process Audit', detail: 'Inventory of repetitive manual touchpoints, payload structures, and SLAs.' },
-      { step: '02', title: 'Integration Architecture', detail: 'API rate limit calculation, authentication methods, and failure scenarios.' },
-      { step: '03', title: 'Pipeline Construction', detail: 'Building deterministic connectors, payload transformations, and error handling.' },
-      { step: '04', title: 'Simulation & Load Testing', detail: 'Dry-run testing with simulated payloads, edge cases, and throttles.' },
-      { step: '05', title: 'Live Cutover', detail: 'Controlled transition from manual execution to real-time automated execution.' }
+      { step: '01', title: 'Discover', detail: 'We identify repetitive tasks and app connections you need.' },
+      { step: '02', title: 'Plan', detail: 'We map the trigger events and data paths.' },
+      { step: '03', title: 'Design & Build', detail: 'We set up the automated links and test data transfers.' },
+      { step: '04', title: 'Review', detail: 'You run test submissions and confirm notifications.' },
+      { step: '05', title: 'Launch', detail: 'We activate the automations and provide a workflow guide.' }
     ],
-    techStack: ['Make.com', 'n8n', 'Zapier', 'Node.js / Serverless', 'PostgreSQL', 'Webhooks'],
+    techStack: ['Node.js', 'Cloud Functions'],
     metricsOrOutcomes: [
-      'Zero manual data re-entry across integrated platforms',
-      'Sub-minute lead dispatch and CRM attribution',
-      'Automated error alerts before operational impact'
+      'Automated routine tasks',
+      'Connected business software',
+      'Fast team alerts'
     ],
     relatedServiceSlugs: ['email-whatsapp-marketing', 'digital-solutions', 'web-development'],
     meta: {
-      title: 'Business Automation | Workflow Orchestration & APIs — DYRATEK',
-      description: 'Streamline operations with enterprise workflow automation, CRM sync, and reliable integration pipelines engineered by DYRATEK.'
+      title: 'Business Automation — Connected Workflows & App Links | DYRATEK',
+      description: 'We connect your everyday business software so routine inquiries and data updates happen automatically.'
     }
   },
   {
     id: 'email-whatsapp-marketing',
     slug: 'email-whatsapp-marketing',
     index: '06',
-    pillarIndex: '02.2',
-    name: 'Email & WhatsApp Marketing',
-    shortName: 'Email & WhatsApp',
+    name: 'Email & WhatsApp Messaging',
+    shortName: 'Messaging',
     pillarId: 'automate',
     pillarName: 'Automate',
-    tagline: 'Automated lifecycle messaging, conversational engagement, and high-retention funnels.',
+    tagline: 'Direct updates via messaging channels.',
     description:
-      'We build automated conversational pipelines and segmented email flows that nurture prospective buyers and increase customer lifetime value at scale.',
-    strategicObjective:
-      'Convert inbound attention into sustained revenue through timed, personalized messaging sequences across high-engagement direct channels.',
+      'We set up direct email and WhatsApp message flows to keep your customers informed. You can send order updates, confirmations, and announcements from one place.',
     capabilities: [
       {
-        title: 'Lifecycle & Behavioral Automations',
-        description: 'Event-triggered sequences for welcome series, cart abandonment, onboarding, and win-back.'
+        title: 'Message Templates',
+        description: 'Pre-formatted templates for receipts, notifications, and updates.'
       },
       {
-        title: 'WhatsApp Business API Integration',
-        description: 'Official API implementation for transactional confirmations, automated customer queries, and broadcasts.'
+        title: 'Automated Replies',
+        description: 'Sends confirmation messages as soon as a customer completes an action.'
       },
       {
-        title: 'Audience Segmentation & RFM Modeling',
-        description: 'Dynamic cohort categorization based on recency, frequency, and monetary value of user interactions.'
+        title: 'Contact Lists',
+        description: 'Organizes customer contacts for easy and relevant communication.'
       },
       {
-        title: 'Deliverability & Domain Health Protocol',
-        description: 'SPF, DKIM, DMARC, and BIMI configuration ensuring maximum inbox placement and reputation defense.'
-      },
-      {
-        title: 'High-Converting Template Design',
-        description: 'Responsive, accessible HTML email design and conversational WhatsApp message schemas.'
+        title: 'Domain Setup',
+        description: 'Configures email records so your messages reach inboxes reliably.'
       }
     ],
     deliverables: [
-      'Configured multi-step automated email workflows in your ESP',
-      'Approved WhatsApp Business API template catalog and routing trees',
-      'Domain authentication verification report (SPF/DKIM/DMARC)',
-      'Editorial content matrix and campaign calendar'
+      'Message templates formatted for emails and WhatsApp',
+      'Automated confirmation flows triggered by customer actions',
+      'Audience contact list organization',
+      'Domain records setup for reliable email delivery'
     ],
     methodology: [
-      { step: '01', title: 'Journey Blueprint', detail: 'Customer touchpoint identification and trigger condition mapping.' },
-      { step: '02', title: 'Infrastructure Setup', detail: 'Domain DNS configuration, WhatsApp business verification, and ESP sync.' },
-      { step: '03', title: 'Content & Template Creation', detail: 'Copywriting, responsive email design, and message formatting.' },
-      { step: '04', title: 'Trigger Testing', detail: 'End-to-end sandbox simulations of event firing and message delivery.' },
-      { step: '05', title: 'Launch & Telemetry', detail: 'Flow activation, deliverability monitoring, and performance benchmarking.' }
+      { step: '01', title: 'Discover', detail: 'We review your customer messaging scenarios and channels.' },
+      { step: '02', title: 'Plan', detail: 'We draft message templates and define sending triggers.' },
+      { step: '03', title: 'Design & Build', detail: 'We configure the message flows and verify email records.' },
+      { step: '04', title: 'Review', detail: 'You review test messages on real devices.' },
+      { step: '05', title: 'Launch', detail: 'We turn on live messaging and walk you through sending updates.' }
     ],
-    techStack: ['Klaviyo', 'WhatsApp Cloud API', 'HubSpot', 'Postmark', 'Twilio', 'Brevo'],
+    techStack: ['Node.js'],
     metricsOrOutcomes: [
-      '> 99% inbox deliverability across verified domains',
-      'Automated revenue generation without ongoing manual sending',
-      'Instant WhatsApp response times for transactional events'
+      'Direct customer messaging',
+      'Pre-approved message templates',
+      'Organized contact lists'
     ],
-    relatedServiceSlugs: ['business-automation', 'content-strategy-copywriting', 'performance-marketing'],
+    relatedServiceSlugs: ['business-automation', 'content-strategy-copywriting', 'ecommerce-solutions'],
     meta: {
-      title: 'Email & WhatsApp Marketing | Lifecycle Automation — DYRATEK',
-      description: 'Drive retention and revenue with automated email sequences and verified WhatsApp Business API funnels engineered by DYRATEK.'
+      title: 'Email & WhatsApp Messaging — Customer Updates | DYRATEK',
+      description: 'Set up clear email and WhatsApp messaging to send confirmations, order updates, and announcements.'
     }
   },
 
   // ==========================================
-  // PILLAR 03 // CREATE & GROW (5 Services)
+  // PILLAR GROW (5 Services)
   // ==========================================
   {
     id: 'ui-ux-design',
     slug: 'ui-ux-design',
     index: '07',
-    pillarIndex: '03.1',
-    name: 'UI/UX Design',
-    shortName: 'UI/UX Design',
+    name: 'Website & App Design',
+    shortName: 'UI/UX',
     pillarId: 'create-grow',
-    pillarName: 'Create & Grow',
-    tagline: 'Architectural digital interfaces, design systems, and frictionless user experiences.',
+    pillarName: 'Grow',
+    tagline: 'Clean design that visitors understand right away.',
     description:
-      'We craft structured, mathematically balanced interfaces grounded in Swiss modernist aesthetics, intuitive mental models, and production-ready component tokens.',
-    strategicObjective:
-      'Eliminate user cognitive load and accelerate engineering velocity by providing unambiguous, high-fidelity design specifications.',
+      'We design clear, easy-to-use interfaces for websites and mobile applications. Every screen is organized so visitors can navigate naturally.',
     capabilities: [
       {
-        title: 'Design Systems & Token Architecture',
-        description: 'Comprehensive Figma libraries with standardized semantic tokens, typography scales, and variants.'
+        title: 'Page Wireframes',
+        description: 'Visual blueprints of each screen to test layout and content.'
       },
       {
-        title: 'Information Architecture & Wireframing',
-        description: 'Hierarchical navigation structures, low-fidelity wireframes, and logical user flow mapping.'
+        title: 'Interactive Previews',
+        description: 'Clickable design models that show how pages flow together.'
       },
       {
-        title: 'High-Fidelity Interface Design',
-        description: 'Pixel-precise desktop, tablet, and mobile layouts executed with editorial rigor and brand discipline.'
+        title: 'Brand Style Guide',
+        description: 'Coordinated colors, typography, and button styles for your brand.'
       },
       {
-        title: 'Interactive Prototyping',
-        description: 'High-fidelity clickable prototypes that replicate realistic user states, gestures, and transitions.'
-      },
-      {
-        title: 'Accessibility Audits (WCAG 2.2 AA)',
-        description: 'Contrast verification, keyboard navigation paths, touch target evaluation, and screen reader flow checks.'
+        title: 'Contrast & Readability',
+        description: 'Careful text sizing and colors so every screen is easy to read.'
       }
     ],
     deliverables: [
-      'Comprehensive Figma design file with organized page hierarchy',
-      'Published component library with autolayout and design token documentation',
-      'Interactive prototype for desktop and mobile viewports',
-      'Detailed developer handoff specifications with asset exports'
+      'Screen layouts and wireframes mapped to user tasks',
+      'Clickable design preview to review before building',
+      'Coordinated style guide for colors, fonts, and buttons',
+      'Contrast and readability review for all viewports'
     ],
     methodology: [
-      { step: '01', title: 'Research & Discovery', detail: 'Stakeholder interviews, user persona mapping, and architectural layout exploration.' },
-      { step: '02', title: 'Wireframes & Flow', detail: 'Low-fidelity structural layouts establishing content hierarchy and logic.' },
-      { step: '03', title: 'Design System & Tokens', detail: 'Defining the atomic palette, typography scale, spacing grids, and primitives.' },
-      { step: '04', title: 'High-Fidelity UI', detail: 'Composing polished responsive screens with micro-interaction states.' },
-      { step: '05', title: 'Handoff & Validation', detail: 'Developer documentation, redline reviews, and implementation QA.' }
+      { step: '01', title: 'Discover', detail: 'We learn about your brand, users, and page goals.' },
+      { step: '02', title: 'Plan', detail: 'We map the user navigation and screen flow.' },
+      { step: '03', title: 'Design & Build', detail: 'We create high-clarity layouts and interactive previews.' },
+      { step: '04', title: 'Review', detail: 'You click through the preview and share revision notes.' },
+      { step: '05', title: 'Launch', detail: 'We finalize design assets and provide developer guidelines.' }
     ],
-    techStack: ['Figma', 'FigJam', 'Tokens Studio', 'Zeroheight', 'Principle'],
+    techStack: ['Figma'],
     metricsOrOutcomes: [
-      'WCAG 2.2 AA contrast and accessibility compliance',
-      '100% token consistency between Figma and Tailwind CSS',
-      'Streamlined development handoff with zero ambiguous states'
+      'Clean visual layouts',
+      'Clickable preview before coding',
+      'Readable text and colors'
     ],
-    relatedServiceSlugs: ['web-development', 'app-development', 'creative-video'],
+    relatedServiceSlugs: ['web-development', 'app-development', 'content-strategy-copywriting'],
     meta: {
-      title: 'UI/UX Design | Systems & Product Interfaces — DYRATEK',
-      description: 'Precision digital product design, design systems, and user experience engineering informed by Swiss modernist discipline.'
+      title: 'Website & App Design — UI/UX Interfaces | DYRATEK',
+      description: 'We design simple, modern interfaces for websites and mobile apps with clean navigation and high readability.'
     }
   },
   {
     id: 'creative-video',
     slug: 'creative-video',
     index: '08',
-    pillarIndex: '03.2',
-    name: 'Creative & Video',
-    shortName: 'Creative & Video',
+    name: 'Video & Motion',
+    shortName: 'Video',
     pillarId: 'create-grow',
-    pillarName: 'Create & Grow',
-    tagline: 'High-impact motion design, video editing, and branded creative production.',
+    pillarName: 'Grow',
+    tagline: 'Visuals that explain your product.',
     description:
-      'We produce captivating digital video assets, motion graphics, and social narratives engineered to command attention and articulate complex business value.',
-    strategicObjective:
-      'Differentiate your brand in saturated digital feeds through crisp visual pacing, clear typography, and cinematic motion design.',
+      'We create short product walkthroughs, animations, and video clips for your business. Visuals help explain what your company offers in a few seconds.',
     capabilities: [
       {
-        title: 'Short-Form Video Production',
-        description: 'Engaging, platform-native reels and clips formatted for vertical consumption on Instagram, TikTok, and YouTube Shorts.'
+        title: 'Product Walkthroughs',
+        description: 'Short videos showing how your product or service works.'
       },
       {
-        title: 'Product Walkthroughs & Explainer Motion',
-        description: 'Clear, kinetic vector animations explaining software workflows, product mechanics, and business offerings.'
+        title: 'Social Video Formats',
+        description: 'Videos sized for website hero sections and mobile feeds.'
       },
       {
-        title: 'High-Conversion Paid Ad Creatives',
-        description: 'Multi-variant commercial ad cuts designed with bold hooks, pacing variations, and direct response triggers.'
+        title: 'Captions & Titles',
+        description: 'Clear on-screen text for viewers watching without sound.'
       },
       {
-        title: 'Brand Motion Guidelines & Intros',
-        description: 'Micro-animations, logo reveals, and motion design tokens for brand consistency across video channels.'
-      },
-      {
-        title: 'Audio Mastering & Sound Design',
-        description: 'Clean voice-over cleanup, bespoke sound effects, and balanced audio leveling for broadcast quality.'
+        title: 'Storyboards',
+        description: 'Step-by-step visual plans before video production begins.'
       }
     ],
     deliverables: [
-      'Master high-definition exports in 9:16, 1:1, and 16:9 aspect ratios',
-      'Burned-in open and closed caption files (.SRT / .VTT)',
-      'Organized project asset archives with raw cuts and motion templates',
-      'Storyboard and script documentation'
+      'Product walkthrough videos demonstrating how your service works',
+      'Video formats sized for desktop websites and mobile feeds',
+      'Captions and title graphics for social viewing',
+      'Storyboards and script outlines'
     ],
     methodology: [
-      { step: '01', title: 'Creative Brief & Concept', detail: 'Target audience analysis, core message framing, and visual hook brainstorm.' },
-      { step: '02', title: 'Script & Storyboarding', detail: 'Scene-by-scene script writing, timing markers, and visual style frames.' },
-      { step: '03', title: 'Production & Animation', detail: 'Motion graphic composition, asset assembly, and dynamic camera choreography.' },
-      { step: '04', title: 'Editorial Review', detail: 'Client feedback rounds, pacing adjustments, and subtitle timing verification.' },
-      { step: '05', title: 'Final Mastering', detail: 'Color grading, audio leveling, and multichannel export encoding.' }
+      { step: '01', title: 'Discover', detail: 'We define the main message and audience for your video.' },
+      { step: '02', title: 'Plan', detail: 'We create a storyboard and write the script outline.' },
+      { step: '03', title: 'Design & Build', detail: 'We produce the video clips, animation, and titles.' },
+      { step: '04', title: 'Review', detail: 'You watch the initial video cut and request adjustments.' },
+      { step: '05', title: 'Launch', detail: 'We export final video files ready for your website and social feeds.' }
     ],
-    techStack: ['Adobe Premiere Pro', 'After Effects', 'DaVinci Resolve', 'Cinema 4D', 'Illustrator'],
+    techStack: ['Motion Graphics Tools'],
     metricsOrOutcomes: [
-      'Optimized 3-second hook retention rates',
-      'Cross-platform multi-format deliverables',
-      'Consistent branded motion identity'
+      'Clear visual storytelling',
+      'Multiple video formats',
+      'On-screen captions included'
     ],
-    relatedServiceSlugs: ['performance-marketing', 'digital-marketing', 'content-strategy-copywriting'],
+    relatedServiceSlugs: ['ui-ux-design', 'online-advertising', 'content-strategy-copywriting'],
     meta: {
-      title: 'Creative & Video | Motion Design & Video Production — DYRATEK',
-      description: 'Engaging motion graphics, commercial video editing, and short-form video production crafted for modern digital channels.'
+      title: 'Video & Motion — Product Walkthroughs & Clips | DYRATEK',
+      description: 'We produce short product videos and motion graphics that explain your services in seconds.'
     }
   },
   {
     id: 'digital-marketing',
     slug: 'digital-marketing',
     index: '09',
-    pillarIndex: '03.3',
-    name: 'Digital Marketing',
-    shortName: 'Digital Marketing',
+    name: 'Search Engine Optimization (SEO)',
+    shortName: 'SEO',
     pillarId: 'create-grow',
-    pillarName: 'Create & Grow',
-    tagline: 'Strategic multichannel marketing, search positioning, and digital brand elevation.',
+    pillarName: 'Grow',
+    tagline: 'Help customers find your business on Google.',
     description:
-      'We formulate and execute integrated digital marketing strategies that establish commercial authority, attract organic search demand, and build durable brand presence.',
-    strategicObjective:
-      'Construct a sustainable digital presence that continuously generates qualified organic inquiries across high-intent touchpoints.',
+      'Search engine optimization (SEO) helps your website show up higher when people search on Google. We improve your site structure, page speed, and keywords so searchers can find you.',
     capabilities: [
       {
-        title: 'Technical & Strategic SEO',
-        description: 'Semantic markup architecture, crawl budget optimization, indexation health, and high-intent keyword strategies.'
+        title: 'Site Structure Review',
+        description: 'Checks page headings, links, and speed so search engines can read your site.'
       },
       {
-        title: 'Multichannel Content Distribution',
-        description: 'Synchronized broadcasting across professional networks, digital publications, and industry directories.'
+        title: 'Keyword Planning',
+        description: 'Finds the exact terms potential customers type into Google.'
       },
       {
-        title: 'Digital Brand Positioning',
-        description: 'Strategic market differentiation, competitive moat analysis, and commercial narrative formulation.'
+        title: 'Page Titles & Descriptions',
+        description: 'Updates page meta tags to clearly describe what each page offers.'
       },
       {
-        title: 'Reputation & Authority Building',
-        description: 'Structured internal and external link architectures that signal institutional domain credibility.'
-      },
-      {
-        title: 'Analytics & Attribution Frameworks',
-        description: 'Server-side tracking, cookieless attribution modeling, and executive KPI reporting dashboards.'
+        title: 'Search Index Review',
+        description: 'Verifies that Google finds and indexes your important pages.'
       }
     ],
     deliverables: [
-      'Comprehensive technical SEO audit and remediation checklist',
-      'Targeted keyword roadmap mapped by commercial search intent',
-      'Quarterly multichannel content distribution blueprint',
-      'Custom real-time analytics reporting console'
+      'Website structure and page speed review for search engines',
+      'Keyword plan based on the terms your customers search',
+      'Page title and description updates across your key pages',
+      'Overview of search performance and indexed pages'
     ],
     methodology: [
-      { step: '01', title: 'Market & Audit Sprint', detail: 'Search visibility diagnostic, competitor analysis, and audience research.' },
-      { step: '02', title: 'Strategic Roadmap', detail: 'Defining core content pillars, technical remediation steps, and KPIs.' },
-      { step: '03', title: 'Technical Execution', detail: 'On-page optimizations, metadata overhaul, and canonical structure setup.' },
-      { step: '04', title: 'Channel Activation', detail: 'Systematic content publication, distribution cadences, and syndication.' },
-      { step: '05', title: 'Review & Refinement', detail: 'Monthly ranking analysis, traffic attribution, and strategy recalibration.' }
+      { step: '01', title: 'Discover', detail: 'We research your target audience and common search queries.' },
+      { step: '02', title: 'Plan', detail: 'We build a list of target search phrases and page priorities.' },
+      { step: '03', title: 'Design & Build', detail: 'We update page titles, descriptions, and site structure.' },
+      { step: '04', title: 'Review', detail: 'We verify indexing and inspect pages in search tools.' },
+      { step: '05', title: 'Launch', detail: 'We provide an overview of your updated search presence.' }
     ],
-    techStack: ['Google Search Console', 'Ahrefs', 'Semrush', 'GA4 / PostHog', 'Screaming Frog'],
+    techStack: ['Search Console'],
     metricsOrOutcomes: [
-      'Zero indexation errors or duplicate content penalties',
-      'Measurable gains in high-intent non-branded organic impressions',
-      'Transparent channel attribution'
+      'Clear search keywords',
+      'Updated page titles',
+      'Clean website structure'
     ],
     relatedServiceSlugs: ['performance-marketing', 'content-strategy-copywriting', 'web-development'],
     meta: {
-      title: 'Digital Marketing | Strategic Growth & Technical SEO — DYRATEK',
-      description: 'Strategic digital marketing, technical search engine optimization, and multichannel brand positioning by DYRATEK.'
+      title: 'Search Engine Optimization (SEO) — Google Search Setup | DYRATEK',
+      description: 'Search engine optimization (SEO) helps your website rank on Google. We optimize page titles, speed, and keywords.'
     }
   },
   {
     id: 'performance-marketing',
     slug: 'performance-marketing',
     index: '10',
-    pillarIndex: '03.4',
-    name: 'Performance Marketing',
-    shortName: 'Performance',
+    name: 'Online Advertising',
+    shortName: 'Ads',
     pillarId: 'create-grow',
-    pillarName: 'Create & Grow',
-    tagline: 'Precision paid acquisition, conversion rate optimization, and scalable media buying.',
+    pillarName: 'Grow',
+    tagline: 'Targeted advertising campaigns that attract customers.',
     description:
-      'We manage high-efficiency paid search, social, and programmatic media campaigns focused on strict return on ad spend (ROAS) and predictable customer acquisition.',
-    strategicObjective:
-      'Scale profitable commercial customer acquisition through continuous creative testing, disciplined bidding, and dedicated landing page funnels.',
+      'We set up and manage targeted ad campaigns on search engines and social platforms. Every campaign is organized to bring qualified visitors to your site.',
     capabilities: [
       {
-        title: 'Paid Search (Google Ads)',
-        description: 'High-intent search keyword bidding, negative query pruning, target CPA optimization, and ad extensions.'
+        title: 'Ad Campaign Setup',
+        description: 'Structures advertising accounts on search and social channels.'
       },
       {
-        title: 'Paid Social (Meta, LinkedIn)',
-        description: 'Audience lookalikes, custom interest layering, account-based targeting, and dynamic retargeting.'
+        title: 'Audience Targeting',
+        description: 'Sets locations, demographics, and interests to reach relevant visitors.'
       },
       {
-        title: 'Landing Page Conversion Rate Optimization (CRO)',
-        description: 'Bespoke high-speed landing pages engineered for specific ad hooks with rapid conversion points.'
+        title: 'Ad Text Variations',
+        description: 'Writes clear, direct ad headlines and descriptions.'
       },
       {
-        title: 'Creative Variant Testing Matrix',
-        description: 'Rigorous A/B testing of hooks, headlines, video cuts, and value propositions to lower CAC.'
-      },
-      {
-        title: 'Server-Side Conversions API (CAPI)',
-        description: 'First-party conversion tracking resilient against ad blockers and browser tracking constraints.'
+        title: 'Inquiry Tracking',
+        description: 'Tracks which ads generate form submissions or calls.'
       }
     ],
     deliverables: [
-      'Configured ad account structures with naming conventions',
-      'Weekly performance reporting detailing spend, CAC, and ROAS',
-      'Creative testing matrix with performance attribution',
-      'Server-side Conversions API integration verification'
+      'Ad campaign setup across search and social channels',
+      'Audience targeting based on location and interests',
+      'Ad text and headline variations to test performance',
+      'Conversion tracking to verify inquiry numbers'
     ],
     methodology: [
-      { step: '01', title: 'Audience & Budget Planning', detail: 'CAC modeling, competitive ad landscape review, and baseline budgeting.' },
-      { step: '02', title: 'Tracking Architecture', detail: 'Setting up CAPI, pixel events, UTM conventions, and conversion triggers.' },
-      { step: '03', title: 'Campaign Staging', detail: 'Writing ad copy variants, creative asset formatting, and campaign setup.' },
-      { step: '04', title: 'Testing & Optimization', detail: 'Daily budget allocation, bid adjustments, and ad group pruning.' },
-      { step: '05', title: 'Scaling Protocol', detail: 'Budget expansion on proven winner segments while maintaining ROAS targets.' }
+      { step: '01', title: 'Discover', detail: 'We review your target customer and advertising budget.' },
+      { step: '02', title: 'Plan', detail: 'We select advertising channels and audience criteria.' },
+      { step: '03', title: 'Design & Build', detail: 'We write ad copy and configure account targeting.' },
+      { step: '04', title: 'Review', detail: 'You review the proposed ads and settings before launch.' },
+      { step: '05', title: 'Launch', detail: 'We activate the campaigns and verify inquiry tracking.' }
     ],
-    techStack: ['Google Ads', 'Meta Ads Manager', 'LinkedIn Campaign Manager', 'Stape.io CAPI', 'Looker Studio'],
+    techStack: ['Ad Platforms'],
     metricsOrOutcomes: [
-      'Disciplined focus on true Customer Acquisition Cost (CAC)',
-      '100% server-side conversion signal parity',
-      'Systematic creative iteration cadence'
+      'Organized ad campaigns',
+      'Specific audience targeting',
+      'Inquiry tracking setup'
     ],
-    relatedServiceSlugs: ['digital-marketing', 'creative-video', 'content-strategy-copywriting'],
+    relatedServiceSlugs: ['digital-marketing', 'content-strategy-copywriting', 'creative-video'],
     meta: {
-      title: 'Performance Marketing | Paid Acquisition & ROAS — DYRATEK',
-      description: 'Disciplined paid media management across Google, Meta, and LinkedIn focused on measurable return on ad spend and scalable CAC.'
+      title: 'Online Advertising — Search & Social Ad Campaigns | DYRATEK',
+      description: 'We set up and manage targeted search and social ad campaigns that bring qualified visitors to your business.'
     }
   },
   {
     id: 'content-strategy-copywriting',
     slug: 'content-strategy-copywriting',
     index: '11',
-    pillarIndex: '03.5',
     name: 'Content Strategy & Copywriting',
-    shortName: 'Content & Copy',
+    shortName: 'Copywriting',
     pillarId: 'create-grow',
-    pillarName: 'Create & Grow',
-    tagline: 'Technical copywriting, brand narratives, and commercial messaging frameworks.',
+    pillarName: 'Grow',
+    tagline: 'Clear words that explain your business.',
     description:
-      'We craft rigorous, persuasive commercial copy and editorial frameworks that clarify technical capabilities, eliminate fluff, and compel prospective buyers to act.',
-    strategicObjective:
-      'Translate complex technical offerings into authoritative, lucid commercial language that builds credibility with executive decision-makers.',
+      'We write clear, simple website copy that non-technical visitors understand right away. Plain words build trust and make your business easy to understand.',
     capabilities: [
       {
-        title: 'Executive Value Proposition Framing',
-        description: 'Distilling complex product systems into crisp, memorable positioning statements and elevator matrices.'
+        title: 'Website Copy',
+        description: 'Clear text for your homepage, service pages, and about section.'
       },
       {
-        title: 'Technical Web Copywriting',
-        description: 'Punchy hero headlines, benefits architectures, and unambiguous feature breakdowns for digital products.'
+        title: 'Product Descriptions',
+        description: 'Short, plain-language explanations of your services.'
       },
       {
-        title: 'Editorial Articles & Thought Leadership',
-        description: 'In-depth essays, whitepapers, and technical guides that establish intellectual authority in your sector.'
+        title: 'Style Guidelines',
+        description: 'Practical rules to help your team keep writing consistent.'
       },
       {
-        title: 'Direct-Response Ad & Video Scripts',
-        description: 'Tight, compelling audio/visual scripts with sharp hooks designed for high-conversion paid channels.'
-      },
-      {
-        title: 'Tone of Voice & Messaging Architecture',
-        description: 'Comprehensive brand voice guidelines, word choice taxonomies, and editorial stylebooks.'
+        title: 'Customer FAQs',
+        description: 'Answers to common customer questions written in everyday words.'
       }
     ],
     deliverables: [
-      'Complete website copy document with section-by-section layout guidance',
-      'Brand messaging guidelines including primary and secondary value pillars',
-      'Editorial calendar with planned research briefs and outlines',
-      'Ad script bundle with 3-5 alternative hook variants'
+      'Website copy for your homepage, services, and about pages',
+      'Clear headlines and short explanations for your products',
+      'Tone and style guidelines to keep your team\'s writing consistent',
+      'Question and answer text for customer support and FAQs'
     ],
     methodology: [
-      { step: '01', title: 'Messaging Extraction', detail: 'Deep stakeholder interviews to identify technical differentiators and customer pains.' },
-      { step: '02', title: 'Narrative Framework', detail: 'Developing the core brand thesis, tone of voice attributes, and vocabulary rules.' },
-      { step: '03', title: 'Drafting & Structuring', detail: 'Writing high-density headlines, proof points, and conversational body copy.' },
-      { step: '04', title: 'Editorial Polish', detail: 'Eliminating corporate jargon, verifying technical precision, and rhythmic cadence.' },
-      { step: '05', title: 'Handoff & Implementation', detail: 'Aligning copy directly with design components and CMS schemas.' }
+      { step: '01', title: 'Discover', detail: 'We learn about your customers and typical questions they ask.' },
+      { step: '02', title: 'Plan', detail: 'We outline the page hierarchy and key points for each section.' },
+      { step: '03', title: 'Design & Build', detail: 'We draft clear headlines and straightforward paragraph text.' },
+      { step: '04', title: 'Review', detail: 'You review the draft text and suggest adjustments.' },
+      { step: '05', title: 'Launch', detail: 'We format the finalized text directly for your website pages.' }
     ],
-    techStack: ['Notion', 'Google Workspace', 'Grammarly Enterprise', 'Hemingway'],
+    techStack: ['Editorial Tools'],
     metricsOrOutcomes: [
-      'Zero vague jargon or empty marketing filler',
-      'Direct alignment between brand voice and engineering reality',
-      'Modular copy structured directly for UI components'
+      'Plain, simple language',
+      'Clear page headlines',
+      'Practical writing guide'
     ],
     relatedServiceSlugs: ['ui-ux-design', 'digital-marketing', 'creative-video'],
     meta: {
-      title: 'Content Strategy & Copywriting | Technical Messaging — DYRATEK',
-      description: 'Authoritative technical copywriting, commercial messaging frameworks, and executive brand narratives by DYRATEK.'
+      title: 'Content Strategy & Copywriting — Clear Website Text | DYRATEK',
+      description: 'We write simple, clear website text that explains what your company offers without technical jargon.'
     }
   }
 ];
 
 // ==========================================
-// APPROVED 3-PILLAR STRUCTURE
+// APPROVED 3-PILLAR STRUCTURE (NO NUMBERS, NO //)
 // ==========================================
 export const PILLARS: Pillar[] = [
   {
     id: 'build',
-    index: '01',
-    code: '01 // BUILD',
     name: 'Build',
-    tagline: 'Foundational digital engineering & resilient software platforms.',
+    tagline: 'Websites, mobile apps, and custom web tools.',
     description:
-      'Foundational digital products engineered with modern frameworks, high performance, and responsive precision.',
+      'We build fast websites, mobile apps, and custom web tools that work smoothly on phones and computers.',
     services: SERVICES.filter((s) => s.pillarId === 'build')
   },
   {
     id: 'automate',
-    index: '02',
-    code: '02 // AUTOMATE',
     name: 'Automate',
-    tagline: 'Operational automation & synchronized conversational loops.',
+    tagline: 'Connected tools and routine tasks on autopilot.',
     description:
-      'Operational automation and synchronized conversational communication loops that streamline business flow.',
+      'We connect your everyday business software so routine tasks and inquiries happen on their own.',
     services: SERVICES.filter((s) => s.pillarId === 'automate')
   },
   {
     id: 'create-grow',
-    index: '03',
-    code: '03 // CREATE & GROW',
-    name: 'Create & Grow',
-    tagline: 'High-fidelity design, media production & multichannel growth.',
+    name: 'Grow',
+    tagline: 'Clean design, plain writing, and targeted campaigns.',
     description:
-      'High-fidelity user interface systems, multimedia production, and full-funnel digital marketing execution.',
+      'Clean design, plain writing, and targeted advertising that make your brand easy to understand.',
     services: SERVICES.filter((s) => s.pillarId === 'create-grow')
   }
 ];
@@ -737,4 +653,3 @@ export function getPillarById(pillarId: Pillar['id']): Pillar | undefined {
 export function getAllServiceSlugs(): string[] {
   return SERVICES.map((s) => s.slug);
 }
-

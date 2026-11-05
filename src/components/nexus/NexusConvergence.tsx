@@ -40,9 +40,9 @@ export function NexusConvergence() {
   return (
     <div
       className="relative w-full bg-[#ECE8DF] border border-[#E5E2DA] p-4 sm:p-6 flex flex-col justify-between overflow-hidden shadow-sm"
-      aria-label="DYRATEK Nexus Convergence — Interactive 3-Pillar Architectural Matrix"
+      aria-label="DYRATEK Services — Interactive Guide to Build, Automate, and Grow"
     >
-      {/* Top Architectural Header Bar */}
+      {/* Top Header Bar */}
       <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#E5E2DA] text-[#2A2A2A]/70 font-mono text-[10px] uppercase tracking-widest">
         <div className="flex items-center gap-2">
           <span
@@ -51,9 +51,9 @@ export function NexusConvergence() {
             } transition-colors duration-300 ${isReducedMotion ? '' : 'animate-pulse'}`}
             aria-hidden="true"
           />
-          <span className="text-[#123D32] font-bold">NEXUS // CONVERGENCE MATRIX</span>
+          <span className="text-[#123D32] font-bold">THREE FOCUS AREAS</span>
         </div>
-        <span className="text-[9px] sm:text-[10px] text-[#2A2A2A]/60">3 PILLARS • 1 CONVERGENCE</span>
+        <span className="text-[9px] sm:text-[10px] text-[#2A2A2A]/60">CLICK TO EXPLORE</span>
       </div>
 
       {/* Interactive Segmented Selector Tabs (Mobile & Touch Accessible) */}
@@ -96,7 +96,7 @@ export function NexusConvergence() {
               {pid === 'grow' && (
                 <>
                   <span className="sm:hidden">03.GROW</span>
-                  <span className="hidden sm:inline">03.CREATE & GROW</span>
+                  <span className="hidden sm:inline">03.GROW</span>
                 </>
               )}
             </button>
@@ -112,7 +112,7 @@ export function NexusConvergence() {
           className="w-full h-full select-none"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
-          aria-label="Axonometric architectural composition of three converging planes: Build, Automate, and Create & Grow"
+          aria-label="Interactive diagram showing our three focus areas: Build, Automate, and Grow"
         >
           {/* Supporting Geometric Grid & Coordinates */}
           <NexusGeometry activePillar={effectivePillar} isReducedMotion={isReducedMotion} />
@@ -172,7 +172,7 @@ export function NexusConvergence() {
                 href={PILLARS_CONFIG[effectivePillar].href}
                 className="font-mono text-[10px] font-bold text-[#123D32] hover:text-[#C83B35] transition-colors"
               >
-                Services →
+                See services →
               </Link>
             </div>
             <p className="font-body text-xs text-[#2A2A2A] leading-relaxed">
@@ -183,10 +183,10 @@ export function NexusConvergence() {
           <div className="flex items-center justify-between text-[#2A2A2A]/70 font-mono text-[10px]">
             <span className="flex items-center gap-1.5 text-[#123D32] font-semibold">
               <span className="w-1.5 h-1.5 rounded-full bg-[#123D32]" aria-hidden="true" />
-              CONVERGENCE NEXUS: 3 PILLARS // 1 ARCHITECTURE
+              OUR 3 FOCUS AREAS: BUILD • AUTOMATE • GROW
             </span>
             <span className="hidden sm:inline text-[#2A2A2A]/50">
-              HOVER OR TAP TO INSPECT
+              CLICK ANY AREA TO LEARN MORE
             </span>
           </div>
         )}

@@ -23,11 +23,11 @@ export const PILLARS_CONFIG: Record<PillarId, PillarData> = {
   build: {
     id: 'build',
     index: '01',
-    code: '01 // BUILD',
-    name: 'BUILD FOUNDRY',
-    tagline: 'Digital Foundations & Software Architecture',
-    description: 'Engineering digital foundations, websites, applications and commerce platforms.',
-    metric: '4 Production Services',
+    code: 'BUILD',
+    name: 'BUILD',
+    tagline: 'Websites & Mobile Apps',
+    description: 'We build custom websites, mobile apps, and online stores that load quickly and work everywhere.',
+    metric: '4 Services',
     href: '/services#build',
     color: '#123D32',
     accentColor: '#C83B35'
@@ -35,11 +35,11 @@ export const PILLARS_CONFIG: Record<PillarId, PillarData> = {
   automate: {
     id: 'automate',
     index: '02',
-    code: '02 // AUTOMATE',
-    name: 'AUTOMATION MATRIX',
-    tagline: 'Workflow Connectivity & Efficiency',
-    description: 'Connecting business operations through structured automation and marketing workflows.',
-    metric: '2 Systems Practices',
+    code: 'AUTOMATE',
+    name: 'AUTOMATE',
+    tagline: 'Connect Your Business Tools',
+    description: 'We link your business software together so routine tasks and messaging happen on their own.',
+    metric: '2 Services',
     href: '/services#automate',
     color: '#ECE8DF',
     accentColor: '#C83B35'
@@ -47,14 +47,13 @@ export const PILLARS_CONFIG: Record<PillarId, PillarData> = {
   grow: {
     id: 'grow',
     index: '03',
-    code: '03 // CREATE & GROW',
-    name: 'CREATE & GROW',
-    tagline: 'Brand Architecture & Commercial Scalability',
-    description: 'Building digital identities, creative experiences and measurable marketing growth.',
-    metric: '5 Growth Disciplines',
+    code: 'GROW',
+    name: 'GROW',
+    tagline: 'Design, Video & Online Ads',
+    description: 'We create clean designs, visual clips, and targeted ads that make your business easy to understand.',
+    metric: '5 Services',
     href: '/services#create-grow',
     color: '#123D32',
     accentColor: '#C83B35'
   }
 };
-

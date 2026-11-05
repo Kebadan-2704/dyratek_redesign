@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Outfit, Inter, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { SmoothScrollProvider } from '@/components/motion/SmoothScrollProvider';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -11,22 +12,8 @@ export const viewport: Viewport = {
   themeColor: '#123D32'
 };
 
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700', '800']
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '500', '600', '700']
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains-mono',
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: '--font-plus-jakarta-sans',
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600', '700']
@@ -35,21 +22,20 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dyratek.com'),
   title: {
-    default: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    default: 'DYRATEK — Fast Websites, Apps & Business Automations',
     template: '%s | DYRATEK'
   },
   description:
-    'DYRATEK designs and engineers digital products, business automation systems, and creative growth solutions across 3 pillars and 11 focused services.',
+    'DYRATEK builds clean websites, mobile apps, and automated workflows that help your business work better.',
   applicationName: 'DYRATEK',
   authors: [{ name: 'DYRATEK Product Team' }],
   keywords: [
-    'Digital Product Engineering',
     'Web Development',
-    'App Development',
-    'E-commerce Solutions',
+    'Mobile App Development',
+    'E-commerce Stores',
     'Business Automation',
-    'UI/UX Design Systems',
-    'Performance Marketing'
+    'UI/UX Design',
+    'Online Advertising'
   ],
   creator: 'DYRATEK',
   alternates: {
@@ -69,15 +55,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://dyratek.com',
     siteName: 'DYRATEK',
-    title: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    title: 'DYRATEK — Fast Websites, Apps & Business Automations',
     description:
-      'Digital products, business automation systems, and creative growth solutions built with architectural precision.'
+      'We design clean websites, mobile apps, and automated workflows that help your business work better.'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DYRATEK — Digital Experiences. Engineered to Perform.',
+    title: 'DYRATEK — Fast Websites, Apps & Business Automations',
     description:
-      'Digital products, business automation systems, and creative growth solutions built with architectural precision.'
+      'We design clean websites, mobile apps, and automated workflows that help your business work better.'
   },
   robots: {
     index: true,
@@ -104,7 +90,7 @@ export default function RootLayout({
     url: 'https://dyratek.com',
     logo: 'https://dyratek.com/brand/dyratek-logo-transparent.png',
     description:
-      'Digital product foundry and engineering practice delivering high-performance platforms, business automation, and growth solutions.'
+      'Digital studio building fast websites, mobile apps, and business workflow automations.'
   };
 
   const websiteSchema = {
@@ -117,7 +103,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${plusJakartaSans.variable} font-sans antialiased`}
     >
       <head>
         <script
@@ -129,19 +116,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F4F1E9] text-[#2A2A2A]">
-        {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#F4F1E9] focus:font-mono focus:text-xs"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main-content" className="flex-1 w-full pt-20">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-[#FBFBF9] text-[#1E2221]">
+        <SmoothScrollProvider>
+          {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#FBFBF9] focus:rounded-lg focus:text-sm font-medium shadow-md"
+          >
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main-content" className="flex-1 w-full pt-20">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

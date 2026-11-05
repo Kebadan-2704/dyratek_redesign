@@ -1,156 +1,143 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PILLARS } from '@/data/services';
-import { Button } from '@/components/ui/Button';
+import { CTASection } from '@/components/sections/CTASection';
+import { MotionFadeIn } from '@/components/motion/MotionFadeIn';
 
 export const metadata: Metadata = {
-  title: 'Services Architecture (11 Services // 3 Pillars) — DYRATEK',
+  title: 'Our Services — Websites, Apps & Automation | DYRATEK',
   description:
-    'Comprehensive overview of DYRATEK’s 11 focused services across Build, Automate, and Create & Grow pillars. Engineering, automation, and commercial growth.'
+    'Explore our 11 services across Build, Automate, and Grow. Clean websites, mobile apps, and automated workflows.'
 };
 
 export default function ServicesPage() {
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+    <div className="w-full bg-[#FBFBF9] py-10 sm:py-14 lg:py-18 border-b border-[#E1E4E0]">
+      <div className="max-w-[1680px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 space-y-12 lg:space-y-16">
         {/* Page Hero */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>PRACTICE TAXONOMY // 3 PILLARS • 11 SERVICES</span>
-          </div>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
-            Engineering, automation &amp; commercial growth.
-          </h1>
-          <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
-            Our capabilities are strictly organized across three foundational pillars. Each service is executed by senior specialists with rigorous standards for code quality and business impact.
-          </p>
+        <MotionFadeIn>
+          <div className="pb-12 border-b border-[#E1E4E0] space-y-4 max-w-3xl">
+            <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+              Our Services
+            </div>
+            <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight tracking-tight">
+              Websites, apps, and automations.
+            </h1>
+            <p className="text-lg text-[#555B57] leading-relaxed pt-1">
+              Explore the 11 ways we help businesses build better digital tools and work smoothly.
+            </p>
 
-          {/* Pillar Jump Bar */}
-          <div className="flex flex-wrap items-center gap-3 mt-8 pt-6 border-t border-[#E5E2DA] font-mono text-xs">
-            <span className="text-[#2A2A2A]/60 uppercase">JUMP TO PILLAR:</span>
-            {PILLARS.map((p) => (
-              <a
-                key={p.id}
-                href={`#${p.id}`}
-                className="px-3 py-1 bg-[#ECE8DF] border border-[#E5E2DA] text-[#123D32] font-semibold hover:border-[#123D32] transition-colors"
-              >
-                {p.code}
-              </a>
-            ))}
+            {/* Pillar Quick Links */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-4">
+              <span className="text-xs font-semibold text-[#555B57] uppercase tracking-wide mr-1">
+                Jump to:
+              </span>
+              {PILLARS.map((p) => (
+                <a
+                  key={p.id}
+                  href={`#${p.id}`}
+                  className="min-h-[44px] px-4 py-2 rounded-xl bg-white border border-[#E1E4E0] text-sm text-[#123D32] font-semibold hover:border-[#123D32] hover:bg-[#F3F4F1] transition-all inline-flex items-center shadow-xs"
+                >
+                  {p.name}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        </MotionFadeIn>
 
         {/* Pillars Detailed Breakdown */}
-        <div className="space-y-24">
+        <div className="space-y-20">
           {PILLARS.map((pillar) => (
-            <section key={pillar.id} id={pillar.id} className="scroll-mt-24">
+            <section key={pillar.id} id={pillar.id} className="scroll-mt-28 space-y-8">
               {/* Pillar Header */}
-              <div className="pb-6 mb-8 border-b-2 border-[#123D32] flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                  <div className="font-mono text-xs text-[#C83B35] font-bold uppercase tracking-wider mb-1">
-                    {pillar.code}
+              <MotionFadeIn>
+                <div className="pb-4 border-b border-[#E1E4E0] flex flex-col md:flex-row md:items-end justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                      Category: {pillar.name}
+                    </span>
+                    <h2 className="font-bold text-2xl sm:text-3xl text-[#123D32] mt-1 tracking-tight">
+                      {pillar.name}
+                    </h2>
                   </div>
-                  <h2 className="font-heading font-extrabold text-3xl lg:text-4xl uppercase text-[#123D32]">
-                    {pillar.name}
-                  </h2>
+                  <p className="text-base text-[#555B57] max-w-md leading-relaxed">
+                    {pillar.description}
+                  </p>
                 </div>
-                <p className="font-body text-sm text-[#2A2A2A]/80 max-w-md">
-                  {pillar.description}
-                </p>
-              </div>
+              </MotionFadeIn>
 
               {/* Pillar Services Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {pillar.services.map((service) => (
-                  <div
-                    key={service.id}
-                    className="bg-[#F4F1E9] border border-[#E5E2DA] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-[#123D32] group"
-                  >
-                    <div>
-                      <div className="flex justify-between items-center mb-4">
-                        <span className="font-mono text-[11px] px-2 py-0.5 bg-[#ECE8DF] border border-[#E5E2DA] text-[#123D32] font-bold">
-                          SERVICE // {service.index}
-                        </span>
-                        <span className="font-mono text-xs text-[#C83B35] font-semibold">
-                          {service.pillarIndex}
-                        </span>
-                      </div>
-
-                      <h3 className="font-heading font-bold text-2xl uppercase text-[#123D32] mb-2 group-hover:text-[#C83B35] transition-colors">
-                        <Link href={`/services/${service.slug}`}>
-                          {service.name}
-                        </Link>
-                      </h3>
-
-                      <p className="font-body text-xs sm:text-sm text-[#2A2A2A]/85 mb-6 leading-relaxed">
-                        {service.description}
-                      </p>
-
-                      {/* Capabilities Preview */}
-                      <div className="space-y-2 mb-6">
-                        <div className="font-mono text-[10px] uppercase text-[#123D32] font-bold">
-                          KEY CAPABILITIES:
-                        </div>
-                        {service.capabilities.slice(0, 3).map((cap, cIdx) => (
-                          <div key={cIdx} className="flex items-start gap-2 font-mono text-xs text-[#2A2A2A]/80">
-                            <span className="text-[#C83B35]" aria-hidden="true">›</span>
-                            <span>{cap.title}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Tech Stack Preview */}
-                      <div className="flex flex-wrap gap-1.5 font-mono text-[10px] mb-6">
-                        {service.techStack.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-0.5 bg-[#ECE8DF] text-[#123D32] border border-[#E5E2DA]"
-                          >
-                            {tech}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {pillar.services.map((service, sIdx) => (
+                  <MotionFadeIn key={service.id} delay={sIdx * 0.05}>
+                    <div
+                      className="rounded-2xl bg-white border border-[#E1E4E0] p-7 flex flex-col justify-between shadow-xs transition-all duration-300 hover:border-[#123D32] hover:-translate-y-0.5 hover:shadow-sm group h-full"
+                    >
+                      <div className="space-y-4">
+                        <div className="flex justify-between items-center">
+                          <span className="px-2.5 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+                            {service.pillarName}
                           </span>
-                        ))}
+                        </div>
+
+                        <h3 className="font-bold text-xl sm:text-2xl text-[#123D32] group-hover:underline">
+                          <Link href={`/services/${service.slug}`} aria-label={`View details for ${service.name}`}>
+                            {service.name}
+                          </Link>
+                        </h3>
+
+                        <p className="text-base text-[#555B57] leading-relaxed">
+                          {service.description}
+                        </p>
+
+                        {/* Included Items Preview */}
+                        <div className="space-y-2.5 pt-3 border-t border-[#E1E4E0]">
+                          <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                            What is included:
+                          </div>
+                          <ul className="space-y-2">
+                            {service.deliverables.slice(0, 3).map((item, dIdx) => (
+                              <li key={dIdx} className="flex items-start gap-2.5 text-sm text-[#1E2221]">
+                                <svg
+                                  className="w-4 h-4 text-[#123D32] mt-0.5 flex-shrink-0"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  aria-hidden="true"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="pt-6 mt-6 border-t border-[#E1E4E0] flex items-center justify-between">
+                        <Link
+                          href={`/services/${service.slug}`}
+                          aria-label={`View details for ${service.name}`}
+                          className="min-h-[44px] py-1 text-sm font-semibold text-[#123D32] group-hover:underline inline-flex items-center gap-1.5"
+                        >
+                          <span>View details</span>
+                          <span aria-hidden="true">→</span>
+                        </Link>
+                        <span className="text-xs text-[#555B57]">
+                          {service.deliverables.length} Deliverables
+                        </span>
                       </div>
                     </div>
-
-                    <div className="pt-4 border-t border-[#E5E2DA] flex items-center justify-between">
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="font-mono text-xs uppercase font-bold text-[#123D32] group-hover:text-[#C83B35] transition-colors inline-flex items-center gap-1.5"
-                      >
-                        <span>View Detailed Specification</span>
-                        <span>→</span>
-                      </Link>
-                      <span className="font-mono text-[10px] text-[#2A2A2A]/50">
-                        {service.deliverables.length} Deliverables
-                      </span>
-                    </div>
-                  </div>
+                  </MotionFadeIn>
                 ))}
               </div>
             </section>
           ))}
         </div>
 
-        {/* Global CTA */}
-        <div className="mt-24 bg-[#123D32] text-[#F4F1E9] p-8 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <div className="font-mono text-xs text-[#A5D6C6] uppercase tracking-wider mb-2 font-semibold">
-              BESPOKE SCOPE REQUIREMENTS?
-            </div>
-            <h2 className="font-heading font-extrabold text-2xl lg:text-3xl uppercase tracking-tight text-[#F4F1E9]">
-              Configure a Tailored Architecture
-            </h2>
-            <p className="font-body text-xs text-[#F4F1E9]/80 max-w-lg mt-2">
-              If your product requires a hybrid cross-pillar team (e.g. Web Development + Business Automation + Performance Marketing), we construct custom squads.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <Button href="/contact" variant="accent" size="md" showArrow>
-              Start a Project
-            </Button>
-          </div>
-        </div>
+        {/* Global CTA Band */}
+        <CTASection />
       </div>
     </div>
   );

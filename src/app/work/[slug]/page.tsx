@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
-import { Button } from '@/components/ui/Button';
+import { CTASection } from '@/components/sections/CTASection';
+import { MotionFadeIn } from '@/components/motion/MotionFadeIn';
+
+export const instant = false;
 
 interface ProjectPageProps {
   params: Promise<{
@@ -26,7 +29,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   }
 
   return {
-    title: `${project.title} — Architectural Blueprint | DYRATEK`,
+    title: `${project.title} — Sample Project | DYRATEK`,
     description: project.summary,
     alternates: {
       canonical: `/work/${project.slug}`
@@ -67,189 +70,144 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   };
 
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
+    <div className="w-full bg-[#FBFBF9] py-14 sm:py-20 lg:py-24 border-b border-[#E1E4E0]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+      <div className="max-w-[1680px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 space-y-12 sm:space-y-16">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 font-mono text-xs text-[#2A2A2A]/70 mb-8 pb-4 border-b border-[#E5E2DA]" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-[#123D32]">HOME</Link>
-          <span className="text-[#E5E2DA]">/</span>
-          <Link href="/work" className="hover:text-[#123D32]">WORK</Link>
-          <span className="text-[#E5E2DA]">/</span>
-          <span className="text-[#C83B35] font-bold">{project.title.toUpperCase()}</span>
+        <nav className="flex items-center gap-2 text-sm text-[#555B57] pb-4 border-b border-[#E1E4E0]" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-[#123D32] min-h-[44px] sm:min-h-0 inline-flex items-center">Home</Link>
+          <span className="text-[#D4D8D2]" aria-hidden="true">/</span>
+          <Link href="/work" className="hover:text-[#123D32] min-h-[44px] sm:min-h-0 inline-flex items-center">Work</Link>
+          <span className="text-[#D4D8D2]" aria-hidden="true">/</span>
+          <span className="font-semibold text-[#123D32]">{project.title}</span>
         </nav>
 
         {/* Hero Section */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="px-2.5 py-1 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-[11px] text-[#123D32] font-bold">
-              {project.category}
-            </span>
-            <span className="px-2.5 py-1 bg-[#C83B35]/10 border border-[#C83B35]/30 font-mono text-[11px] text-[#C83B35] font-bold">
-              {project.conceptDisclaimer}
-            </span>
-          </div>
-
-          <h1 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.08] mb-6">
-            {project.title}
-          </h1>
-
-          <p className="font-heading font-semibold text-lg lg:text-xl text-[#2A2A2A]/90 max-w-2xl leading-relaxed">
-            {project.heroHeadline}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 mt-8">
-            <Button href="/contact" variant="primary" size="md" showArrow>
-              Commission Similar Architecture
-            </Button>
-            <Button href="/work" variant="secondary" size="md">
-              Back to All Prototypes
-            </Button>
-          </div>
-        </div>
-
-        {/* Challenge & Solution Architecture */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 mb-16 border-b border-[#E5E2DA]">
-          <div className="lg:col-span-6 space-y-4 bg-[#ECE8DF] p-6 lg:p-8 border border-[#E5E2DA]">
-            <div className="flex items-center gap-2 font-mono text-xs uppercase text-[#C83B35] font-bold">
-              <span className="w-1.5 h-1.5 bg-[#C83B35]" />
-              01 // THE SYSTEM CHALLENGE
+        <MotionFadeIn>
+          <div className="space-y-5 max-w-3xl pb-8 border-b border-[#E1E4E0]">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+              <span className="px-2.5 py-1 rounded-md bg-[#F0F3F1] text-[#123D32]">
+                {project.category}
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-[#F3F4F1] text-[#555B57]">
+                Demonstration Sample
+              </span>
             </div>
-            <h2 className="font-heading font-bold text-2xl uppercase text-[#123D32]">
-              Architectural Bottleneck
-            </h2>
-            <p className="font-body text-sm text-[#2A2A2A]/85 leading-relaxed">
-              {project.challenge}
+
+            <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight tracking-tight">
+              {project.title}
+            </h1>
+
+            <p className="text-xl text-[#555B57] leading-relaxed">
+              {project.heroHeadline}
             </p>
-          </div>
 
-          <div className="lg:col-span-6 space-y-4 bg-[#F4F1E9] p-6 lg:p-8 border border-[#123D32]">
-            <div className="flex items-center gap-2 font-mono text-xs uppercase text-[#123D32] font-bold">
-              <span className="w-1.5 h-1.5 bg-[#123D32]" />
-              02 // THE APPLIED SOLUTION
-            </div>
-            <h2 className="font-heading font-bold text-2xl uppercase text-[#123D32]">
-              Engineered Resolution
-            </h2>
-            <p className="font-body text-sm text-[#2A2A2A]/85 leading-relaxed">
-              {project.solution}
-            </p>
-          </div>
-        </div>
-
-        {/* Technical Architecture Specifications */}
-        <div className="pb-16 mb-16 border-b border-[#E5E2DA]">
-          <div className="mb-8">
-            <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block mb-1">
-              03 // TECHNICAL SPECIFICATIONS
-            </span>
-            <h2 className="font-heading font-extrabold text-3xl uppercase text-[#123D32]">
-              System Specifications &amp; Attributes
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.architectureDetails.map((detail, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 font-mono text-xs text-[#2A2A2A]/90 flex items-start gap-3"
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              <Link
+                href="/contact"
+                className="min-h-[48px] px-8 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-semibold flex items-center justify-center shadow-xs hover:bg-[#0B2720] active:scale-[0.98] transition-all"
               >
-                <span className="text-[#C83B35] font-bold text-sm">0{idx + 1}</span>
-                <span className="leading-relaxed">{detail}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Deliverables Matrix */}
-        <div className="pb-16 mb-16 border-b border-[#E5E2DA]">
-          <div className="mb-8">
-            <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block mb-1">
-              04 // CONTRACT ARTIFACTS
-            </span>
-            <h2 className="font-heading font-extrabold text-3xl uppercase text-[#123D32]">
-              Demonstration Deliverables
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.deliverables.map((deliv, idx) => (
-              <div key={idx} className="bg-[#ECE8DF] border border-[#E5E2DA] p-6 space-y-2">
-                <div className="font-mono text-xs text-[#123D32] font-bold uppercase">
-                  {deliv.label}
-                </div>
-                <div className="font-body text-xs text-[#2A2A2A]/80 leading-relaxed">
-                  {deliv.specification}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tech Stack & Involved Services */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-16 mb-16 border-b border-[#E5E2DA]">
-          <div className="lg:col-span-6 space-y-4">
-            <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block">
-              05 // PRODUCTION STACK
-            </span>
-            <h3 className="font-heading font-bold text-xl uppercase text-[#123D32]">
-              Technologies Utilized
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1.5 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs text-[#123D32] font-semibold"
-                >
-                  {tech}
-                </span>
-              ))}
+                Contact us
+              </Link>
+              <Link
+                href="/work"
+                className="min-h-[48px] px-8 rounded-xl bg-white border border-[#E1E4E0] text-[#123D32] text-base font-semibold flex items-center justify-center hover:bg-[#F3F4F1] transition-all"
+              >
+                See all projects
+              </Link>
             </div>
           </div>
+        </MotionFadeIn>
 
-          <div className="lg:col-span-6 space-y-4">
-            <span className="font-mono text-xs uppercase text-[#C83B35] font-bold block">
-              06 // INVOLVED DISCIPLINES
-            </span>
-            <h3 className="font-heading font-bold text-xl uppercase text-[#123D32]">
-              Practice Areas Combined
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {project.servicesInvolved.map((serv) => (
-                <span
-                  key={serv}
-                  className="px-3 py-1.5 bg-[#123D32] text-[#F4F1E9] font-mono text-xs font-semibold"
-                >
-                  {serv}
-                </span>
-              ))}
+        {/* Concept Notice */}
+        <div className="p-4 rounded-xl bg-[#F0F3F1] border border-[#E1E4E0] text-sm text-[#1E2221]">
+          <strong className="text-[#123D32]">Notice:</strong> These are sample demonstration projects to show how we design and build. They are not work for real clients.
+        </div>
+
+        {/* Challenge & Solution */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-[#E1E4E0]">
+          <MotionFadeIn delay={0.1}>
+            <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 space-y-4 shadow-xs h-full">
+              <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                The Challenge
+              </div>
+              <h2 className="font-bold text-2xl text-[#123D32] tracking-tight">
+                Initial situation
+              </h2>
+              <p className="text-base text-[#555B57] leading-relaxed">
+                {project.challenge}
+              </p>
             </div>
-          </div>
+          </MotionFadeIn>
+
+          <MotionFadeIn delay={0.15}>
+            <div className="rounded-2xl bg-[#F0F3F1] border border-[#E1E4E0] p-7 sm:p-9 space-y-4 shadow-xs h-full">
+              <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                Our Solution
+              </div>
+              <h2 className="font-bold text-2xl text-[#123D32] tracking-tight">
+                What we designed
+              </h2>
+              <p className="text-base text-[#555B57] leading-relaxed">
+                {project.solution}
+              </p>
+            </div>
+          </MotionFadeIn>
         </div>
 
-        {/* Governance Disclaimer */}
-        <div className="p-6 bg-[#ECE8DF] border border-[#E5E2DA] font-mono text-xs text-[#2A2A2A]/70 mb-16">
-          <div className="font-bold text-[#123D32] mb-1">DATA GOVERNANCE &amp; ACCREDITATION:</div>
-          <p>
-            {project.conceptDisclaimer}. All architecture designs, code snippets, and interface states are proprietary property of DYRATEK.
-          </p>
+        {/* Deliverables & Highlights */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12 border-b border-[#E1E4E0]">
+          <MotionFadeIn delay={0.1}>
+            <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 space-y-5 shadow-xs h-full">
+              <h3 className="font-bold text-xl text-[#123D32] tracking-tight">
+                Key Highlights
+              </h3>
+              <ul className="space-y-3">
+                {project.architectureDetails.map((detail, dIdx) => (
+                  <li key={dIdx} className="flex items-start gap-3 text-base text-[#1E2221]">
+                    <svg
+                      className="w-5 h-5 text-[#123D32] mt-0.5 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </MotionFadeIn>
+
+          <MotionFadeIn delay={0.15}>
+            <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 space-y-5 shadow-xs h-full">
+              <h3 className="font-bold text-xl text-[#123D32] tracking-tight">
+                Included Deliverables
+              </h3>
+              <div className="space-y-3">
+                {project.deliverables.map((item, dIdx) => (
+                  <div key={dIdx} className="p-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] space-y-1">
+                    <div className="font-semibold text-sm text-[#123D32]">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-[#555B57]">
+                      {item.specification}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </MotionFadeIn>
         </div>
 
-        {/* Back Link & CTA */}
-        <div className="flex flex-wrap items-center justify-between gap-6">
-          <Link
-            href="/work"
-            className="font-mono text-xs uppercase font-bold text-[#123D32] hover:text-[#C83B35] transition-colors"
-          >
-            ← Return to All Technical Dossiers
-          </Link>
-          <Button href="/contact" variant="primary" size="md" showArrow>
-            Start a Project
-          </Button>
-        </div>
+        {/* Global CTA Band */}
+        <CTASection />
       </div>
     </div>
   );

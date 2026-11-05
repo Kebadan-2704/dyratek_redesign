@@ -98,10 +98,10 @@ export function NexusGeometry({ activePillar, isReducedMotion }: NexusGeometryPr
 
       {/* Precision Dimension Annotations */}
       <g fontFamily="var(--font-mono)" fontSize="8" fill="#2A2A2A" fillOpacity="0.45" letterSpacing="0.08em">
-        <text x="46" y="52">AXONOMETRIC // 30°</text>
-        <text x="510" y="52" textAnchor="end">SYS.REF // 03.11</text>
-        <text x="46" y="434">CONVERGENCE MATRIX</text>
-        <text x="510" y="434" textAnchor="end">[300.0, 230.0]</text>
+        <text x="46" y="52">SERVICES</text>
+        <text x="510" y="52" textAnchor="end">DYRATEK STUDIO</text>
+        <text x="46" y="434">BUILT FOR YOU</text>
+        <text x="510" y="434" textAnchor="end">[3 FOCUS AREAS]</text>
       </g>
     </g>
   );

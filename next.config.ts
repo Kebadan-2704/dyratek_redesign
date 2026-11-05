@@ -19,7 +19,7 @@ const securityHeaders = [
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+    value: "camera=(), microphone=(), geolocation=()"
   },
   {
     key: "Content-Security-Policy",
@@ -38,6 +38,25 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async redirects() {
+    return [
+      {
+        source: '/work/omnichannel-commerce-architecture',
+        destination: '/work/online-store',
+        permanent: true,
+      },
+      {
+        source: '/work/automated-crm-workflow-engine',
+        destination: '/work/inquiry-follow-up',
+        permanent: true,
+      },
+      {
+        source: '/work/unified-brand-digital-design-system',
+        destination: '/work/design-kit',
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [

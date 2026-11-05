@@ -1,8 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { SERVICES } from '@/data/services';
-import { Button } from '@/components/ui/Button';
+import { MotionFadeIn } from '@/components/motion/MotionFadeIn';
+
+const BUDGET_OPTIONS = [
+  { id: 'under-15k', label: '< $15k' },
+  { id: '15k-30k', label: '$15k – $30k' },
+  { id: '30k-60k', label: '$30k – $60k' },
+  { id: '60k-plus', label: '$60k+' }
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,16 +24,17 @@ export default function ContactPage() {
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [submissionState, setSubmissionState] = useState<'idle' | 'validated'>('idle');
+  const shouldReduceMotion = useReducedMotion();
 
   const validate = () => {
     const errors: Record<string, string> = {};
-    if (!formData.name.trim()) errors.name = 'Full name is required';
+    if (!formData.name.trim()) errors.name = 'Please enter your name';
     if (!formData.email.trim()) {
-      errors.email = 'Corporate email is required';
+      errors.email = 'Please enter your email address';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = 'Enter a valid corporate email address';
+      errors.email = 'Please enter a valid email address';
     }
-    if (!formData.brief.trim()) errors.brief = 'Project brief or architectural requirements are required';
+    if (!formData.brief.trim()) errors.brief = 'Please share a few details about your project';
     return errors;
   };
 
@@ -47,268 +56,307 @@ export default function ContactPage() {
     }
   };
 
+  const selectedService = SERVICES.find((s) => s.slug === formData.serviceSlug) || SERVICES[0];
+
   return (
-    <div className="w-full bg-[#F4F1E9] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-16">
+    <div className="w-full bg-[#FBFBF9] py-10 sm:py-14 lg:py-18 border-b border-[#E1E4E0]">
+      <div className="max-w-[1680px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 space-y-10 sm:space-y-12">
         {/* Page Hero */}
-        <div className="pb-12 mb-16 border-b border-[#E5E2DA]">
-          <div className="inline-flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.08em] font-bold text-[#123D32]">
-            <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" aria-hidden="true" />
-            <span>COMMENCE COLLABORATION // PROJECT INGESTION</span>
-          </div>
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] uppercase tracking-tight max-w-4xl leading-[1.05]">
-            Initiate a project briefing.
-          </h1>
-          <p className="font-body text-base lg:text-xl text-[#2A2A2A]/85 max-w-2xl mt-6 leading-relaxed">
-            Submit your technical or commercial scope parameters. Direct review conducted by senior engineering and design leads with initial response within two business days.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Column Left: Contact Details & Protocol */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="bg-[#ECE8DF] border border-[#E5E2DA] p-6 lg:p-8 space-y-6">
-              <div className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold pb-3 border-b border-[#E5E2DA]">
-                Direct Contact Protocol
-              </div>
-
-              <div className="space-y-4 font-mono text-xs text-[#2A2A2A]/80">
-                <div>
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    Direct Email:
-                  </div>
-                  <a
-                    href="mailto:hello@dyratek.com"
-                    className="text-[#123D32] font-bold hover:underline text-sm"
-                  >
-                    hello@dyratek.com
-                  </a>
-                  <span className="text-[#123D32]/70 text-[10px] font-mono block mt-1">
-                    Direct inquiries reviewed by senior software engineering squads
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-[#E5E2DA]">
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    Turnaround SLA:
-                  </div>
-                  <div className="text-[#123D32] font-semibold">
-                    Technical Scope within 48 Business Hours
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-[#E5E2DA]">
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    Intellectual Property:
-                  </div>
-                  <div className="text-[#123D32] font-semibold">
-                    100% Code &amp; Design Token Sovereignty
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-[#E5E2DA]">
-                  <div className="text-[10px] text-[#2A2A2A]/60 uppercase mb-1">
-                    NDA / Confidentiality:
-                  </div>
-                  <div className="text-[#2A2A2A]">
-                    Mutual Non-Disclosure Agreement provided prior to detailed technical architecture review.
-                  </div>
-                </div>
-              </div>
+        <MotionFadeIn>
+          <div className="max-w-3xl space-y-4 pb-8 border-b border-[#E1E4E0]">
+            <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+              Get In Touch
             </div>
-
-            <div className="p-6 bg-[#F4F1E9] border border-[#E5E2DA] font-mono text-xs text-[#2A2A2A]/70 space-y-2">
-              <div className="font-bold text-[#123D32]">BUSINESS INTEGRITY NOTICE:</div>
-              <p className="font-body text-xs leading-relaxed">
-                DYRATEK does not employ automated sales bots. All project submissions are scrutinized by actual software architects and design leads.
-              </p>
-            </div>
+            <h1 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-[#123D32] leading-tight tracking-tight">
+              Tell us about your project.
+            </h1>
+            <p className="text-lg text-[#555B57] leading-relaxed pt-1">
+              Send us a message about what you want to build. We will review your goals and talk through practical options.
+            </p>
           </div>
+        </MotionFadeIn>
 
-          {/* Column Right: Interactive Scope Briefing Form */}
-          <div className="lg:col-span-7">
-            <div id="discovery" className="bg-[#F4F1E9] border border-[#E5E2DA] p-6 lg:p-10 scroll-mt-28">
-              <div className="font-mono text-xs uppercase text-[#C83B35] font-bold mb-6 pb-3 border-b border-[#E5E2DA] flex justify-between items-center">
-                <span>PROJECT INGESTION SPECIFICATION</span>
-                <span className="text-[#2A2A2A]/50">CONFIDENTIAL</span>
-              </div>
-
-              {submissionState === 'validated' ? (
-                <div className="p-6 bg-[#ECE8DF] border-l-4 border-[#123D32] space-y-4">
-                  <div className="font-mono text-xs text-[#123D32] font-bold uppercase tracking-wider flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#123D32]" />
-                    Client-Side Parameters Successfully Validated
-                  </div>
-                  <p className="font-body text-sm text-[#2A2A2A] leading-relaxed">
-                    Thank you, <span className="font-bold text-[#123D32]">{formData.name}</span>. Your project parameters for <span className="font-bold text-[#123D32]">{formData.serviceSlug}</span> have been verified through local client-side validation schemas.
-                  </p>
-                  <div className="p-3 bg-[#F4F1E9] border border-[#E5E2DA] font-mono text-xs text-[#123D32] space-y-1">
-                    <div className="font-bold">SUBMISSION VERIFICATION:</div>
-                    <p className="font-body text-[11px] text-[#2A2A2A]/80">
-                      Inquiries submitted to hello@dyratek.com route directly to technical leadership for feasibility evaluation. An engineering director will reach out within two business days.
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setSubmissionState('idle')}
-                    className="font-mono text-xs uppercase tracking-wider text-[#123D32] font-bold underline hover:text-[#C83B35] pt-2 cursor-pointer"
-                  >
-                    ← Edit Briefing Parameters
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                  {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        autoComplete="name"
-                        aria-required="true"
-                        aria-invalid={Boolean(formErrors.name)}
-                        aria-describedby={formErrors.name ? 'name-error' : undefined}
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Elena Rostova"
-                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
-                          formErrors.name ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
-                        }`}
-                      />
-                      {formErrors.name && (
-                        <p id="name-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
-                          {formErrors.name}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Corporate Email *
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        aria-required="true"
-                        aria-invalid={Boolean(formErrors.email)}
-                        aria-describedby={formErrors.email ? 'email-error' : undefined}
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="elena@enterprise.com"
-                        className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none ${
-                          formErrors.email ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
-                        }`}
-                      />
-                      {formErrors.email && (
-                        <p id="email-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
-                          {formErrors.email}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Company & Primary Service Interest */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="company" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Company / Organisation
-                      </label>
-                      <input
-                        id="company"
-                        name="company"
-                        type="text"
-                        autoComplete="organization"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="e.g. Apex Global"
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="service" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                        Primary Service Domain *
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        aria-required="true"
-                        value={formData.serviceSlug}
-                        onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
-                        className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
-                      >
-                        {SERVICES.map((serv) => (
-                          <option key={serv.slug} value={serv.slug}>
-                            {serv.index} &bull; {serv.name} ({serv.pillarName})
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Estimated Timeline / Budget Band */}
+        {/* 2-Column Equal Height Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Column Left: Information Sidebar */}
+          <div className="lg:col-span-5 flex flex-col">
+            <MotionFadeIn delay={0.1} className="h-full">
+              <div className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 shadow-xs flex-1 flex flex-col justify-between space-y-8 h-full">
+                <div className="space-y-6">
                   <div>
-                    <label htmlFor="budgetBand" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                      Target Project Scope &amp; Budget Band
-                    </label>
-                    <select
-                      id="budgetBand"
-                      name="budgetBand"
-                      value={formData.budgetBand}
-                      onChange={(e) => setFormData({ ...formData, budgetBand: e.target.value })}
-                      className="w-full bg-[#ECE8DF] border border-[#E5E2DA] p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none"
-                    >
-                      <option value="15k-30k">Scoping Sprint / Architecture ($15,000 – $30,000)</option>
-                      <option value="30k-60k">Core Platform Build ($30,000 – $60,000)</option>
-                      <option value="60k-120k">Enterprise System / Multichannel ($60,000 – $120,000)</option>
-                      <option value="retainer">Monthly Retainer &amp; Engineering Squad</option>
-                    </select>
-                  </div>
-
-                  {/* Project Brief */}
-                  <div>
-                    <label htmlFor="brief" className="block font-mono text-[11px] uppercase tracking-wider text-[#123D32] font-semibold mb-2">
-                      Technical &amp; Commercial Brief *
-                    </label>
-                    <textarea
-                      id="brief"
-                      name="brief"
-                      rows={5}
-                      aria-required="true"
-                      aria-invalid={Boolean(formErrors.brief)}
-                      aria-describedby={formErrors.brief ? 'brief-error' : undefined}
-                      value={formData.brief}
-                      onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
-                      placeholder="Outline your product requirements, current technology stack, operational bottlenecks, or specific timeline constraints..."
-                      className={`w-full bg-[#ECE8DF] border p-3 text-xs font-mono text-[#2A2A2A] focus:border-[#123D32] focus:bg-[#F4F1E9] outline-none leading-relaxed ${
-                        formErrors.brief ? 'border-[#C83B35]' : 'border-[#E5E2DA]'
-                      }`}
-                    />
-                    {formErrors.brief && (
-                      <p id="brief-error" role="alert" className="font-mono text-[10px] text-[#C83B35] mt-1 font-semibold">
-                        {formErrors.brief}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-4 border-t border-[#E5E2DA] flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <span className="font-mono text-[10px] text-[#2A2A2A]/60">
-                      * MANDATORY FIELDS REQUIRED
+                    <span className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                      What to Expect
                     </span>
-                    <Button type="submit" variant="primary" size="lg" showArrow>
-                      Validate &amp; Ingest Briefing
-                    </Button>
+                    <h2 className="font-bold text-2xl text-[#123D32] mt-1 tracking-tight">
+                      Direct Review
+                    </h2>
                   </div>
-                </form>
-              )}
-            </div>
+
+                  <div className="space-y-4 text-sm text-[#555B57] leading-relaxed">
+                    <div className="p-4 rounded-xl bg-[#F0F3F1] text-[#1E2221] space-y-1.5 border border-[#E1E4E0]">
+                      <div className="font-semibold text-sm text-[#123D32] flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#123D32]" aria-hidden="true" />
+                        Direct Conversation
+                      </div>
+                      <div>Our team reads every inquiry and reviews your requirements before responding.</div>
+                    </div>
+
+                    <div className="space-y-1.5 p-2">
+                      <div className="font-semibold text-sm text-[#123D32]">Practical Discussion</div>
+                      <div>We outline the steps and options to help you move forward with clarity.</div>
+                    </div>
+
+                    <div className="space-y-1.5 p-2 border-t border-[#E1E4E0]">
+                      <div className="font-semibold text-sm text-[#123D32]">Working With Us</div>
+                      <div>All projects follow a clear 5-stage plan with working previews before launch.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-[#E1E4E0] text-xs text-[#555B57] space-y-1">
+                  <div className="font-semibold text-[#123D32]">DYRATEK Digital Studio</div>
+                  <div>Custom websites, mobile apps, and business automations.</div>
+                </div>
+              </div>
+            </MotionFadeIn>
+          </div>
+
+          {/* Column Right: Form Container */}
+          <div className="lg:col-span-7 flex flex-col">
+            <MotionFadeIn delay={0.15} className="h-full">
+              <div id="discovery" className="rounded-2xl bg-white border border-[#E1E4E0] p-7 sm:p-9 shadow-xs flex-1 scroll-mt-28">
+                <div className="pb-4 mb-6 border-b border-[#E1E4E0] flex justify-between items-center">
+                  <span className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
+                    Project Inquiry
+                  </span>
+                  <span className="text-xs text-[#555B57] font-medium">Direct Form</span>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  {submissionState === 'validated' ? (
+                    <motion.div
+                      key="success"
+                      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.25 }}
+                      className="p-8 rounded-2xl bg-[#F0F3F1] border border-[#123D32] space-y-5"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-[#123D32] text-[#FBFBF9] flex items-center justify-center">
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-[#123D32] tracking-tight">
+                          Message Received
+                        </h3>
+                        <p className="text-base text-[#1E2221] leading-relaxed">
+                          Thank you, <strong className="text-[#123D32]">{formData.name}</strong>. We received your note regarding{' '}
+                          <strong className="text-[#123D32]">{selectedService.name}</strong>. Our team will review your project details and follow up with you directly.
+                        </p>
+                      </div>
+
+                      <div className="p-4 rounded-xl bg-white border border-[#E1E4E0] text-xs space-y-1 text-[#555B57]">
+                        <div><strong className="text-[#123D32]">Contact email:</strong> {formData.email}</div>
+                        {formData.company && <div><strong className="text-[#123D32]">Company:</strong> {formData.company}</div>}
+                        <div><strong className="text-[#123D32]">Budget target:</strong> {BUDGET_OPTIONS.find((b) => b.id === formData.budgetBand)?.label}</div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFormData({
+                            name: '',
+                            email: '',
+                            company: '',
+                            serviceSlug: 'web-development',
+                            budgetBand: '30k-60k',
+                            brief: ''
+                          });
+                          setSubmissionState('idle');
+                        }}
+                        className="text-sm font-semibold text-[#123D32] hover:underline pt-2 cursor-pointer flex items-center gap-1.5"
+                      >
+                        <span>← Send another message</span>
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <motion.form
+                      key="form"
+                      onSubmit={handleSubmit}
+                      className="space-y-6"
+                      noValidate
+                      initial={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      {/* Name & Email */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div className="space-y-2">
+                          <label htmlFor="name" className="block text-sm font-semibold text-[#123D32]">
+                            Your Name <span className="text-[#C83B35]">*</span>
+                          </label>
+                          <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autoComplete="name"
+                            aria-required="true"
+                            aria-invalid={Boolean(formErrors.name)}
+                            aria-describedby={formErrors.name ? 'name-error' : undefined}
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            placeholder="e.g. Sarah Jenkins"
+                            className={`w-full min-h-[48px] px-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-all focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent ${
+                              formErrors.name ? 'border-[#C83B35]' : 'border-[#E1E4E0] hover:border-[#B7BEB9]'
+                            }`}
+                          />
+                          {formErrors.name && (
+                            <p id="name-error" role="alert" className="text-xs text-[#C83B35] font-medium">
+                              {formErrors.name}
+                            </p>
+                          )}
+                        </div>
+
+                        <div className="space-y-2">
+                          <label htmlFor="email" className="block text-sm font-semibold text-[#123D32]">
+                            Email Address <span className="text-[#C83B35]">*</span>
+                          </label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            aria-required="true"
+                            aria-invalid={Boolean(formErrors.email)}
+                            aria-describedby={formErrors.email ? 'email-error' : undefined}
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            placeholder="sarah@company.com"
+                            className={`w-full min-h-[48px] px-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-all focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent ${
+                              formErrors.email ? 'border-[#C83B35]' : 'border-[#E1E4E0] hover:border-[#B7BEB9]'
+                            }`}
+                          />
+                          {formErrors.email && (
+                            <p id="email-error" role="alert" className="text-xs text-[#C83B35] font-medium">
+                              {formErrors.email}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Company & Primary Service Interest */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div className="space-y-2">
+                          <label htmlFor="company" className="block text-sm font-semibold text-[#123D32]">
+                            Company Name
+                          </label>
+                          <input
+                            id="company"
+                            name="company"
+                            type="text"
+                            autoComplete="organization"
+                            value={formData.company}
+                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                            placeholder="e.g. Acme Studio"
+                            className="w-full min-h-[48px] px-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] hover:border-[#B7BEB9] text-base text-[#1E2221] transition-all focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent"
+                          />
+                        </div>
+
+                        <div className="space-y-2">
+                          <label htmlFor="service" className="block text-sm font-semibold text-[#123D32]">
+                            Service Needed <span className="text-[#C83B35]">*</span>
+                          </label>
+                          <select
+                            id="service"
+                            name="service"
+                            aria-required="true"
+                            value={formData.serviceSlug}
+                            onChange={(e) => setFormData({ ...formData, serviceSlug: e.target.value })}
+                            className="w-full min-h-[48px] px-4 rounded-xl bg-[#FBFBF9] border border-[#E1E4E0] hover:border-[#B7BEB9] text-base text-[#1E2221] transition-all focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent"
+                          >
+                            {SERVICES.map((serv) => (
+                              <option key={serv.slug} value={serv.slug}>
+                                {serv.name} ({serv.pillarName})
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* Budget Selector Pills */}
+                      <div className="space-y-2.5">
+                        <label className="block text-sm font-semibold text-[#123D32]">
+                          Target Budget Range
+                        </label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5" role="radiogroup" aria-label="Budget range">
+                          {BUDGET_OPTIONS.map((opt) => {
+                            const isSelected = formData.budgetBand === opt.id;
+                            return (
+                              <button
+                                key={opt.id}
+                                type="button"
+                                role="radio"
+                                aria-checked={isSelected}
+                                onClick={() => setFormData({ ...formData, budgetBand: opt.id })}
+                                className={`min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-medium border transition-all text-center cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#123D32] ${
+                                  isSelected
+                                    ? 'bg-[#123D32] text-[#FBFBF9] border-[#123D32] shadow-xs'
+                                    : 'bg-[#FBFBF9] text-[#1E2221] border-[#E1E4E0] hover:bg-[#F3F4F1]'
+                                }`}
+                              >
+                                {opt.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Project Details */}
+                      <div className="space-y-2">
+                        <label htmlFor="brief" className="block text-sm font-semibold text-[#123D32]">
+                          Project Details <span className="text-[#C83B35]">*</span>
+                        </label>
+                        <textarea
+                          id="brief"
+                          name="brief"
+                          rows={4}
+                          aria-required="true"
+                          aria-invalid={Boolean(formErrors.brief)}
+                          aria-describedby={formErrors.brief ? 'brief-error' : undefined}
+                          value={formData.brief}
+                          onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
+                          placeholder="Tell us what you want to build and any details you have in mind..."
+                          className={`w-full p-4 rounded-xl bg-[#FBFBF9] border text-base text-[#1E2221] transition-all focus:outline-none focus:ring-2 focus:ring-[#123D32] focus:border-transparent leading-relaxed ${
+                            formErrors.brief ? 'border-[#C83B35]' : 'border-[#E1E4E0] hover:border-[#B7BEB9]'
+                          }`}
+                        />
+                        {formErrors.brief && (
+                          <p id="brief-error" role="alert" className="text-xs text-[#C83B35] font-medium">
+                            {formErrors.brief}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Submit Button */}
+                      <div className="pt-4 border-t border-[#E1E4E0] flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span className="text-xs text-[#555B57]">
+                          * Required fields
+                        </span>
+                        <button
+                          type="submit"
+                          aria-label="Send message to our team"
+                          className="min-h-[48px] w-full sm:w-auto px-8 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-semibold flex items-center justify-center shadow-xs hover:bg-[#0B2720] active:scale-[0.98] transition-all cursor-pointer"
+                        >
+                          Send message
+                        </button>
+                      </div>
+                    </motion.form>
+                  )}
+                </AnimatePresence>
+              </div>
+            </MotionFadeIn>
           </div>
         </div>
       </div>

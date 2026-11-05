@@ -1,34 +1,46 @@
-import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
+import { MotionFadeIn } from '@/components/motion/MotionFadeIn';
 
 export default function NotFound() {
   return (
-    <div className="w-full bg-[#F4F1E9] py-24 lg:py-36">
-      <div className="max-w-3xl mx-auto px-5 lg:px-16 text-center">
-        <div className="inline-flex items-center gap-2 mb-4 font-mono text-xs uppercase tracking-widest text-[#C83B35] font-bold">
-          <span className="w-1.5 h-1.5 bg-[#C83B35] inline-block" />
-          <span>HTTP 404 // RESOURCE NOT LOCATED</span>
-        </div>
+    <div className="w-full bg-[#FBFBF9] py-20 lg:py-32 border-b border-[#E1E4E0]">
+      <div className="max-w-[1680px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 text-center space-y-8">
+        <MotionFadeIn>
+          <div className="space-y-6">
+            <div className="inline-block px-3 py-1 rounded-md bg-[#F0F3F1] text-xs font-semibold text-[#123D32]">
+              Page Not Found
+            </div>
 
-        <h1 className="font-heading font-extrabold text-5xl sm:text-7xl text-[#123D32] uppercase tracking-tight mb-6">
-          Architectural Routing Fault
-        </h1>
+            <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl text-[#123D32] leading-tight max-w-2xl mx-auto tracking-tight">
+              We couldn&apos;t find that page.
+            </h1>
 
-        <p className="font-body text-base text-[#2A2A2A]/80 max-w-lg mx-auto mb-10 leading-relaxed">
-          The requested route does not correspond to an approved DYRATEK system specification. Verify the URL or return to our primary navigation index.
-        </p>
+            <p className="text-lg text-[#555B57] max-w-lg mx-auto leading-relaxed">
+              The link you followed doesn&apos;t exist or may have moved. You can return to our homepage or explore our services below.
+            </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button href="/" variant="primary" size="md" showArrow>
-            Return to Homepage
-          </Button>
-          <Button href="/services" variant="secondary" size="md">
-            View All Services
-          </Button>
-        </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-3">
+              <Link
+                href="/"
+                aria-label="Go to homepage"
+                className="min-h-[48px] px-8 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-semibold flex items-center justify-center shadow-xs hover:bg-[#0B2720] active:scale-[0.98] transition-all"
+              >
+                Go to homepage
+              </Link>
+              <Link
+                href="/services"
+                aria-label="See services we offer"
+                className="min-h-[48px] px-8 rounded-xl bg-white border border-[#E1E4E0] text-[#123D32] text-base font-semibold flex items-center justify-center hover:bg-[#F3F4F1] transition-all"
+              >
+                See services
+              </Link>
+            </div>
 
-        <div className="mt-16 pt-8 border-t border-[#E5E2DA] font-mono text-xs text-[#2A2A2A]/50">
-          SYSTEM ERROR CODE: 404_ROUTE_UNDEFINED • DYRATEK RUNTIME
-        </div>
+            <div className="pt-8 text-xs text-[#555B57]">
+              Error 404 • Page does not exist
+            </div>
+          </div>
+        </MotionFadeIn>
       </div>
     </div>
   );

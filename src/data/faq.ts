@@ -3,73 +3,72 @@ import { FAQItem } from '@/types';
 export const FAQS: FAQItem[] = [
   {
     id: 'faq-01',
-    category: 'Engagement & Scope',
-    question: 'What types of engagements does DYRATEK undertake?',
+    category: 'Working With Us',
+    question: 'How do we work together?',
     answer:
-      'We engage with modern enterprises, growth-stage companies, and discerning brands across two primary models: end-to-end project sprints (custom web platforms, mobile apps, design systems, and automation pipelines) and ongoing dedicated engineering & growth retainers.'
+      'We work on defined projects such as building a website, mobile app, or automation workflow. We can also provide ongoing support when agreed in your project plan.'
   },
   {
     id: 'faq-02',
-    category: 'Engagement & Scope',
-    question: 'How does DYRATEK define the 11 services across the 3 pillars?',
+    category: 'Working With Us',
+    question: 'What services do you provide?',
     answer:
-      'Our practice is strictly organized into 3 foundational pillars: BUILD (Web Development, App Development, E-commerce Solutions, Digital Solutions), AUTOMATE (Business Automation, Email & WhatsApp Marketing), and CREATE & GROW (UI/UX Design, Creative & Video, Digital Marketing, Performance Marketing, Content Strategy & Copywriting). Every project is staffed by cross-functional specialists across these domains.'
+      'We organize our services into three areas: Build (websites, apps, and software), Automate (connecting business software and messaging), and Grow (design, video, search optimization, and ads).'
   },
   {
     id: 'faq-03',
-    category: 'Engineering & Architecture',
-    question: 'What tech stack does DYRATEK specialize in for web and mobile?',
+    category: 'Technology & Code',
+    question: 'What kind of tools do you use?',
     answer:
-      'Our core production stack centers on modern, maintainable frameworks: Next.js (App Router), React, TypeScript, and Tailwind CSS on edge infrastructure for web applications; React Native and Expo for mobile applications; and PostgreSQL, Node.js, and serverless edge functions for APIs and data persistence.'
+      'We use modern, well-supported programming tools and cloud systems. We select reliable tools that keep your website fast and easy to maintain.'
   },
   {
     id: 'faq-04',
-    category: 'Engineering & Architecture',
-    question: 'How do you ensure web performance and Core Web Vitals compliance?',
+    category: 'Technology & Code',
+    question: 'How do you keep pages fast?',
     answer:
-      'We design for sub-second performance from the initial architecture. This includes Server Components to minimize client JavaScript, edge CDN caching for static and dynamic assets, responsive image generation with Next.js Image, zero-layout-shift typography loading, and continuous automated Lighthouse audits.'
+      'We write clean code, compress images, and avoid bloated plugins. Lightweight pages help visitors browse comfortably on mobile and desktop screens.'
   },
   {
     id: 'faq-05',
-    category: 'Engineering & Architecture',
-    question: 'Who owns the intellectual property and code produced during an engagement?',
+    category: 'Technology & Code',
+    question: 'What materials do we receive when work finishes?',
     answer:
-      'You retain 100% intellectual property ownership of all custom code, design tokens, Figma libraries, schemas, and assets created for your project. We do not charge licensing fees or lock clients into proprietary hosting environments.'
+      'You receive your website files, design assets, and a guide explaining how your system works.'
   },
   {
     id: 'faq-06',
-    category: 'Delivery & Commercial',
-    question: 'How are projects scoped and priced?',
+    category: 'Timelines & Pricing',
+    question: 'How do you determine project pricing?',
     answer:
-      'Projects begin with a structured Discovery & Architecture phase where requirements, system boundaries, and deliverables are precisely defined. We deliver transparent, milestone-based fixed proposals for scoped builds, and structured monthly retainer agreements for continuous engineering and growth initiatives.'
+      'We review your project requirements and goals with you. Then we provide a project plan and estimate before work begins.'
   },
   {
     id: 'faq-07',
-    category: 'Delivery & Commercial',
-    question: 'What is the standard delivery timeline for an enterprise web or digital solution?',
+    category: 'Timelines & Pricing',
+    question: 'How long does a project take?',
     answer:
-      'Typical platform builds range from 6 to 12 weeks depending on integration complexity, data migration scope, and custom feature sets. High-velocity discovery sprints and MVP scaffolds are often delivered within the first 3 to 4 weeks.'
+      'Timelines depend on the size and requirements of your project. We outline milestones and estimated dates before starting.'
   },
   {
     id: 'faq-08',
-    category: 'Delivery & Commercial',
-    question: 'How do you manage client collaboration and progress reporting?',
+    category: 'Timelines & Pricing',
+    question: 'How do we communicate during a project?',
     answer:
-      'We maintain structured, transparent communication via dedicated Slack or Teams channels, weekly sprint demonstrations, and live staging environments with branch previews. Every milestone requires written client sign-off before advancing to the subsequent phase.'
+      'We hold regular progress check-ins and share a private link where you can test working pages and provide feedback.'
   },
   {
     id: 'faq-09',
-    category: 'Operations & Support',
-    question: 'What post-launch support and warranty does DYRATEK provide?',
+    category: 'Support & Security',
+    question: 'Do you provide support after launch?',
     answer:
-      'All delivered platforms include a dedicated 30-day post-launch warranty covering bug remediation, configuration adjustments, and performance stabilization. Following warranty completion, clients can transition into monthly SLA-backed maintenance and optimization retainers.'
+      'We offer support after launch if agreed in your project plan. We can assist with routine updates, adjustments, or ongoing maintenance.'
   },
   {
     id: 'faq-10',
-    category: 'Operations & Support',
-    question: 'How do you handle security, credentials, and data privacy?',
+    category: 'Support & Security',
+    question: 'How do you handle project access and accounts?',
     answer:
-      'We adhere to industry security standards: end-to-end secret management using encrypted environment vaults, role-based access control (RBAC), principle of least privilege for API tokens, and zero transmission of sensitive client credentials over unencrypted channels.'
+      'We use secure account access during development and return access details to you upon launch.'
   }
 ];
-

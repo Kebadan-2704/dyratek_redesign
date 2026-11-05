@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'DYRATEK — Digital Experiences. Engineered to Perform.';
+export const alt = 'DYRATEK — Fast Websites, Apps & Business Automations';
 export const size = {
   width: 1200,
   height: 630,
@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
           position: 'relative',
         }}
       >
-        {/* Subtle architectural hairline */}
+        {/* Subtle hairline */}
         <div
           style={{
             position: 'absolute',
@@ -59,9 +59,9 @@ export default function OpenGraphImage() {
                 marginRight: '12px',
               }}
             />
-            <span>DYRATEK // ARCHITECTURAL FOUNDRY</span>
+            <span>DYRATEK • DIGITAL STUDIO</span>
           </div>
-          <div style={{ display: 'flex' }}>3 PILLARS • 11 SERVICES</div>
+          <div style={{ display: 'flex' }}>3 FOCUS AREAS • 11 SERVICES</div>
         </div>
 
         {/* Main Center Editorial Content */}
@@ -79,8 +79,8 @@ export default function OpenGraphImage() {
               color: '#F4F1E9',
             }}
           >
-            <span>Digital Experiences.</span>
-            <span>Engineered to Perform.</span>
+            <span>Fast Websites &amp; Apps.</span>
+            <span>Built for Business.</span>
           </div>
           <div
             style={{
@@ -91,7 +91,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.4,
             }}
           >
-            High-performance web platforms, cross-platform applications, business automation pipelines, and commercial growth systems.
+            We design fast websites, mobile apps, and automated workflows that help your business work better.
           </div>
         </div>
 
@@ -109,7 +109,7 @@ export default function OpenGraphImage() {
             color: '#A5D6C6',
           }}
         >
-          <div style={{ display: 'flex' }}>01 BUILD • 02 AUTOMATE • 03 CREATE &amp; GROW</div>
+          <div style={{ display: 'flex' }}>BUILD • AUTOMATE • GROW</div>
           <div style={{ display: 'flex' }}>HTTPS://DYRATEK.COM</div>
         </div>
       </div>
