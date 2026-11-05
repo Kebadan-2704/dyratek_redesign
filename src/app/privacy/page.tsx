@@ -51,10 +51,10 @@ export default function PrivacyPage() {
         </div>
 
         <div className="pt-8 border-t border-[#E1E4E0] flex justify-between items-center text-sm font-medium">
-          <Link href="/" className="text-[#123D32] hover:underline">
+          <Link href="/" className="min-h-[44px] inline-flex items-center text-[#123D32] hover:underline">
             ← Return to homepage
           </Link>
-          <Link href="/terms" className="text-[#123D32] hover:underline">
+          <Link href="/terms" className="min-h-[44px] inline-flex items-center text-[#123D32] hover:underline">
             View Terms of Service →
           </Link>
         </div>

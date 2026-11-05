@@ -14,6 +14,11 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "*.js",
     "scripts/**",
+    ".agents/**",
+    ".agent/**",
+    ".layoza/**",
+    "screenshots/**",
+    "audit/**",
   ]),
 ]);
 

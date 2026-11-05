@@ -1,0 +1,26 @@
+name: validate
+
+on:
+  push:
+    paths:
+      - "components.json"
+      - "scripts/validate.py"
+      - ".github/workflows/validate.yml"
+  pull_request:
+    paths:
+      - "components.json"
+      - "scripts/validate.py"
+  workflow_dispatch:
+  schedule:
+    # Quarterly sanity check (1st of Jan/Apr/Jul/Oct, 06:00 UTC).
+    - cron: "0 6 1 1,4,7,10 *"
+
+jobs:
+  json:
+    name: validate components.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate JSON + required fields
+        # Same script contributors run locally, so CI cannot disagree with them.
+        run: python3 scripts/validate.py

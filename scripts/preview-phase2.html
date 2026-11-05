@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DYRATEK — Revised Phase 2 Design Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-forest: #123D32;
+      --color-forest-dark: #0B2720;
+      --color-porcelain: #FBFBF9;
+      --color-surface-tint: #F3F4F1;
+      --color-card: #FFFFFF;
+      --color-charcoal: #1E2221;
+      --color-sage: #555B57;
+      --color-border: #E1E4E0;
+      --color-terracotta: #C83B35;
+      
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+  <style>
+    body {
+      background-color: #FBFBF9;
+      color: #1E2221;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, .font-heading {
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 md:p-12 space-y-16 max-w-[1240px] mx-auto">
+
+  <!-- ========================================== -->
+  <!-- 1. HERO SECTION PREVIEW                    -->
+  <!-- ========================================== -->
+  <section class="rounded-3xl bg-[#FBFBF9] border border-[#E1E4E0] p-6 sm:p-10 lg:p-14 shadow-sm overflow-hidden" id="hero-preview">
+    <!-- Header bar (No badge, clean nav, 12px button radius) -->
+    <div class="flex items-center justify-between pb-8 mb-8 border-b border-[#E1E4E0]">
+      <div class="flex items-center gap-2.5">
+        <span class="w-3.5 h-3.5 rounded-sm bg-[#C83B35] inline-block"></span>
+        <span class="font-bold text-xl text-[#123D32] tracking-tight">DYRATEK</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-[#555B57]">
+        <span class="hover:text-[#123D32] cursor-pointer">About</span>
+        <span class="text-[#123D32] font-semibold">Services</span>
+        <span class="hover:text-[#123D32] cursor-pointer">Work</span>
+        <span class="hover:text-[#123D32] cursor-pointer">FAQ</span>
+        <span class="hover:text-[#123D32] cursor-pointer">Contact</span>
+      </nav>
+      <div class="h-11 px-5 rounded-xl bg-[#123D32] text-[#FBFBF9] text-sm font-medium flex items-center justify-center cursor-pointer">
+        Contact us
+      </div>
+    </div>
+
+    <!-- Hero Content Grid (No stats row, no top meta line) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- Left Column: Narrative (65ch, 18px body, sentence case) -->
+      <div class="lg:col-span-6 space-y-6">
+        <h1 class="font-bold text-3xl sm:text-4xl lg:text-[44px] leading-[1.12] text-[#123D32]">
+          Websites, apps, and automations built for your business
+        </h1>
+        <p class="text-base sm:text-lg text-[#555B57] leading-relaxed max-w-[56ch]">
+          We design fast websites and apps that help your company work better. We also connect your business tools so routine tasks happen automatically.
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <div class="h-12 px-7 rounded-xl bg-[#123D32] text-[#FBFBF9] text-base font-medium flex items-center justify-center shadow-sm cursor-pointer">
+            Contact us
+          </div>
+          <div class="h-12 px-7 rounded-xl bg-white border border-[#E1E4E0] text-[#123D32] text-base font-medium flex items-center justify-center hover:bg-[#F3F4F1] cursor-pointer">
+            See our services
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Tangible Shop Scene (No grey bars, no fake numbers) -->
+      <div class="lg:col-span-6 relative">
+        <!-- Desktop Browser Window Frame -->
+        <div class="rounded-2xl bg-white border border-[#E1E4E0] shadow-md overflow-hidden max-w-[480px] mx-auto">
+          <!-- Browser Bar -->
+          <div class="h-10 bg-[#F3F4F1] px-4 border-b border-[#E1E4E0] flex items-center gap-2">
+            <div class="flex gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#D4D8D2]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#D4D8D2]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#D4D8D2]"></span>
+            </div>
+            <div class="ml-2 flex-1 h-6 rounded-md bg-white border border-[#E1E4E0] px-3 flex items-center text-[11px] text-[#555B57]">
+              <span>store.example.com</span>
+            </div>
+          </div>
+          <!-- Sample Store Content (Grounded in approved strings) -->
+          <div class="p-5 space-y-4 bg-white">
+            <div class="flex justify-between items-center pb-2 border-b border-[#F3F4F1]">
+              <span class="font-semibold text-xs text-[#123D32]">ONLINE STORE DEMO</span>
+              <span class="text-[11px] text-[#555B57]">Shopping cart</span>
+            </div>
+            <div class="rounded-xl bg-[#F0F3F1] p-4 flex items-center justify-between">
+              <div>
+                <div class="font-semibold text-sm text-[#123D32]">Clean storefront layout</div>
+                <div class="text-[11px] text-[#555B57] mt-0.5">Automatic inventory updates</div>
+              </div>
+              <div class="h-7 px-3 rounded-lg bg-[#123D32] text-[#FBFBF9] text-xs font-medium flex items-center">
+                Order item
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <div class="rounded-xl border border-[#E1E4E0] p-2.5 bg-white">
+                <div class="h-16 rounded-lg bg-[#E6ECE8] flex items-center justify-center text-xs text-[#123D32] font-medium">
+                  Product catalog
+                </div>
+                <div class="flex justify-between items-center mt-2 text-xs">
+                  <span class="font-medium text-[#1E2221]">Sample item</span>
+                  <span class="text-[#123D32] font-semibold">In stock</span>
+                </div>
+              </div>
+              <div class="rounded-xl border border-[#E1E4E0] p-2.5 bg-white">
+                <div class="h-16 rounded-lg bg-[#E6ECE8] flex items-center justify-center text-xs text-[#123D32] font-medium">
+                  Product catalog
+                </div>
+                <div class="flex justify-between items-center mt-2 text-xs">
+                  <span class="font-medium text-[#1E2221]">Sample item</span>
+                  <span class="text-[#123D32] font-semibold">In stock</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overlapping Phone Frame with Approved Inquiry Notification Text -->
+        <div class="absolute -bottom-5 -right-2 sm:-right-4 w-60 sm:w-68 rounded-2xl bg-white border-2 border-[#123D32] shadow-xl p-3.5 space-y-2">
+          <div class="flex items-center justify-between text-[11px] text-[#555B57] border-b border-[#F3F4F1] pb-1.5">
+            <span class="font-semibold text-[#123D32]">Automated Workflow</span>
+            <span>Just now</span>
+          </div>
+          <div class="rounded-xl bg-[#F0F3F1] p-2.5 space-y-1">
+            <div class="text-xs font-semibold text-[#123D32] flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#123D32]"></span>
+              <span>Customer inquiry received</span>
+            </div>
+            <div class="text-[11px] text-[#1E2221] leading-snug">
+              Updates customer records and notifies the team.
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-[#555B57] pt-0.5">
+            <span>Confirmation sent</span>
+            <span class="font-medium text-[#123D32]">View details</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 2. HOME SERVICES OPTION 1 (FULL CONTENT)   -->
+  <!-- ========================================== -->
+  <section class="rounded-3xl bg-[#F3F4F1] p-6 sm:p-10 lg:p-12 border border-[#E1E4E0] space-y-8" id="services-option1-preview">
+    <div>
+      <h2 class="font-bold text-2xl sm:text-3xl text-[#123D32]">Three clear ways we help your business</h2>
+      <p class="text-base text-[#555B57] mt-2 max-w-[65ch]">
+        We organize our services into three areas: Build, Automate, and Grow.
+      </p>
+    </div>
+
+    <!-- Asymmetric Layout: Build Featured Left + Automate & Grow Stacked Right -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <!-- BUILD Featured Anchor Card (4 Services) -->
+      <div class="lg:col-span-6 rounded-2xl bg-white border border-[#E1E4E0] p-8 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-[#F0F3F1] text-[#123D32] flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h3 class="font-bold text-2xl text-[#123D32] mb-2">Build</h3>
+          <p class="text-base text-[#555B57] leading-relaxed mb-6">
+            Websites, mobile apps, and custom web tools.
+          </p>
+          <div class="space-y-3.5 border-t border-[#E1E4E0] pt-5">
+            <div class="font-medium text-sm text-[#123D32]">Included services:</div>
+            <ul class="space-y-2.5 text-sm text-[#1E2221]">
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Web Development</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Mobile App Development</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Online Stores</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Custom Software</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-[#E1E4E0] mt-8">
+          <span class="text-sm font-semibold text-[#123D32] hover:underline cursor-pointer">
+            View all Build services
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Column: Automate & Grow Stacked -->
+      <div class="lg:col-span-6 flex flex-col gap-6 justify-between">
+        <!-- AUTOMATE Card (2 Services) -->
+        <div class="rounded-2xl bg-white border border-[#E1E4E0] p-7 flex flex-col justify-between shadow-sm flex-1">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#F0F3F1] text-[#123D32] flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl text-[#123D32] mb-1.5">Automate</h3>
+            <p class="text-sm text-[#555B57] leading-relaxed mb-4">
+              Connected tools and routine tasks on autopilot.
+            </p>
+            <ul class="space-y-2 text-sm text-[#1E2221] border-t border-[#E1E4E0] pt-3.5">
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Business Automation</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Email &amp; WhatsApp Messaging</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[#E1E4E0] mt-5">
+            <span class="text-sm font-semibold text-[#123D32] hover:underline cursor-pointer">
+              View all Automate services
+            </span>
+          </div>
+        </div>
+
+        <!-- GROW Card (All 5 Services Listed) -->
+        <div class="rounded-2xl bg-white border border-[#E1E4E0] p-7 flex flex-col justify-between shadow-sm flex-1">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#F0F3F1] text-[#123D32] flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl text-[#123D32] mb-1.5">Grow</h3>
+            <p class="text-sm text-[#555B57] leading-relaxed mb-4">
+              Clean design, plain writing, and targeted campaigns.
+            </p>
+            <ul class="space-y-2 text-sm text-[#1E2221] border-t border-[#E1E4E0] pt-3.5">
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Website &amp; App Design</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Video &amp; Motion</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Search Engine Optimization (SEO)</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Online Advertising</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#123D32]"></span>
+                <span class="font-medium text-[#123D32]">Content Strategy &amp; Copywriting</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-[#E1E4E0] mt-5">
+            <span class="text-sm font-semibold text-[#123D32] hover:underline cursor-pointer">
+              View all Grow services
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. SERVICE CARD PREVIEW                    -->
+  <!-- ========================================== -->
+  <section class="rounded-3xl bg-white p-6 sm:p-10 border border-[#E1E4E0] space-y-6" id="card-preview">
+    <div class="max-w-[65ch]">
+      <h2 class="font-bold text-2xl text-[#123D32]">Single Service Card Preview</h2>
+      <p class="text-sm text-[#555B57] mt-1">
+        16px radius, Lucide icon container, vetted baseline text from capabilities (no unverified claims), and bottom-aligned link.
+      </p>
+    </div>
+
+    <div class="max-w-md">
+      <div class="rounded-2xl bg-white border border-[#E1E4E0] p-7 flex flex-col justify-between shadow-sm">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-[#F0F3F1] text-[#123D32] flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </div>
+
+          <h3 class="font-semibold text-xl text-[#123D32] mb-3">
+            Web Development
+          </h3>
+
+          <p class="text-base text-[#555B57] leading-relaxed mb-6">
+            We design and build clean websites and web applications. Every page loads quickly and works across phones, tablets, and computers.
+          </p>
+
+          <div class="space-y-2.5 mb-6 text-sm text-[#1E2221]">
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-[#123D32] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Pages that adjust smoothly to look clear on phones, tablets, and computers</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-[#123D32] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Lightweight pages designed to load quickly for every visitor</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-[#123D32] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Clear written notes explaining how your website is structured</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 border-t border-[#E1E4E0] mt-auto">
+          <span class="text-sm font-medium text-[#123D32] hover:underline cursor-pointer">
+            View service details
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. SINGLE FONT FAMILY TYPE SCALE           -->
+  <!-- ========================================== -->
+  <section class="rounded-3xl bg-white border border-[#E1E4E0] p-6 sm:p-10 shadow-sm space-y-6" id="type-scale-preview">
+    <div class="max-w-[65ch]">
+      <h2 class="font-bold text-2xl text-[#123D32]">Single Font Family: Plus Jakarta Sans</h2>
+      <p class="text-sm text-[#555B57] mt-1">
+        One unified family for headings and body. Inter dropped (saves ~60 KB transfer). Body 18px / 1.6 line-height.
+      </p>
+    </div>
+
+    <div class="space-y-6 border-t border-[#E1E4E0] pt-6">
+      <div>
+        <div class="text-xs font-medium text-[#555B57] mb-1">Display H1 (Plus Jakarta Sans 700 / 44px)</div>
+        <div class="font-bold text-3xl sm:text-4xl lg:text-[44px] leading-[1.12] text-[#123D32]">
+          Websites, apps, and automations built for your business
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs font-medium text-[#555B57] mb-1">Section H2 (Plus Jakarta Sans 600 / 30px)</div>
+        <div class="font-semibold text-2xl sm:text-3xl text-[#123D32]">
+          Three clear ways we help your business
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs font-medium text-[#555B57] mb-1">Body Large (Plus Jakarta Sans 400 / 18px, Line-height 1.6, max 65ch)</div>
+        <p class="text-lg text-[#1E2221] leading-relaxed max-w-[65ch]">
+          We design fast websites and apps that help your company work better. We also connect your business tools so routine tasks happen automatically.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-xs font-medium text-[#555B57] mb-1">Body Regular &amp; List (Plus Jakarta Sans 400 / 16px)</div>
+        <p class="text-base text-[#555B57] leading-relaxed max-w-[65ch]">
+          We connect your everyday business software so routine tasks and inquiries happen on their own.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

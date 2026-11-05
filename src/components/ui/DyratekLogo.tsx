@@ -23,10 +23,10 @@ export function DyratekLogo({
   }[size];
 
   return (
-    <div className={`relative inline-flex items-center ${heightClasses} ${className}`} aria-label="DYRATEK">
+    <div className={`relative inline-flex items-center ${heightClasses} ${className}`}>
       <Image
         src="/brand/dyratek-logo-transparent.png"
-        alt="DYRATEK Official Brand Logo"
+        alt="DYRATEK"
         width={411}
         height={67}
         className={`object-contain h-full w-auto select-none ${inverted ? 'brightness-0 invert' : ''}`}

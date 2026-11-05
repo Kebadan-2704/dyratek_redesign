@@ -11,15 +11,16 @@
   --color-forest: #123D32;
   --color-forest-dark: #0B2720;
   --color-forest-hover: #174a3d;
+  --color-forest-tint: #E8EFEA;
   --color-porcelain: #FBFBF9;
   --color-surface-tint: #F3F4F1;
   --color-card: #FFFFFF;
   --color-charcoal: #1E2221;
   --color-sage: #555B57;
   --color-border: #E1E4E0;
-  --color-terracotta: #C83B35; /* Restricted to logo mark only */
+  --color-terracotta: #C83B35; /* Restricted to logo mark and focal accents */
 
-  /* Legacy aliases for backward compatibility during Stage A */
+  /* Legacy aliases for backward compatibility */
   --color-pearl: var(--color-porcelain);
   --color-ash: var(--color-border);
   --color-red: var(--color-terracotta);
@@ -27,6 +28,10 @@
   /* Typography: Single Family */
   --font-sans: var(--font-plus-jakarta-sans);
   --font-heading: var(--font-plus-jakarta-sans);
+
+  /* Elevation Shadows */
+  --shadow-card: 0 4px 20px -2px rgba(18, 61, 50, 0.05), 0 2px 6px -1px rgba(18, 61, 50, 0.03);
+  --shadow-hover: 0 16px 36px -6px rgba(18, 61, 50, 0.09), 0 6px 14px -3px rgba(18, 61, 50, 0.05);
 }
 
 @theme inline {
@@ -36,6 +41,7 @@
   --color-forest: var(--color-forest);
   --color-forest-dark: var(--color-forest-dark);
   --color-forest-hover: var(--color-forest-hover);
+  --color-forest-tint: var(--color-forest-tint);
   --color-porcelain: var(--color-porcelain);
   --color-surface-tint: var(--color-surface-tint);
   --color-card: var(--color-card);
@@ -62,6 +68,35 @@
   line-height: 1.25rem !important;
 }
 
+/* Touch target accessibility helper: Ensure touchable elements meet 48px minimum on mobile */
+.touch-target {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Lenis Recommended CSS for Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -71,10 +106,6 @@
     min-height: 100%;
     background: var(--background);
     overflow-x: hidden;
-  }
-
-  html[data-scroll-behavior="smooth"] {
-    scroll-behavior: smooth;
   }
 
   body {
@@ -95,7 +126,7 @@
   h5,
   h6 {
     font-family: var(--font-heading), sans-serif;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
 
@@ -124,61 +155,95 @@
 
   /* High-contrast focus outline for dark sections */
   .bg-\[\#123D32\] :focus-visible,
-  .bg-\[\#0B2720\] :focus-visible {
+  .bg-\[\#0B2720\] :focus-visible,
+  [data-theme="dark"] :focus-visible {
     outline: 2px solid #FBFBF9;
     outline-offset: 3px;
   }
 }
 
-/* Smooth, tasteful interactive animations */
-@keyframes fadeIn {
+/* Interactive card hover */
+.card-hover {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.06); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes hero-line-reveal {
   from {
+    transform: translateY(100%);
     opacity: 0;
-    transform: translateY(8px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes pulseSubtle {
-  0%, 100% {
     opacity: 1;
   }
-  50% {
-    opacity: 0.6;
-  }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.animate-hero-line-1 {
+  animation: hero-line-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
 }
 
-.animate-pulse-subtle {
-  animation: pulseSubtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.animate-hero-line-2 {
+  animation: hero-line-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
 }
 
-/* Card hover lift */
-.card-hover {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+.animate-hero-line-3 {
+  animation: hero-line-reveal 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+.animate-glow-slow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
 }
 
 .card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(18, 61, 50, 0.06), 0 8px 10px -6px rgba(18, 61, 50, 0.04);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -6px rgba(18, 61, 50, 0.09), 0 6px 14px -3px rgba(18, 61, 50, 0.05);
   border-color: #123D32;
 }
 
-/* Button micro-interaction */
+/* Interactive button press */
 .btn-interactive {
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-interactive:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
+/* Ambient canvas background container */
+.ambient-lattice-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* Prefers-reduced-motion accessibility standard */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

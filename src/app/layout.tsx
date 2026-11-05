@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { SmoothScrollProvider } from '@/components/motion/SmoothScrollProvider';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -116,18 +117,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-[#FBFBF9] text-[#1E2221]">
-        {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#FBFBF9] focus:rounded-lg focus:text-sm font-medium shadow-md"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main-content" className="flex-1 w-full pt-20">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScrollProvider>
+          {/* Skip to Main Content Link for Accessibility (WCAG 2.2 AA) */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#123D32] focus:text-[#FBFBF9] focus:rounded-lg focus:text-sm font-medium shadow-md"
+          >
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main-content" className="flex-1 w-full pt-20">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

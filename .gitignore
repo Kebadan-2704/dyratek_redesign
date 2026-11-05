@@ -49,3 +49,9 @@ CONTENT_TO_CONFIRM.md
 # audit screenshots
 /audit
 
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+
+

@@ -2,17 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import { FOOTER_PILLARS, FOOTER_COMPANY, FOOTER_LEGAL } from '@/data/navigation';
 import { DyratekLogo } from '@/components/ui/DyratekLogo';
+import { FooterWordmark } from '@/components/layout/FooterWordmark';
 
 export default function Footer() {
   return (
     <footer className="w-full bg-[#FBFBF9] border-t border-[#E1E4E0]" role="contentinfo">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 pt-16 pb-12">
+      <div className="max-w-[1680px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-16 pt-16 pb-12">
         {/* Main 3-Column Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#E1E4E0]">
           {/* Column 1: Brand & Action (lg:col-span-4) */}
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" aria-label="DYRATEK Home" className="inline-block">
-              <DyratekLogo size="lg" />
+              <DyratekLogo size="lg" priority />
             </Link>
             <p className="text-[15px] text-[#555B57] leading-relaxed max-w-sm">
               We design clean websites, mobile apps, and automated workflows that help your business work better.
@@ -38,12 +39,12 @@ export default function Footer() {
                   <div className="text-xs font-semibold text-[#123D32] uppercase tracking-wide">
                     {pillar.title}
                   </div>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1">
                     {pillar.links.map((link) => (
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="text-[13px] text-[#555B57] hover:text-[#123D32] transition-colors leading-snug block"
+                          className="text-[13px] text-[#555B57] hover:text-[#123D32] transition-colors leading-snug inline-flex items-center min-h-[44px] sm:min-h-[28px] py-1"
                         >
                           {link.label}
                         </Link>
@@ -60,12 +61,12 @@ export default function Footer() {
             <div className="text-sm font-semibold text-[#123D32] pb-2 border-b border-[#E1E4E0]">
               Company
             </div>
-            <ul className="space-y-2 pt-1">
+            <ul className="space-y-1 pt-1">
               {FOOTER_COMPANY.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors block"
+                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors inline-flex items-center min-h-[44px] sm:min-h-[28px] py-1"
                   >
                     {link.label}
                   </Link>
@@ -75,7 +76,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors block"
+                    className="text-[14px] text-[#555B57] hover:text-[#123D32] transition-colors inline-flex items-center min-h-[44px] sm:min-h-[28px] py-1"
                   >
                     {link.label}
                   </Link>
@@ -85,8 +86,11 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Large Architectural Wordmark Reveal on Scroll */}
+        <FooterWordmark />
+
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#555B57]">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#555B57] border-t border-[#E1E4E0]/80">
           <div>
             &copy; 2026 DYRATEK. All rights reserved.
           </div>
@@ -95,7 +99,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-[#123D32] transition-colors"
+                className="hover:text-[#123D32] transition-colors inline-flex items-center min-h-[44px] sm:min-h-[32px] py-1"
               >
                 {link.label}
               </Link>
